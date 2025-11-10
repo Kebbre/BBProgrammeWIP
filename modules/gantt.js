@@ -890,11 +890,35 @@ export function createGanttController({
       return;
     }
     const dayWidth = getDayWidth();
-    const getLabelOffsetWithinRange = (startIndex, endIndex) => {
+    const findNearestTimelineIndex = (targetDate, startIndex, endIndex) => {
+      if (!Number.isFinite(startIndex) || !Number.isFinite(endIndex) || endIndex < startIndex) {
+        return Math.floor((((startIndex ?? 0) + (endIndex ?? 0)) / 2) || 0);
+      }
+      if (!(targetDate instanceof Date)) {
+        return Math.floor((startIndex + endIndex) / 2);
+      }
+      let nearestIndex = startIndex;
+      let nearestDiff = Number.POSITIVE_INFINITY;
+      for (let idx = startIndex; idx <= endIndex; idx += 1) {
+        const day = state.timelineDays[idx];
+        if (!(day instanceof Date)) continue;
+        const diff = Math.abs(day.getTime() - targetDate.getTime());
+        if (diff < nearestDiff) {
+          nearestDiff = diff;
+          nearestIndex = idx;
+          if (diff === 0) break;
+        }
+      }
+      return nearestIndex;
+    };
+    const getLabelOffsetWithinRange = (targetDate, startIndex, endIndex) => {
       if (!Number.isFinite(startIndex) || !Number.isFinite(endIndex) || endIndex < startIndex) return null;
       const totalWidth = (endIndex - startIndex + 1) * dayWidth;
       if (totalWidth <= 0) return null;
-      return totalWidth / 2;
+      const targetIndex = findNearestTimelineIndex(targetDate, startIndex, endIndex);
+      const relativeIndex = Math.max(0, Math.min(targetIndex, endIndex) - startIndex);
+      const offsetPx = (relativeIndex + 0.5) * dayWidth;
+      return Math.max(dayWidth * 0.5, Math.min(offsetPx, totalWidth - (dayWidth * 0.5)));
     };
     const setHeaderCellLabel = (cell, text, offsetPx) => {
       if (!cell) return;
@@ -946,7 +970,8 @@ export function createGanttController({
       cell.className = 'timeline-year';
       cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
       cell.style.gridRow = '1';
-      const offsetPx = getLabelOffsetWithinRange(group.startIndex, group.endIndex);
+      const yearMidDate = new Date(Date.UTC(group.year, 5, 30));
+      const offsetPx = getLabelOffsetWithinRange(yearMidDate, group.startIndex, group.endIndex);
       setHeaderCellLabel(cell, String(group.year), offsetPx);
       timelineHeaderEl.appendChild(cell);
     });
@@ -956,7 +981,8 @@ export function createGanttController({
       cell.className = 'timeline-month';
       cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
       cell.style.gridRow = '2';
-      const offsetPx = getLabelOffsetWithinRange(group.startIndex, group.endIndex);
+      const monthMidDate = new Date(Date.UTC(group.year, group.month, 15));
+      const offsetPx = getLabelOffsetWithinRange(monthMidDate, group.startIndex, group.endIndex);
       setHeaderCellLabel(cell, group.name || '', offsetPx);
       timelineHeaderEl.appendChild(cell);
     });
@@ -1291,12 +1317,7 @@ export function createGanttController({
 
   function updateTimelineHorizontalOffset() {
     if (!timelineHeaderEl) return;
-    const offset = ganttBodyScrollEl ? Number(ganttBodyScrollEl.scrollLeft) || 0 : 0;
-    if (Math.abs(offset) < 0.5) {
-      timelineHeaderEl.style.transform = '';
-    } else {
-      timelineHeaderEl.style.transform = `translateX(${-offset}px)`;
-    }
+    timelineHeaderEl.style.transform = '';
   }
 
   function scheduleTimelineHorizontalSync() {
