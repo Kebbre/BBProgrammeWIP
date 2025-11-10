@@ -75,7 +75,7 @@
 
   <div class="app-branding">
     <img src="assets/bb-logo.png" alt="BB Programme logo">
-    <span class="app-branding-text">Programme Tool : Version 01.01.03</span>
+    <span class="app-branding-text">Programme Tool : Version 01.01.04</span>
   </div>
 
   <div class="modal-backdrop hidden" id="modalBackdrop"></div>
@@ -1948,11 +1948,13 @@
         days.forEach((day, index) => {
           const month = day.getUTCMonth();
           const year = day.getUTCFullYear();
+          const monthLabel = MONTH_NAMES[month] ? MONTH_NAMES[month].toUpperCase() : '';
           let group = groups[groups.length - 1];
           if (!group || group.month !== month || group.year !== year) {
             group = {
               year,
               month,
+              name: monthLabel,
               start: day,
               end: day,
               length: 1,
@@ -1962,6 +1964,9 @@
           } else {
             group.end = day;
             group.length += 1;
+            if (!group.name && monthLabel) {
+              group.name = monthLabel;
+            }
           }
         });
         return groups;
