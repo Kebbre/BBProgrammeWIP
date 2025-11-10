@@ -890,12 +890,46 @@ export function createGanttController({
       return;
     }
     const dayWidth = getDayWidth();
+    const getLabelOffsetWithinRange = (targetDate, startIndex, endIndex) => {
+      if (!Number.isFinite(startIndex) || !Number.isFinite(endIndex) || endIndex < startIndex) return null;
+      const totalWidth = (endIndex - startIndex + 1) * dayWidth;
+      if (totalWidth <= 0) return null;
+      let labelIndex = -1;
+      if (targetDate instanceof Date) {
+        for (let idx = startIndex; idx <= endIndex; idx += 1) {
+          const day = state.timelineDays[idx];
+          if (compareDates(day, targetDate) >= 0) {
+            labelIndex = idx;
+            break;
+          }
+        }
+      }
+      if (!Number.isFinite(labelIndex) || labelIndex < startIndex || labelIndex > endIndex) {
+        labelIndex = Math.floor((startIndex + endIndex) / 2);
+      }
+      const relativeIndex = Math.max(0, labelIndex - startIndex);
+      const offsetPx = (relativeIndex + 0.5) * dayWidth;
+      return Math.max(dayWidth * 0.5, Math.min(offsetPx, totalWidth - (dayWidth * 0.5)));
+    };
+    const setHeaderCellLabel = (cell, text, offsetPx) => {
+      if (!cell) return;
+      cell.textContent = '';
+      const label = document.createElement('span');
+      label.className = 'timeline-header-label';
+      label.textContent = text;
+      if (Number.isFinite(offsetPx)) {
+        label.style.left = `${offsetPx}px`;
+      } else {
+        label.style.left = '50%';
+      }
+      cell.appendChild(label);
+    };
     timelineHeaderEl.style.gridTemplateColumns = `repeat(${state.timelineDays.length}, ${dayWidth}px)`;
     const yearGroups = groupTimelineDaysByYear(state.timelineDays);
     const monthGroups = groupTimelineDaysByMonth(state.timelineDays);
     if (state.timelineViewMode === 'weeks') {
       timelineHeaderEl.classList.add('week-view');
-      timelineHeaderEl.style.gridTemplateRows = 'auto auto auto auto';
+      timelineHeaderEl.style.gridTemplateRows = 'auto auto auto';
     } else {
       timelineHeaderEl.classList.add('day-view');
       timelineHeaderEl.style.gridTemplateRows = 'auto auto auto auto';
@@ -922,18 +956,22 @@ export function createGanttController({
     yearGroups.forEach((group) => {
       const cell = document.createElement('div');
       cell.className = 'timeline-year';
-      cell.textContent = String(group.year);
       cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
       cell.style.gridRow = '1';
+      const yearMidDate = new Date(Date.UTC(group.year, 5, 30));
+      const offsetPx = getLabelOffsetWithinRange(yearMidDate, group.startIndex, group.endIndex);
+      setHeaderCellLabel(cell, String(group.year), offsetPx);
       timelineHeaderEl.appendChild(cell);
     });
 
     monthGroups.forEach((group) => {
       const cell = document.createElement('div');
       cell.className = 'timeline-month';
-      cell.textContent = group.name || '';
       cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
       cell.style.gridRow = '2';
+      const monthMidDate = new Date(Date.UTC(group.year, group.month, 15));
+      const offsetPx = getLabelOffsetWithinRange(monthMidDate, group.startIndex, group.endIndex);
+      setHeaderCellLabel(cell, group.name || '', offsetPx);
       timelineHeaderEl.appendChild(cell);
     });
 
@@ -941,20 +979,12 @@ export function createGanttController({
       const weekGroups = groupTimelineDaysByWeek(state.timelineDays);
       weekGroups.forEach((group) => {
         const highlightSet = combineHighlightSet(group.startIndex, group.endIndex);
-        const cell = document.createElement('div');
-        cell.className = 'timeline-week';
-        cell.textContent = `W${String(group.weekNumber).padStart(2, '0')}`;
-        cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
-        cell.style.gridRow = '3';
-        applyHeaderHighlightClasses(cell, highlightSet);
-        timelineHeaderEl.appendChild(cell);
-
         const weekDate = document.createElement('div');
         weekDate.className = 'timeline-week-date timeline-day-number is-monday';
         const mondayDate = getWeekStartLabelDate(group.start);
         const labelDate = mondayDate || group.start;
         weekDate.textContent = formatShortDate(labelDate).split('/')[0];
-        weekDate.style.gridRow = '4';
+        weekDate.style.gridRow = '3';
         weekDate.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
         applyHeaderHighlightClasses(weekDate, highlightSet);
         timelineHeaderEl.appendChild(weekDate);

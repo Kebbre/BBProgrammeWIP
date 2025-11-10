@@ -97,6 +97,7 @@ textarea{resize:vertical;min-height:96px;}
 .timeline-highlight--deadline{background:rgba(253,224,140,.28);border-color:#d97706;}
 .timeline-highlight--standdown{background:repeating-linear-gradient(135deg,rgba(107,114,128,.55)0,rgba(107,114,128,.55)8px,rgba(107,114,128,0)8px,rgba(107,114,128,0)16px);background-attachment:fixed; background-position: 0 0 ;border:none;box-shadow:inset 0 0 0 1px rgba(71,85,105,.55);z-index:2;}
 .timeline-header.week-view .timeline-highlight{border-radius:4px;}
+.timeline-header .timeline-header-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;}
 .timeline-header .timeline-day-name.today,
 .timeline-header .timeline-day-number.today,
 .timeline-header .timeline-week.today{color:#dc2626;font-weight:700;}
@@ -120,7 +121,7 @@ textarea{resize:vertical;min-height:96px;}
 .timeline-header .timeline-day-number{font-size:.76rem;font-weight:700;color:var(--text);}
 .timeline-header.day-view .timeline-day-number:not(.today):not(.milestone-deadline):not(.milestone-standdown):not(.milestone-standdown-start):not(.milestone-standdown-end){color:var(--text-muted);}
 .timeline-header.day-view .timeline-day-number.is-monday:not(.today):not(.milestone-deadline):not(.milestone-standdown):not(.milestone-standdown-start):not(.milestone-standdown-end){color:#000;}
-.timeline-header .timeline-week-date{justify-content:flex-start;padding-left:.4rem;}
+.timeline-header .timeline-week-date{justify-content:center;padding-left:0;}
 .timeline-header .timeline-year:first-child,
 .timeline-header .timeline-month:first-child,
 .timeline-header .timeline-week:first-child,
