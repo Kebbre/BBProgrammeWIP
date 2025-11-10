@@ -120,6 +120,7 @@ textarea{resize:vertical;min-height:96px;}
 .timeline-header .timeline-day-number{font-size:.76rem;font-weight:700;color:var(--text);}
 .timeline-header.day-view .timeline-day-number:not(.today):not(.milestone-deadline):not(.milestone-standdown):not(.milestone-standdown-start):not(.milestone-standdown-end){color:var(--text-muted);}
 .timeline-header.day-view .timeline-day-number.is-monday:not(.today):not(.milestone-deadline):not(.milestone-standdown):not(.milestone-standdown-start):not(.milestone-standdown-end){color:#000;}
+.timeline-header .timeline-week-date{justify-content:flex-start;padding-left:.4rem;}
 .timeline-header .timeline-year:first-child,
 .timeline-header .timeline-month:first-child,
 .timeline-header .timeline-week:first-child,

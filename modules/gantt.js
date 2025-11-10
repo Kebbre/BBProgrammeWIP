@@ -851,6 +851,34 @@ export function createGanttController({
         dayHighlightMap[segment.endIndex]?.add('standdown-end');
       }
     });
+    const applyHeaderHighlightClasses = (element, highlightSet) => {
+      if (!element || !(highlightSet instanceof Set)) return;
+      if (highlightSet.has('today')) element.classList.add('today');
+      if (highlightSet.has('deadline')) element.classList.add('milestone-deadline');
+      if (highlightSet.has('standdown')) element.classList.add('milestone-standdown');
+      if (highlightSet.has('standdown-start')) element.classList.add('milestone-standdown-start');
+      if (highlightSet.has('standdown-end')) element.classList.add('milestone-standdown-end');
+    };
+    const combineHighlightSet = (startIndex, endIndex) => {
+      const combined = new Set();
+      for (let idx = startIndex; idx <= endIndex; idx += 1) {
+        const highlightSet = dayHighlightMap[idx];
+        if (highlightSet instanceof Set) {
+          highlightSet.forEach((type) => combined.add(type));
+        }
+      }
+      return combined;
+    };
+    const getWeekStartLabelDate = (date) => {
+      if (!(date instanceof Date)) return null;
+      const base = new Date(date.getTime());
+      const day = base.getUTCDay();
+      const offset = day === 0 ? -6 : (1 - day);
+      if (offset !== 0) {
+        base.setUTCDate(base.getUTCDate() + offset);
+      }
+      return base;
+    };
     if (!state.timelineDays.length) {
       timelineHeaderEl.classList.remove('week-view', 'day-view');
       const emptyHeader = document.createElement('div');
@@ -867,7 +895,7 @@ export function createGanttController({
     const monthGroups = groupTimelineDaysByMonth(state.timelineDays);
     if (state.timelineViewMode === 'weeks') {
       timelineHeaderEl.classList.add('week-view');
-      timelineHeaderEl.style.gridTemplateRows = 'auto auto auto';
+      timelineHeaderEl.style.gridTemplateRows = 'auto auto auto auto';
     } else {
       timelineHeaderEl.classList.add('day-view');
       timelineHeaderEl.style.gridTemplateRows = 'auto auto auto auto';
@@ -912,12 +940,24 @@ export function createGanttController({
     if (state.timelineViewMode === 'weeks') {
       const weekGroups = groupTimelineDaysByWeek(state.timelineDays);
       weekGroups.forEach((group) => {
+        const highlightSet = combineHighlightSet(group.startIndex, group.endIndex);
         const cell = document.createElement('div');
         cell.className = 'timeline-week';
         cell.textContent = `W${String(group.weekNumber).padStart(2, '0')}`;
         cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
         cell.style.gridRow = '3';
+        applyHeaderHighlightClasses(cell, highlightSet);
         timelineHeaderEl.appendChild(cell);
+
+        const weekDate = document.createElement('div');
+        weekDate.className = 'timeline-week-date timeline-day-number is-monday';
+        const mondayDate = getWeekStartLabelDate(group.start);
+        const labelDate = mondayDate || group.start;
+        weekDate.textContent = formatShortDate(labelDate).split('/')[0];
+        weekDate.style.gridRow = '4';
+        weekDate.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
+        applyHeaderHighlightClasses(weekDate, highlightSet);
+        timelineHeaderEl.appendChild(weekDate);
       });
     } else {
       state.timelineDays.forEach((day, index) => {
@@ -928,11 +968,7 @@ export function createGanttController({
         dayName.style.gridRow = '3';
         dayName.style.gridColumn = `${index + 1}`;
         if (day.getUTCDay() === 1) dayName.classList.add('is-monday');
-        if (highlightSet.has('today')) dayName.classList.add('today');
-        if (highlightSet.has('deadline')) dayName.classList.add('milestone-deadline');
-        if (highlightSet.has('standdown')) dayName.classList.add('milestone-standdown');
-        if (highlightSet.has('standdown-start')) dayName.classList.add('milestone-standdown-start');
-        if (highlightSet.has('standdown-end')) dayName.classList.add('milestone-standdown-end');
+        applyHeaderHighlightClasses(dayName, highlightSet);
         timelineHeaderEl.appendChild(dayName);
 
         const dayNumber = document.createElement('div');
@@ -943,11 +979,7 @@ export function createGanttController({
         if (day.getUTCDay() === 1) {
           dayNumber.classList.add('is-monday');
         }
-        if (highlightSet.has('today')) dayNumber.classList.add('today');
-        if (highlightSet.has('deadline')) dayNumber.classList.add('milestone-deadline');
-        if (highlightSet.has('standdown')) dayNumber.classList.add('milestone-standdown');
-        if (highlightSet.has('standdown-start')) dayNumber.classList.add('milestone-standdown-start');
-        if (highlightSet.has('standdown-end')) dayNumber.classList.add('milestone-standdown-end');
+        applyHeaderHighlightClasses(dayNumber, highlightSet);
         timelineHeaderEl.appendChild(dayNumber);
       });
     }
