@@ -75,7 +75,7 @@
 
   <div class="app-branding">
     <img src="assets/bb-logo.png" alt="BB Programme logo">
-    <span class="app-branding-text">Programme Tool : Version 17.0.5 FIXED</span>
+    <span class="app-branding-text">Programme Tool : Version 01.01.01</span>
   </div>
 
   <div class="modal-backdrop hidden" id="modalBackdrop"></div>
@@ -1163,10 +1163,6 @@
         return tasks.filter((task) => task.parentId === stageId);
       }
 
-      function detectStagePresetFromName(name) {
-        return mapStagePresetFromLabel(name);
-      }
-
       function computeStageSummary(stageTask) {
         if (!stageTask) return { hasChildren: false, start: null, end: null, progress: 0, duration: 0 };
         const children = getStageChildren(stageTask.id).filter((child) => child.entryType !== 'stage');
@@ -1901,24 +1897,6 @@
           guardCount += 1;
         }
         return count;
-      }
-
-      function weekdayOffset(from, to) {
-        if (!from || !to) return 0;
-        const target = ensureWeekday(to, from <= to ? 1 : -1);
-        if (!target) return 0;
-        if (from.getTime() === target.getTime()) return 0;
-        const forward = from < target;
-        let steps = 0;
-        let cursor = ensureWeekday(from, forward ? 1 : -1);
-        const guard = 5000;
-        let guardCount = 0;
-        while (cursor.getTime() !== target.getTime() && guardCount < guard) {
-          cursor = addDays(cursor, forward ? 1 : -1);
-          if (isWorkingDay(cursor)) steps += forward ? 1 : -1;
-          guardCount += 1;
-        }
-        return steps;
       }
 
       function compareDates(a, b) {
