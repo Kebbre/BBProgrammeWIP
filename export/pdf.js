@@ -288,6 +288,13 @@ export function createPdfExporter(config = {}) {
     const timelineDateFontSize = 4;
     const logoImage = await loadPdfLogo();
     const highlightSegmentsPdf = [];
+    const addUtcDays = (date, days = 0) => {
+      if (!(date instanceof Date)) return null;
+      const result = new Date(date.getTime());
+      result.setUTCDate(result.getUTCDate() + days);
+      return result;
+    };
+    const getLabelDate = (sourceDate) => addUtcDays(sourceDate, 1) || sourceDate;
     if (todayMarker) {
       highlightSegmentsPdf.push({
         type: 'today',
@@ -630,7 +637,8 @@ export function createPdfExporter(config = {}) {
             pdfDayHighlights[dayIndex]?.forEach((type) => combinedHighlights.add(type));
             pdfDayHighlightsShifted[dayIndex]?.forEach((type) => combinedHighlights.add(type));
           }
-          const weekLabel = formatShortDate(group.start);
+          const weekLabelDate = getLabelDate(group.start);
+          const weekLabel = formatShortDate(weekLabelDate);
           drawVerticalDateLabel(weekLabel, centreX, dateCenterY, combinedHighlights);
         });
       } else {
@@ -639,7 +647,8 @@ export function createPdfExporter(config = {}) {
           const combinedHighlights = new Set();
           pdfDayHighlights[index]?.forEach((type) => combinedHighlights.add(type));
           pdfDayHighlightsShifted[index]?.forEach((type) => combinedHighlights.add(type));
-          const dateLabel = formatShortDate(day);
+          const dayLabelDate = getLabelDate(day);
+          const dateLabel = formatShortDate(dayLabelDate);
           drawVerticalDateLabel(dateLabel, centreX, dateCenterY, combinedHighlights);
         });
       }
