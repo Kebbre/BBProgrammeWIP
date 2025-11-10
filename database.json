@@ -1,0 +1,1229 @@
+[
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Plans (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Plans (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Plans (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Plans (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Elevations",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Elevations",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Elevations",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Elevations",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing Site Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing Site Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing Site Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Detailed Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Detailed Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Detailed Sections",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Sanitary Layouts",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Sanitary Layouts",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Sanitary Layouts",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Individual Room Layouts",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Individual Room Layouts",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Individual Room Layouts",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Fire Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Fire Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Fire Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Access/Circulation Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Access/Circulation Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Access/Circulation Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Maintenance Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Maintenance Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Maintenance Strategy Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Stair 1 Plan & Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Stair 1 Plan & Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Stair 1 Plan & Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Stair 2 Plan & Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Stair 2 Plan & Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Stair 2 Plan & Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Column / Beam Enclosure Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Column / Beam Enclosure Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Column / Beam Enclosure Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Reflected Ceiling Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Reflected Ceiling Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Reflected Ceiling Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Floor Finishes Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Floor Finishes Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Floor Finishes Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Wall Finishes Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Wall Finishes Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Wall Finishes Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Setting Out Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Setting Out Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Detailed Elevations (cladding setting out etc)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Detailed Elevations (cladding setting out etc)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Interior Elevations",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Interior Elevations",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Raised Access Floor Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Raised Access Floor Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Ceiling/Bulkhead Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Ceiling/Bulkhead Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Curtain Walling Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Curtain Walling Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Door Details (Head, Jamb, Sill)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Door Details (Head, Jamb, Sill)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Door Details (Head, Jamb, Sill)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Door Details (Head, Jamb, Sill)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Floor Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Floor Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Balustrade Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Balustrade Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Ramp Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Ramp Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Roof Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Roof Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Soffit Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Soffit Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Rooflight Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Rooflight Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Access Hatch Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Access Hatch Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Signage Setting Out",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Signage Setting Out",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Slab / Waterproofing Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Slab / Waterproofing Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Plan Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Plan Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Wall Plan Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Wall Plan Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Wall Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Internal Wall Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Window Head / Jamb / Sill Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Window Head / Jamb / Sill Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Glazed Screen Head / Jamb / Sill Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Glazed Screen Head / Jamb / Sill Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Lift Pit and Overrun Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Lift Pit and Overrun Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Slab Setting Out Plans (inc. BWIC)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Setting Out Plans (inc. BWIC)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Reception Desk Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Reception Desk Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Bar/Servery/Counter Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Bar/Servery/Counter Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "FF&E Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "FF&E Plans",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Location Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Location Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Existing Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Building Grid and Cuboid",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "Residential tower",
+    "task": "GA Plan",
+    "weekdays": 7.0,
+    "squareMeterFactor": 0.001,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 1
+  },
+  {
+    "buildingType": "Residential tower",
+    "task": "Stairs drawings",
+    "weekdays": 3.0,
+    "squareMeterFactor": 0.001,
+    "difficultyFactor": 0.8,
+    "levelsFactor": 2
+  },
+  {
+    "buildingType": "Residential tower",
+    "task": "Kitchen layouts",
+    "weekdays": 2.0,
+    "squareMeterFactor": 0.001,
+    "difficultyFactor": 0.03,
+    "levelsFactor": 0
+  },
+  {
+    "buildingType": "Landscape",
+    "task": "Site Plan Existing",
+    "weekdays": 2.0,
+    "squareMeterFactor": 0.0001,
+    "difficultyFactor": 0.8,
+    "levelsFactor": 0
+  },
+  {
+    "buildingType": "Landscape",
+    "task": "Site Plan Proposed",
+    "weekdays": 6.0,
+    "squareMeterFactor": 0.0001,
+    "difficultyFactor": 0.9,
+    "levelsFactor": 0
+  },
+  {
+    "buildingType": "Landscape",
+    "task": "Kerb Drawings",
+    "weekdays": 8.0,
+    "squareMeterFactor": 0.0001,
+    "difficultyFactor": 0.6,
+    "levelsFactor": 0
+  }
+]

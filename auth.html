@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Authentication</title>
+  <style>
+    body {
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+    .message {
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+  </style>
+  <script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js" crossorigin="anonymous"></script>
+  <script src="https://res.cdn.office.net/teams-js/v2.17.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="message">
+    <p>Completing Microsoft sign-in…</p>
+  </div>
+  <script>
+    (async function finishAuthentication() {
+      const CLIENT_ID = '64eaf9c0-93d7-4bda-9f02-b343bc459350';
+      const TENANT_ID = '6dc7041f-549e-4127-9e89-36f74513bad5';
+      const authority = TENANT_ID
+        ? `https://login.microsoftonline.com/${TENANT_ID}`
+        : 'https://login.microsoftonline.com/common';
+      const redirectUri = new URL('auth.html', window.location.href).toString();
+      const GRAPH_SCOPES = ['User.Read', 'Files.ReadWrite.All'];
+      const REDIRECT_SESSION_KEY = 'bbprogramme:auth-redirect-started';
+      const searchParams = new URLSearchParams(window.location.search || '');
+      const launchedFromTeams = searchParams.get('teams') === '1';
+
+      async function notifyCompletion(payload) {
+        const origin = window.location.origin;
+        let teamsInitialised = false;
+        const teams = window.microsoftTeams;
+        if (teams?.app && typeof teams.app.initialize === 'function') {
+          try {
+            await teams.app.initialize();
+            teamsInitialised = true;
+          } catch (teamsInitError) {
+            console.debug('Teams SDK initialisation failed in auth window.', teamsInitError);
+          }
+        }
+        if (teamsInitialised && teams?.authentication) {
+          try {
+            if (payload.success) {
+              teams.authentication.notifySuccess(JSON.stringify(payload));
+            } else {
+              teams.authentication.notifyFailure(payload.error || 'Authentication failed.');
+            }
+          } catch (teamsNotifyError) {
+            console.debug('Unable to notify Teams authentication result.', teamsNotifyError);
+          }
+        }
+        const message = { type: 'bbprogramme-auth-complete', ...payload };
+        try {
+          if (window.opener && !window.opener.closed) {
+            window.opener.postMessage(message, origin);
+          }
+        } catch (postError) {
+          console.debug('Unable to post authentication completion message to opener.', postError);
+        }
+        try {
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage(message, origin);
+          }
+        } catch (parentPostError) {
+          console.debug('Unable to post authentication completion message to parent frame.', parentPostError);
+        }
+      }
+
+      if (!window.msal || !window.msal.PublicClientApplication) {
+        console.error('MSAL browser library unavailable while finishing authentication.');
+        await notifyCompletion({ success: false, error: 'MSAL library unavailable.' });
+        window.close();
+        return;
+      }
+
+      const app = new window.msal.PublicClientApplication({
+        auth: { clientId: CLIENT_ID, authority, redirectUri },
+        cache: { cacheLocation: 'localStorage', storeAuthStateInCookie: false }
+      });
+      try {
+        if (typeof app.initialize === 'function') {
+          await app.initialize();
+        }
+        const result = await app.handleRedirectPromise();
+        if (result?.account) {
+          app.setActiveAccount(result.account);
+        }
+        let account = result?.account || null;
+        if (!account) {
+          const accounts = app.getAllAccounts();
+          if (accounts.length) {
+            account = accounts[0];
+            app.setActiveAccount(account);
+          }
+        }
+        if (!account) {
+          if (!window.sessionStorage.getItem(REDIRECT_SESSION_KEY)) {
+            window.sessionStorage.setItem(REDIRECT_SESSION_KEY, '1');
+            try {
+              await app.loginRedirect({
+                scopes: GRAPH_SCOPES,
+                prompt: 'select_account',
+                redirectStartPage: redirectUri
+              });
+              return;
+            } catch (loginError) {
+              console.error('Authentication redirect invocation failed.', loginError);
+              window.sessionStorage.removeItem(REDIRECT_SESSION_KEY);
+              await notifyCompletion({
+                success: false,
+                error: loginError?.message || String(loginError || 'Unable to start authentication.')
+              });
+              return;
+            }
+          } else {
+            window.sessionStorage.removeItem(REDIRECT_SESSION_KEY);
+            await notifyCompletion({
+              success: false,
+              error: 'Authentication completed without selecting an account.'
+            });
+            return;
+          }
+        } else {
+          window.sessionStorage.removeItem(REDIRECT_SESSION_KEY);
+        }
+        const payload = {
+          success: true,
+          account: {
+            homeAccountId: account.homeAccountId,
+            username: account.username,
+            name: account.name || null
+          }
+        };
+        await notifyCompletion(payload);
+      } catch (error) {
+        console.error('Authentication redirect handling failed.', error);
+        await notifyCompletion({
+          success: false,
+          error: error?.message || String(error || 'Unknown error')
+        });
+      } finally {
+        setTimeout(() => {
+          try {
+            window.close();
+          } catch (closeError) {
+            console.debug('Unable to close authentication window automatically.', closeError);
+          }
+        }, 200);
+      }
+    }());
+  </script>
+</body>
+</html>

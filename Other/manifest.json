@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.23/MicrosoftTeams.schema.json",
+  "version": "1.8",
+  "manifestVersion": "1.23",
+  "id": "34297257-95fb-4214-96e3-729ef51c516c",
+  "name": {
+    "short": "Architecture Planner 2"
+  },
+  "developer": {
+    "name": "Kebbre",
+    "websiteUrl": "https://kebbre.github.io/BBProgramme/",
+    "privacyUrl": "https://kebbre.github.io/BBProgramme/privacy.html",
+    "termsOfUseUrl": "https://kebbre.github.io/BBProgramme/terms.html"
+  },
+  "description": {
+    "short": "Programme generator 6",
+    "full": "BB programme testing"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#ffffff",
+  "staticTabs": [
+    {
+      "entityId": "f579912b-b0f1-4862-acbc-91d87752f8a5",
+      "name": "Planner BB",
+      "contentUrl": "https://kebbre.github.io/BBProgramme/",
+      "scopes": [
+        "personal",
+        "groupChat",
+        "team"
+      ],
+      "context": [
+        "personalTab",
+        "channelTab"
+      ]
+    }
+  ],
+  "validDomains": [
+    "kebbre.github.io",
+    "login.microsoftonline.com",
+    "alcdn.msauth.net",
+    "res.cdn.office.net"
+  ],
+  "webApplicationInfo": {
+    "id": "64eaf9c0-93d7-4bda-9f02-b343bc459350",
+    "resource": "https://graph.microsoft.com"
+  },
+  "devicePermissions": [
+    "openExternal"
+  ],
+  "defaultGroupCapability": {
+    "team": "tab",
+    "groupchat": "tab",
+    "meetings": "tab"
+  }
+}

@@ -1,0 +1,6896 @@
+{
+  "tasks": [
+    {
+      "id": "gen-stage-1761040172677-0",
+      "name": "Stage 2",
+      "stagePreset": "stage2",
+      "stageCustomName": "",
+      "entryType": "stage",
+      "isStage": true,
+      "singleEvent": false,
+      "undefinedDuration": 0,
+      "miniTasks": [],
+      "parentId": null,
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-18",
+      "description": "",
+      "progress": 11
+    },
+    {
+      "id": "gen-1761040172677-0",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Plan",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 50,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-0-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-0-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-0-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-0-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-0-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-1",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Plans",
+      "description": "",
+      "startDate": "2025-10-30",
+      "endDate": "2025-11-18",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-1-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-1-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-1-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-1-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-1-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-2",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Plans (Design)",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 70,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-2-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-2-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-2-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-2-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-2-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-3",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Elevations",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-18",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-3-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-3-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-3-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-3-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-3-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 9,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-4",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Elevations (Design)",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-4-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-4-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-4-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-4-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-4-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-5",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Sections",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-5-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-5-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-5-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-5-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-5-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-6",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Sections",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-6-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-6-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-6-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-6-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-6-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-7",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Location Plan",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-7-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-7-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-7-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-7-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-7-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-8",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing Site Plan",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-8-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-8-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-8-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-8-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-8-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-9",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-0",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Building Grid and Cuboid",
+      "description": "",
+      "startDate": "2025-10-21",
+      "endDate": "2025-11-07",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-9-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-9-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-9-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-9-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-9-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-stage-1761040172677-1",
+      "name": "Stage 3",
+      "stagePreset": "stage3",
+      "stageCustomName": "",
+      "entryType": "stage",
+      "isStage": true,
+      "singleEvent": false,
+      "undefinedDuration": 0,
+      "miniTasks": [],
+      "parentId": null,
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "description": "",
+      "progress": 0
+    },
+    {
+      "id": "gen-1761040172677-10",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Plan",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-10-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-10-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-10-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-10-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-10-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-11",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-11-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-11-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-11-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-11-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-11-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-12",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Plans (Design)",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-12-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-12-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-12-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-12-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-12-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-13",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Elevations",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-13-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-13-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-13-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-13-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-13-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-14",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Elevations (Design)",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-14-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-14-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-14-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-14-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-14-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-15",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Sections",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-15-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-15-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-15-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-15-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-15-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-16",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Sections",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-16-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-16-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-16-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-16-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-16-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-17",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing Site Sections",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-17-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-17-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-17-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-17-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-17-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-18",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Sections",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-18-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-18-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-18-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-18-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-18-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-19",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Detailed Sections",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-19-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-19-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-19-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-19-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-19-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-20",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Sanitary Layouts",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-20-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-20-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-20-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-20-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-20-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-21",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Individual Room Layouts",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-21-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-21-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-21-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-21-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-21-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-22",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Fire Strategy Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-22-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-22-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-22-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-22-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-22-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-23",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Access/Circulation Strategy Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-23-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-23-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-23-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-23-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-23-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-24",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Maintenance Strategy Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-24-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-24-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-24-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-24-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-24-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-25",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Stair 1 Plan & Section Details",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-25-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-25-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-25-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-25-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-25-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-26",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Stair 2 Plan & Section Details",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-26-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-26-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-26-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-26-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-26-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-27",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Column / Beam Enclosure Details",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-27-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-27-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-27-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-27-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-27-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-28",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Reflected Ceiling Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-28-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-28-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-28-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-28-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-28-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-29",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Floor Finishes Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-29-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-29-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-29-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-29-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-29-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-30",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Wall Finishes Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-30-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-30-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-30-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-30-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-30-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-31",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Reception Desk Details",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-31-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-31-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-31-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-31-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-31-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-32",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Bar/Servery/Counter Details",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-32-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-32-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-32-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-32-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-32-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-33",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "FF&E Plans",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-33-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-33-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-33-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-33-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-33-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-34",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Location Plan",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-34-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-34-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-34-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-34-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-34-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-35",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-1",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing Site Plan",
+      "description": "",
+      "startDate": "2025-11-10",
+      "endDate": "2025-11-27",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-35-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-35-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-35-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-35-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-35-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-stage-1761040172677-2",
+      "name": "Stage 4",
+      "stagePreset": "stage4",
+      "stageCustomName": "",
+      "entryType": "stage",
+      "isStage": true,
+      "singleEvent": false,
+      "undefinedDuration": 0,
+      "miniTasks": [],
+      "parentId": null,
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "description": "",
+      "progress": 0
+    },
+    {
+      "id": "gen-1761040172677-36",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Plan",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-36-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-36-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-36-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-36-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-36-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-37",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-37-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-37-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-37-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-37-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-37-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-38",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Plans (Design)",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-38-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-38-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-38-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-38-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-38-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-39",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Elevations",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-39-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-39-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-39-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-39-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-39-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-40",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Elevations (Design)",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-40-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-40-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-40-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-40-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-40-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-41",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Sections",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-41-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-41-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-41-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-41-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-41-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-42",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Sections",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-42-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-42-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-42-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-42-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-42-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-43",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing Site Sections",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-43-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-43-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-43-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-43-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-43-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-44",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Sections",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-44-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-44-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-44-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-44-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-44-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-45",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Detailed Sections",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-45-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-45-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-45-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-45-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-45-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-46",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Sanitary Layouts",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-46-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-46-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-46-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-46-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-46-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-47",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Individual Room Layouts",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-47-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-47-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-47-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-47-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-47-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-48",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Fire Strategy Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-48-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-48-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-48-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-48-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-48-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-49",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Access/Circulation Strategy Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-49-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-49-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-49-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-49-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-49-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-50",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Maintenance Strategy Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-50-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-50-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-50-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-50-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-50-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-51",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Stair 1 Plan & Section Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-51-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-51-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-51-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-51-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-51-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-52",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Stair 2 Plan & Section Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-52-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-52-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-52-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-52-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-52-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-53",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Column / Beam Enclosure Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-53-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-53-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-53-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-53-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-53-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-54",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Reflected Ceiling Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-54-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-54-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-54-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-54-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-54-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-55",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Floor Finishes Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-55-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-55-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-55-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-55-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-55-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-56",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Wall Finishes Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-56-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-56-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-56-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-56-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-56-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-57",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Setting Out Plan",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-57-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-57-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-57-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-57-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-57-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-58",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Detailed Elevations (cladding setting out etc)",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-58-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-58-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-58-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-58-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-58-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-59",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Interior Elevations",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-59-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-59-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-59-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-59-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-59-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-60",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Raised Access Floor Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-60-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-60-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-60-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-60-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-60-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-61",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Ceiling/Bulkhead Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-61-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-61-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-61-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-61-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-61-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-62",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Curtain Walling Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-62-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-62-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-62-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-62-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-62-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-63",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Door Details (Head, Jamb, Sill)",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-63-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-63-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-63-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-63-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-63-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-64",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Door Details (Head, Jamb, Sill)",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-64-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-64-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-64-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-64-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-64-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-65",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Floor Junction Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-65-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-65-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-65-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-65-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-65-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-66",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Balustrade Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-66-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-66-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-66-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-66-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-66-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-67",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Ramp Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-67-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-67-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-67-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-67-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-67-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-68",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Roof Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-68-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-68-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-68-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-68-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-68-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-69",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Soffit Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-69-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-69-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-69-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-69-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-69-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-70",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Rooflight Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-70-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-70-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-70-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-70-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-70-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-71",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Access Hatch Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-71-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-71-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-71-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-71-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-71-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-72",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Signage Setting Out",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-72-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-72-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-72-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-72-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-72-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-73",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Slab / Waterproofing Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-73-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-73-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-73-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-73-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-73-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-74",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Wall Plan Junction Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-74-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-74-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-74-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-74-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-74-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-75",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Wall Section Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-75-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-75-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-75-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-75-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-75-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-76",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Wall Plan Junction Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-76-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-76-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-76-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-76-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-76-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-77",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Wall Section Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-77-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-77-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-77-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-77-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-77-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-78",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Window Head / Jamb / Sill Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-78-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-78-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-78-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-78-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-78-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-79",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Glazed Screen Head / Jamb / Sill Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-79-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-79-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-79-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-79-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-79-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-80",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Lift Pit and Overrun Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-80-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-80-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-80-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-80-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-80-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-81",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Reception Desk Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-81-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-81-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-81-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-81-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-81-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-82",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Bar/Servery/Counter Details",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-82-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-82-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-82-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-82-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-82-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-83",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-2",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "FF&E Plans",
+      "description": "",
+      "startDate": "2025-11-28",
+      "endDate": "2025-12-17",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-83-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 8,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-83-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-83-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-83-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-83-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 2,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-stage-1761040172677-3",
+      "name": "Stage 5",
+      "stagePreset": "stage5",
+      "stageCustomName": "",
+      "entryType": "stage",
+      "isStage": true,
+      "singleEvent": false,
+      "undefinedDuration": 0,
+      "miniTasks": [],
+      "parentId": null,
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "description": "",
+      "progress": 0
+    },
+    {
+      "id": "gen-1761040172677-84",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Plan",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-84-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-84-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-84-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-84-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-84-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-85",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-85-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-85-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-85-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-85-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-85-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-86",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Plans (Design)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-86-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-86-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-86-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-86-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-86-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-87",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Elevations",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-87-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-87-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-87-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-87-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-87-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-88",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Elevations (Design)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-88-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-88-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-88-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-88-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-88-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-89",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing GA Sections",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-89-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-89-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-89-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-89-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-89-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-90",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed GA Sections",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-90-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-90-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-90-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-90-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-90-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-91",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Existing Site Sections",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-91-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-91-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-91-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-91-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-91-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-92",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Sections",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-92-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-92-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-92-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-92-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-92-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-93",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Detailed Sections",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-93-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-93-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-93-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-93-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-93-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-94",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Sanitary Layouts",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-94-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-94-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-94-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-94-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-94-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-95",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Individual Room Layouts",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-95-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-95-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-95-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-95-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-95-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-96",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Fire Strategy Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-96-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-96-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-96-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-96-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-96-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-97",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Access/Circulation Strategy Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-97-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-97-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-97-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-97-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-97-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-98",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Maintenance Strategy Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-98-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-98-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-98-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-98-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-98-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-99",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Stair 1 Plan & Section Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-99-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-99-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-99-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-99-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-99-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-100",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Stair 2 Plan & Section Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-100-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-100-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-100-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-100-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-100-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-101",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Column / Beam Enclosure Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-101-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-101-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-101-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-101-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-101-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-102",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Reflected Ceiling Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-102-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-102-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-102-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-102-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-102-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-103",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Floor Finishes Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-103-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-103-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-103-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-103-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-103-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-104",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Wall Finishes Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-104-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-104-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-104-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-104-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-104-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-105",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Proposed Site Setting Out Plan",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-105-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-105-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-105-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-105-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-105-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-106",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Detailed Elevations (cladding setting out etc)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-106-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-106-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-106-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-106-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-106-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-107",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Interior Elevations",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-107-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-107-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-107-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-107-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-107-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-108",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Raised Access Floor Plans",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-108-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-108-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-108-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-108-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-108-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-109",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Ceiling/Bulkhead Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-109-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-109-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-109-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-109-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-109-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-110",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Curtain Walling Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-110-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-110-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-110-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-110-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-110-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-111",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Door Details (Head, Jamb, Sill)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-111-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-111-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-111-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-111-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-111-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-112",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Door Details (Head, Jamb, Sill)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-112-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-112-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-112-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-112-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-112-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-113",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Floor Junction Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-113-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-113-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-113-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-113-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-113-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-114",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Balustrade Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-114-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-114-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-114-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-114-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-114-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-115",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Ramp Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-115-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-115-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-115-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-115-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-115-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-116",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Roof Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-116-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-116-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-116-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-116-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-116-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-117",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Soffit Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-117-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-117-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-117-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-117-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-117-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-118",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Rooflight Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-118-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-118-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-118-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-118-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-118-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-119",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Access Hatch Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-119-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-119-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-119-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-119-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-119-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-120",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Signage Setting Out",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-120-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-120-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-120-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-120-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-120-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-121",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Slab / Waterproofing Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-121-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-121-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-121-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-121-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-121-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-122",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Wall Plan Junction Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-122-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-122-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-122-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-122-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-122-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-123",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Wall Section Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-123-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-123-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-123-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-123-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-123-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-124",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Wall Plan Junction Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-124-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-124-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-124-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-124-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-124-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-125",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Internal Wall Section Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-125-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-125-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-125-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-125-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-125-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-126",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "External Window Head / Jamb / Sill Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-126-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-126-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-126-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-126-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-126-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-127",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Glazed Screen Head / Jamb / Sill Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-127-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-127-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-127-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-127-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-127-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-128",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Lift Pit and Overrun Details",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-128-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-128-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-128-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-128-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-128-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-129",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Slab Setting Out Plans (inc. BWIC)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-129-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-129-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-129-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-129-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-129-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    },
+    {
+      "id": "gen-1761040172677-130",
+      "entryType": "task",
+      "parentId": "gen-stage-1761040172677-3",
+      "stagePreset": "",
+      "stageCustomName": "",
+      "isStage": false,
+      "name": "Setting Out Plans (inc. BWIC)",
+      "description": "",
+      "startDate": "2025-12-18",
+      "endDate": "2026-01-06",
+      "progress": 0,
+      "miniTasks": [
+        {
+          "id": "gen-1761040172677-130-mini-1",
+          "enabled": true,
+          "name": "Bond Bryan Design",
+          "duration": 3,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-130-mini-2",
+          "enabled": true,
+          "name": "CDP",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-130-mini-3",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-130-mini-4",
+          "enabled": true,
+          "name": "Client Comments",
+          "duration": 1,
+          "locked": false
+        },
+        {
+          "id": "gen-1761040172677-130-mini-5",
+          "enabled": true,
+          "name": "Bond Bryan review",
+          "duration": 8,
+          "locked": false
+        }
+      ],
+      "undefinedDuration": 0,
+      "singleEvent": false
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone-mh0dtpgk-1a8f97",
+      "name": "Submission Planning",
+      "type": "deadline",
+      "startDate": "2025-10-30",
+      "endDate": "2025-10-30"
+    },
+    {
+      "id": "milestone-mh0duxjv-673fc6",
+      "name": "Xmas",
+      "type": "standdown",
+      "startDate": "2025-12-21",
+      "endDate": "2025-12-30"
+    }
+  ]
+}

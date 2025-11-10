@@ -1,0 +1,3556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Project Planner</title>
+  <link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-row heading-row">
+      <div class="project-heading">
+        <h1>Project ABCDE</h1>
+      </div>
+    </div>
+    <div class="top-bar-row primary-actions-row">
+      <div class="button-row">
+        <button type="button" id="generateScheduleBtn">Generate Schedule</button>
+        <button type="button" id="scheduleSettingsBtn" class="secondary">Schedule Settings</button>
+        <button type="button" id="delayScheduleBtn" class="secondary">Delays Schedule</button>
+        <button type="button" id="graphAuthBtn" class="secondary">Sign in to OneDrive</button>
+        <button type="button" id="saveProgrammeBtn" class="secondary">Save Programme</button>
+        <button type="button" id="loadProgrammeBtn" class="secondary">Load Programme</button>
+        <button type="button" id="savePdfBtn">Save PDF</button>
+      </div>
+    </div>
+    <div class="top-bar-row legend-row">
+      <div class="legend" id="taskLegend"></div>
+    </div>
+    <div class="top-bar-row secondary-actions-row">
+      <div class="sidebar-actions top-bar-sidebar-actions">
+        <button id="addTaskBtn" type="button">＋ New</button>
+        <button id="removeTaskBtn" class="secondary" type="button" disabled>- Remove</button>
+        <button id="editTaskBtn" class="secondary" type="button" disabled>Edit</button>
+        <button id="moveUpBtn" class="secondary icon-btn" type="button" disabled title="Move task up" aria-label="Move task up">↑</button>
+        <button id="moveDownBtn" class="secondary icon-btn" type="button" disabled title="Move task down" aria-label="Move task down">↓</button>
+      </div>
+      <div class="timeline-controls">
+        <div class="view-mode-toggle" role="group" aria-label="Timeline view mode">
+          <button type="button" class="view-mode-btn active" data-view-mode="days" aria-pressed="true">Days</button>
+          <button type="button" class="view-mode-btn" data-view-mode="weeks" aria-pressed="false">Weeks</button>
+        </div>
+        <div class="zoom-controls" role="group" aria-label="Timeline zoom">
+          <button type="button" id="zoomOutBtn" aria-label="Zoom out">-</button>
+          <button type="button" id="zoomInBtn" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="app">
+    <div class="planner-viewport" id="plannerViewport">
+      <aside class="sidebar">
+        <div class="task-list-header">
+          <span class="task-header-identifier">ID</span>
+          <span class="task-header-name">Task</span>
+          <span class="task-header-start">Start</span>
+          <span class="task-header-end">End</span>
+          <span class="task-header-duration">Duration</span>
+          <span class="task-header-progress">Progress</span>
+        </div>
+        <div class="task-list-scroll">
+          <div class="task-list" id="taskList"></div>
+        </div>
+      </aside>
+      <main class="gantt-wrapper">
+        <div class="gantt-calendar">
+          <div class="timeline-header" id="timelineHeader"></div>
+          <div class="gantt-body-scroll">
+            <div class="gantt-body" id="ganttBody"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="app-branding">
+    <img src="assets/bb-logo.png" alt="BB Programme logo">
+    <span class="app-branding-text">Programme Tool : Version 17.0.5 FIXED</span>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop"></div>
+  <div class="modal hidden" id="taskModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <form id="taskForm">
+        <div class="modal-header">
+          <h2 id="modalTitle">New</h2>
+          <span class="duration-indicator" id="durationPreview">0 working days</span>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group" style="grid-column:span 2;">
+              <label for="modalEntryType">Create</label>
+              <select id="modalEntryType" name="entryType">
+                <option value="task">Task</option>
+                <option value="single">Single Event</option>
+                <option value="stage">Stage</option>
+              </select>
+            </div>
+            <div class="form-group" id="progressGroup">
+              <label for="modalTaskProgress">Progress (%)</label>
+              <input id="modalTaskProgress" name="taskProgress" type="number" min="0" max="100" value="0">
+            </div>
+            <div class="form-group" id="nameGroup">
+              <label id="modalNameLabel" for="modalTaskName">Task name</label>
+              <input id="modalTaskName" name="taskName" type="text" placeholder="e.g. Design Development">
+            </div>
+            <div class="form-group" id="stagePresetGroup">
+              <label for="modalStagePreset">Stage name</label>
+              <select id="modalStagePreset" name="stagePreset"></select>
+            </div>
+            <div class="form-group" id="stageCustomNameGroup">
+              <label for="modalStageCustomName">Description</label>
+              <input id="modalStageCustomName" name="stageCustomName" type="text" placeholder="Enter stage name">
+            </div>
+            <div class="form-group" id="descriptionGroup" style="grid-column:span 2;">
+              <label for="modalTaskDescription">Description</label>
+              <textarea id="modalTaskDescription" name="taskDescription" placeholder="Task goals, deliverables, or notes"></textarea>
+            </div>
+            <div class="form-group" id="startDateGroup">
+              <label id="modalStartDateLabel" for="modalStartDate">Start date</label>
+              <input id="modalStartDate" name="taskStart" type="date">
+            </div>
+            <div class="form-group" id="endDateGroup">
+              <label for="modalEndDate">End date</label>
+              <input id="modalEndDate" name="taskEnd" type="date">
+            </div>
+          </div>
+
+          <div class="mini-task-section" id="miniTaskSection">
+            <div class="mini-task-header">
+              <div class="mini-task-heading">
+                <h3>Sequenced steps</h3>
+                <p>Use ＋/− to add or remove steps. Durations always add up to the main task and display on the Gantt bar.</p>
+              </div>
+              <div class="mini-task-toolbar" role="group" aria-label="Mini-task controls">
+                <button type="button" id="addMiniTaskBtn" aria-label="Add mini-task">＋</button>
+                <button type="button" id="removeMiniTaskBtn" aria-label="Remove mini-task">−</button>
+              </div>
+            </div>
+            <div class="mini-task-controls-row">
+              <div class="mini-unit-toggle" role="group" aria-label="Mini-task duration unit">
+                <button type="button" class="mini-unit-btn active" data-unit="days" aria-pressed="true">Days</button>
+                <button type="button" class="mini-unit-btn" data-unit="weeks" aria-pressed="false">Weeks</button>
+              </div>
+            </div>
+            <div class="mini-task-list" id="miniTaskList"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="secondary" id="cancelModalBtn">Cancel</button>
+          <button type="submit" id="saveTaskBtn">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="schedule-modal-backdrop hidden" id="scheduleModalBackdrop"></div>
+  <div class="schedule-modal hidden" id="scheduleModal" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle">
+    <div class="schedule-modal-content">
+      <div class="schedule-modal-header">
+        <h2 id="scheduleModalTitle">Schedule Settings</h2>
+        <p>Configure milestones to highlight on the programme timeline.</p>
+      </div>
+      <div class="schedule-modal-body">
+        <div class="milestone-toolbar">
+          <button type="button" id="addMilestoneBtn">＋ Add Milestone</button>
+          <button type="button" id="removeMilestoneBtn" class="neutral" disabled>− Remove Selected</button>
+        </div>
+        <ul class="milestone-list" id="milestoneList"></ul>
+      </div>
+      <div class="schedule-modal-footer">
+        <button type="button" class="secondary" id="cancelScheduleBtn">Cancel</button>
+        <button type="button" id="saveScheduleBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="generate-modal-backdrop hidden" id="generateModalBackdrop"></div>
+  <div class="generate-modal hidden" id="generateModal" role="dialog" aria-modal="true" aria-labelledby="generateModalTitle">
+    <div class="generate-modal-content">
+      <div class="generate-modal-header">
+        <h2 id="generateModalTitle">Generate Schedule</h2>
+        <p>Set the project parameters and create a suggested programme.</p>
+      </div>
+      <form id="generateForm">
+        <div class="generate-modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="buildingTypeSelect">Building Type</label>
+              <select id="buildingTypeSelect" required></select>
+            </div>
+            <div class="form-group">
+              <label for="projectDifficultyInput">Project Difficulty</label>
+              <input id="projectDifficultyInput" type="number" min="1" max="10" value="1" required>
+            </div>
+            <div class="form-group">
+              <label for="numberOfLevelsInput">Number of Levels</label>
+              <input id="numberOfLevelsInput" type="number" min="1" max="99" value="1" required>
+            </div>
+            <div class="form-group">
+              <label for="projectSizeInput">Project Size (m²)</label>
+              <input id="projectSizeInput" type="number" min="100" max="20000" step="10" value="100" required>
+            </div>
+          </div>
+        </div>
+        <div class="generate-modal-footer">
+          <button type="button" class="secondary" id="generateCancelBtn">Cancel</button>
+          <button type="submit" id="generateConfirmBtn">Generate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="delay-modal-backdrop hidden" id="delayModalBackdrop"></div>
+  <div class="delay-modal hidden" id="delayModal" role="dialog" aria-modal="true" aria-labelledby="delayModalTitle">
+    <div class="delay-modal-content">
+      <div class="delay-modal-header">
+        <h2 id="delayModalTitle">Delays Schedule</h2>
+        <button type="button" class="delay-close-btn" id="closeDelayModalBtn" aria-label="Close delays schedule">×</button>
+      </div>
+      <div class="delay-modal-body">
+        <table class="delay-table">
+          <thead>
+            <tr>
+              <th>Task Name</th>
+              <th>Delay Description</th>
+              <th>Duration (days)</th>
+              <th>Charge to Client</th>
+            </tr>
+          </thead>
+          <tbody id="delayTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://res.cdn.office.net/teams-js/v2.17.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@microsoft/teams-js": "https://esm.sh/@microsoft/teams-js@2.17.0?bundle"
+      }
+    }
+  </script>
+  <script type="module">
+    import { createPdfExporter } from "./export/pdf.js";
+    import { createGanttController } from "./modules/gantt.js";
+    import { createMiniTaskManager } from "./modules/miniTasks.js";
+    import {
+      createNestablePublicClientApplication,
+      InteractionRequiredAuthError
+    } from "https://cdn.jsdelivr.net/npm/@azure/msal-browser@latest/+esm";
+    (async function () {
+      const DEFAULT_DAY_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--day-width'), 10) || 32;
+      const MIN_ZOOM_SCALE = 0.6;
+      const MAX_ZOOM_SCALE = 2.4;
+      const ZOOM_STEP = 0.2;
+      const ZOOM_TOLERANCE = 0.01;
+      const MINI_TASK_OPTIONS = ['Bond Bryan Design', 'Bond Bryan review', 'CDP', 'Client Comments', 'Delays', 'Undefined'];
+      const DEFAULT_SEQUENCE_STEPS = [
+        { name: 'Bond Bryan Design', weight: 50 },
+        { name: 'CDP', weight: 10 },
+        { name: 'Bond Bryan review', weight: 15 },
+        { name: 'Client Comments', weight: 10 },
+        { name: 'Bond Bryan review', weight: 15 }
+      ];
+      const DEFAULT_SEQUENCE_MINIMUM_TOTAL = DEFAULT_SEQUENCE_STEPS.length;
+      const DEFAULT_SEQUENCE_TOTAL_WEIGHT = DEFAULT_SEQUENCE_STEPS.reduce(
+        (sum, step) => sum + (Number(step.weight) || 0),
+        0
+      );
+      const WORKING_DAYS_PER_WEEK = 5;
+      const TASK_COLOR_MAP = {
+        'Bond Bryan Design': 'rgb(176, 207, 255)',
+        'Bond Bryan review': 'rgb(255, 192, 203)',
+        'CDP': 'rgb(196, 235, 214)',
+        'Client Comments': 'rgb(255, 223, 186)',
+        'Delays': 'rgb(220, 220, 230)',
+        'Undefined': 'rgb(245, 245, 245)'
+      };
+      const DEFAULT_SEGMENT_COLOR = '#3056d3';
+      // Graph configuration for OneDrive storage
+      const GRAPH_SCOPES = ['User.Read', 'Files.ReadWrite.All'];
+      const GRAPH_BASE_URL = 'https://graph.microsoft.com/v1.0';
+      const GRAPH_CENTRAL_SHARE_URL = 'https://bondbryantesting-my.sharepoint.com/:f:/g/personal/a_pescher_bondbryan-test_co_uk/Eh1JR9BNBsxLqqpJu74r67EB81URVqZHByVbaMrFgN_UZA?e=DctYvs';
+      const GRAPH_PROGRAMME_FOLDER_NAME = 'Programme App';
+      const GRAPH_PERSONAL_BASE_SEGMENTS = ['Documents', GRAPH_PROGRAMME_FOLDER_NAME];
+      const DEFAULT_GRAPH_FILE_BASENAME = 'gantt-shared-data';
+      const GRAPH_ITEM_PATH_SEGMENTS_CACHE = { path: null, heading: null, shareId: null, segments: null };
+      let graphShareIdCache = undefined;
+      const TEAMS_CONTEXT_STATE = {
+        teamId: null,
+        channelId: null,
+        channelDisplayName: null,
+        driveId: null,
+        channelFolderSegments: null,
+        programmeFolderEnsured: false,
+        filesFolderItemId: null
+      };
+      const WINDOWS_RESERVED_FILENAMES = new Set([
+        'CON', 'PRN', 'AUX', 'NUL',
+        'COM1', 'COM2', 'COM3', 'COM4', 'COM5', 'COM6', 'COM7', 'COM8', 'COM9',
+        'LPT1', 'LPT2', 'LPT3', 'LPT4', 'LPT5', 'LPT6', 'LPT7', 'LPT8', 'LPT9'
+      ]);
+      const MSAL_CONFIG = {
+        auth: {
+          clientId: '64eaf9c0-93d7-4bda-9f02-b343bc459350',
+          authority: 'https://login.microsoftonline.com/common',
+          redirectUri: 'https://kebbre.github.io/BBProgramme/auth.html',
+          supportsNestedAppAuth: true
+        },
+        cache: {
+          cacheLocation: 'localStorage',
+          storeAuthStateInCookie: false
+        }
+      };
+      let teamsChannelAutoLoadRequested = false;
+      let hasAttemptedInitialTeamsAutoLoad = false;
+      function sanitizeFilenameSegment(raw) {
+        if (!raw) return DEFAULT_GRAPH_FILE_BASENAME;
+        const trimmed = String(raw).trim();
+        if (!trimmed) return DEFAULT_GRAPH_FILE_BASENAME;
+        const cleaned = trimmed
+          .replace(/[\u0000-\u001F<>:"/\\|?*]+/g, '')
+          .replace(/\s+/g, ' ')
+          .replace(/^[. ]+/, '')
+          .replace(/[. ]+$/, '');
+        if (!cleaned) return DEFAULT_GRAPH_FILE_BASENAME;
+        if (WINDOWS_RESERVED_FILENAMES.has(cleaned.toUpperCase())) {
+          return `${cleaned}-channel`;
+        }
+        return cleaned;
+      }
+      function getProgrammeHeadingText() {
+        const headingEl = document.querySelector('.project-heading h1');
+        return headingEl?.textContent ?? '';
+      }
+      function getProgrammeFilename() {
+        const headingText = getProgrammeHeadingText();
+        return `${sanitizeFilenameSegment(headingText)}.json`;
+      }
+      function buildGraphPathFromSegments(segments) {
+        if (!Array.isArray(segments) || !segments.length) return '';
+        return segments
+          .map((segment) => encodeURIComponent(String(segment)))
+          .join('/');
+      }
+      function clearTeamsChannelDriveMetadata() {
+        TEAMS_CONTEXT_STATE.driveId = null;
+        TEAMS_CONTEXT_STATE.channelFolderSegments = null;
+        TEAMS_CONTEXT_STATE.programmeFolderEnsured = false;
+        TEAMS_CONTEXT_STATE.filesFolderItemId = null;
+      }
+      function getGraphShareId() {
+        if (graphShareIdCache !== undefined) {
+          return graphShareIdCache;
+        }
+        if (!GRAPH_CENTRAL_SHARE_URL) {
+          graphShareIdCache = null;
+          return graphShareIdCache;
+        }
+        try {
+          const trimmed = GRAPH_CENTRAL_SHARE_URL.trim();
+          if (!trimmed) {
+            graphShareIdCache = null;
+          } else {
+            const base64 = btoa(trimmed)
+              .replace(/\+/g, '-')
+              .replace(/\//g, '_')
+              .replace(/=+$/, '');
+            graphShareIdCache = `u!${base64}`;
+          }
+        } catch (error) {
+          console.warn('Unable to compute Graph share ID', error);
+          graphShareIdCache = null;
+        }
+        return graphShareIdCache;
+      }
+      async function ensureTeamsChannelStorageContext({ token } = {}) {
+        if (!TEAMS_CONTEXT_STATE.teamId || !TEAMS_CONTEXT_STATE.channelId) {
+          return null;
+        }
+        if (
+          TEAMS_CONTEXT_STATE.driveId
+          && Array.isArray(TEAMS_CONTEXT_STATE.channelFolderSegments)
+          && TEAMS_CONTEXT_STATE.channelFolderSegments.length
+        ) {
+          return TEAMS_CONTEXT_STATE;
+        }
+        if (!token) {
+          throw new Error('Graph token required to resolve Teams channel storage context.');
+        }
+        const teamId = TEAMS_CONTEXT_STATE.teamId;
+        const channelId = TEAMS_CONTEXT_STATE.channelId;
+        const response = await fetch(
+          `${GRAPH_BASE_URL}/teams/${encodeURIComponent(teamId)}/channels/${encodeURIComponent(channelId)}/filesFolder`,
+          {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        );
+        if (!response.ok) {
+          const errorText = await response.text().catch(() => '');
+          console.warn(`Unable to resolve Teams channel files folder (${response.status}).`, errorText);
+          return null;
+        }
+        const data = await response.json().catch(() => null);
+        if (!data) {
+          return null;
+        }
+        const driveId = data?.parentReference?.driveId || data?.parentReference?.id;
+        if (!driveId) {
+          console.warn('Teams channel filesFolder response missing driveId.');
+          return null;
+        }
+        const parentPathRaw = data?.parentReference?.path || '';
+        let baseSegments = [];
+        if (typeof parentPathRaw === 'string' && parentPathRaw.length) {
+          const colonIndex = parentPathRaw.indexOf(':/');
+          const relativePath = colonIndex >= 0 ? parentPathRaw.slice(colonIndex + 2) : parentPathRaw;
+          baseSegments = relativePath
+            .split('/')
+            .map((segment) => segment.trim())
+            .filter((segment) => segment.length);
+        }
+        const channelFolderName = data?.name || data?.displayName;
+        if (channelFolderName) {
+          baseSegments.push(channelFolderName);
+        }
+        TEAMS_CONTEXT_STATE.driveId = driveId;
+        TEAMS_CONTEXT_STATE.channelFolderSegments = baseSegments;
+        TEAMS_CONTEXT_STATE.filesFolderItemId = data?.id || null;
+        TEAMS_CONTEXT_STATE.programmeFolderEnsured = false;
+        return TEAMS_CONTEXT_STATE;
+      }
+      function computeGraphItemPath() {
+        const headingText = getProgrammeHeadingText();
+        const shareId = getGraphShareId();
+        if (
+          GRAPH_ITEM_PATH_SEGMENTS_CACHE.heading === headingText
+          && GRAPH_ITEM_PATH_SEGMENTS_CACHE.shareId === shareId
+          && GRAPH_ITEM_PATH_SEGMENTS_CACHE.path
+        ) {
+          return GRAPH_ITEM_PATH_SEGMENTS_CACHE.path;
+        }
+        const filename = getProgrammeFilename();
+        const baseSegments = shareId ? [] : GRAPH_PERSONAL_BASE_SEGMENTS;
+        const segments = [...baseSegments, filename];
+        const path = buildGraphPathFromSegments(segments);
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.heading = headingText;
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.shareId = shareId;
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.segments = segments;
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.path = path;
+        return path;
+      }
+      function buildDriveItemUrl(driveId, segments, suffix = '') {
+        if (!driveId) return null;
+        const safeSegments = Array.isArray(segments)
+          ? segments
+              .map((segment) => String(segment).trim())
+              .filter((segment) => segment.length)
+          : [];
+        const encodedPath = buildGraphPathFromSegments(safeSegments);
+        const pathPart = encodedPath ? `/${encodedPath}` : '';
+        return `${GRAPH_BASE_URL}/drives/${encodeURIComponent(driveId)}/root:${pathPart}${suffix}`;
+      }
+      function buildDriveChildrenUrl(driveId, parentSegments) {
+        if (!driveId) return null;
+        const safeSegments = Array.isArray(parentSegments)
+          ? parentSegments
+              .map((segment) => String(segment).trim())
+              .filter((segment) => segment.length)
+          : [];
+        if (!safeSegments.length) {
+          return `${GRAPH_BASE_URL}/drives/${encodeURIComponent(driveId)}/root/children`;
+        }
+        const encodedPath = buildGraphPathFromSegments(safeSegments);
+        return `${GRAPH_BASE_URL}/drives/${encodeURIComponent(driveId)}/root:/${encodedPath}:/children`;
+      }
+      async function ensureTeamsProgrammeFolder({ token, teamsInfo }) {
+        if (!teamsInfo || !teamsInfo.driveId || !Array.isArray(teamsInfo.channelFolderSegments)) {
+          return;
+        }
+        if (teamsInfo.programmeFolderEnsured) {
+          return;
+        }
+        if (!token) {
+          throw new Error('Graph token required to ensure Programme folder on Teams channel.');
+        }
+        const folderSegments = [...teamsInfo.channelFolderSegments, GRAPH_PROGRAMME_FOLDER_NAME];
+        const folderUrl = buildDriveItemUrl(teamsInfo.driveId, folderSegments, ':/');
+        if (!folderUrl) return;
+        const metadataResponse = await fetch(folderUrl, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        if (metadataResponse.ok) {
+          teamsInfo.programmeFolderEnsured = true;
+          return;
+        }
+        if (metadataResponse.status !== 404) {
+          const errorText = await metadataResponse.text().catch(() => '');
+          console.warn(`Unable to verify Teams Programme folder (${metadataResponse.status}).`, errorText);
+          return;
+        }
+        const createUrl = buildDriveChildrenUrl(teamsInfo.driveId, teamsInfo.channelFolderSegments);
+        if (!createUrl) return;
+        const createResponse = await fetch(createUrl, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: GRAPH_PROGRAMME_FOLDER_NAME,
+            folder: {},
+            '@microsoft.graph.conflictBehavior': 'replace'
+          })
+        });
+        if (!createResponse.ok) {
+          const errorText = await createResponse.text().catch(() => '');
+          console.warn(`Unable to create Teams Programme folder (${createResponse.status}).`, errorText);
+          return;
+        }
+        teamsInfo.programmeFolderEnsured = true;
+      }
+      async function resolveProgrammeStorageUrl({ token, ensureProgrammeFolder = false } = {}) {
+        const filename = getProgrammeFilename();
+        let teamsInfo = null;
+        try {
+          teamsInfo = await ensureTeamsChannelStorageContext({ token });
+        } catch (error) {
+          console.warn('Unable to resolve Teams channel storage context.', error);
+        }
+        if (
+          teamsInfo
+          && teamsInfo.driveId
+          && Array.isArray(teamsInfo.channelFolderSegments)
+        ) {
+          const pathSegments = [...teamsInfo.channelFolderSegments, GRAPH_PROGRAMME_FOLDER_NAME, filename];
+          if (ensureProgrammeFolder) {
+            await ensureTeamsProgrammeFolder({ token, teamsInfo });
+          }
+          const teamsUrl = buildDriveItemUrl(teamsInfo.driveId, pathSegments, ':/content');
+          if (teamsUrl) {
+            return {
+              type: 'teams',
+              url: teamsUrl,
+              driveId: teamsInfo.driveId,
+              pathSegments
+            };
+          }
+        }
+        const itemPath = computeGraphItemPath();
+        const shareId = getGraphShareId();
+        if (shareId) {
+          return {
+            type: 'share',
+            url: `${GRAPH_BASE_URL}/shares/${shareId}/driveItem:/${itemPath}:/content`,
+            path: itemPath
+          };
+        }
+        return {
+          type: 'personal',
+          url: `${GRAPH_BASE_URL}/me/drive/root:/${itemPath}:/content`,
+          path: itemPath
+        };
+      }
+      function invalidateGraphItemPathCache() {
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.heading = null;
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.shareId = null;
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.segments = null;
+        GRAPH_ITEM_PATH_SEGMENTS_CACHE.path = null;
+      }
+      function setProjectHeadingText(text) {
+        const headingEl = document.querySelector('.project-heading h1');
+        if (!headingEl) return;
+        const value = typeof text === 'string' ? text.trim() : '';
+        if (!value) return;
+        headingEl.textContent = value;
+        invalidateGraphItemPathCache();
+      }
+      async function maybeAutoLoadProgrammeFromTeams() {
+        if (!teamsChannelAutoLoadRequested || hasAttemptedInitialTeamsAutoLoad) return;
+        if (!graphAccount) return;
+        hasAttemptedInitialTeamsAutoLoad = true;
+        try {
+          await handleLoadProgramme();
+        } catch (error) {
+          console.warn('Unable to auto-load programme for Teams channel.', error);
+        }
+      }
+      function handleTeamsContextResolved(contextOrChannelName) {
+        if (!contextOrChannelName) return;
+        let channelName = '';
+        if (typeof contextOrChannelName === 'string') {
+          channelName = contextOrChannelName.trim();
+          if (channelName) {
+            TEAMS_CONTEXT_STATE.channelDisplayName = channelName;
+          }
+        } else if (typeof contextOrChannelName === 'object') {
+          channelName = (
+            contextOrChannelName?.channel?.displayName
+            || contextOrChannelName?.channel?.name
+            || contextOrChannelName?.channelDisplayName
+            || ''
+          ).trim();
+          const resolvedTeamId = contextOrChannelName?.team?.groupId
+            || contextOrChannelName?.team?.id
+            || contextOrChannelName?.groupId
+            || null;
+          const resolvedChannelId = contextOrChannelName?.channel?.id
+            || contextOrChannelName?.channelId
+            || null;
+          let contextUpdated = false;
+          if (resolvedTeamId && resolvedTeamId !== TEAMS_CONTEXT_STATE.teamId) {
+            TEAMS_CONTEXT_STATE.teamId = resolvedTeamId;
+            contextUpdated = true;
+          }
+          if (resolvedChannelId && resolvedChannelId !== TEAMS_CONTEXT_STATE.channelId) {
+            TEAMS_CONTEXT_STATE.channelId = resolvedChannelId;
+            contextUpdated = true;
+          }
+          if (contextUpdated) {
+            clearTeamsChannelDriveMetadata();
+          }
+          if (channelName) {
+            TEAMS_CONTEXT_STATE.channelDisplayName = channelName;
+          }
+        }
+        if (channelName) {
+          setProjectHeadingText(channelName);
+        }
+        if (!TEAMS_CONTEXT_STATE.teamId || !TEAMS_CONTEXT_STATE.channelId) {
+          if (!channelName) return;
+        }
+        teamsChannelAutoLoadRequested = true;
+        maybeAutoLoadProgrammeFromTeams();
+      }
+      if (typeof window !== 'undefined') {
+        window.bbProgrammeInvalidateGraphPathCache = invalidateGraphItemPathCache;
+        window.bbProgrammeOnTeamsContextResolved = handleTeamsContextResolved;
+        window.bbProgrammeOnTeamsChannelResolved = handleTeamsContextResolved;
+      }
+
+      const DATABASE_FALLBACK = [
+        {"buildingType":"school","task":"GA Plan","weekdays":10,"squareMeterFactor":0.01,"difficultyFactor":3,"levelsFactor":2},
+        {"buildingType":"school","task":"Elevations","weekdays":15,"squareMeterFactor":0.02,"difficultyFactor":5,"levelsFactor":1},
+        {"buildingType":"school","task":"Circulation Plans","weekdays":5,"squareMeterFactor":0.03,"difficultyFactor":6,"levelsFactor":2},
+        {"buildingType":"Residential tower","task":"GA Plan","weekdays":20,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":2},
+        {"buildingType":"Residential tower","task":"Stairs drawings","weekdays":20,"squareMeterFactor":0.01,"difficultyFactor":3,"levelsFactor":6},
+        {"buildingType":"Residential tower","task":"Kitchen layouts","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":1,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        
+      ];
+      const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const DAYS_HEADER_HEIGHT = '7rem';
+      const WEEKS_HEADER_HEIGHT = '5.5rem';
+
+      let tasks = [];
+      let selectedTaskId = null;
+      let draggedTaskId = null;
+      let currentMode = 'create';
+      let editingTaskId = null;
+      let databaseRecords = [];
+      let standdownDateSet = new Set();
+      let milestones = [];
+      let milestoneDrafts = [];
+      let selectedMilestoneId = null;
+      let msalClient = null;
+      let msalClientPromise = null;
+      let graphAccount = null;
+      let activeAccountEmail = null;
+      let renderFrameHandle = null;
+
+      const taskListEl = document.getElementById('taskList');
+      const addTaskBtn = document.getElementById('addTaskBtn');
+      const removeTaskBtn = document.getElementById('removeTaskBtn');
+      const editTaskBtn = document.getElementById('editTaskBtn');
+      const moveUpBtn = document.getElementById('moveUpBtn');
+      const moveDownBtn = document.getElementById('moveDownBtn');
+      const timelineHeaderEl = document.getElementById('timelineHeader');
+      const ganttBodyEl = document.getElementById('ganttBody');
+      const plannerViewportEl = document.getElementById('plannerViewport');
+      const taskListHeaderEl = document.querySelector('.task-list-header');
+      const taskListScrollEl = document.querySelector('.task-list-scroll');
+      const ganttBodyScrollEl = document.querySelector('.gantt-body-scroll');
+      const topBarEl = document.querySelector('.top-bar');
+      const modalBackdrop = document.getElementById('modalBackdrop');
+      const modalEl = document.getElementById('taskModal');
+      const taskForm = document.getElementById('taskForm');
+      const modalTitle = document.getElementById('modalTitle');
+      const durationPreview = document.getElementById('durationPreview');
+      const cancelModalBtn = document.getElementById('cancelModalBtn');
+      const miniTaskList = document.getElementById('miniTaskList');
+      const modalEntryType = document.getElementById('modalEntryType');
+      const modalTaskName = document.getElementById('modalTaskName');
+      const modalNameLabel = document.getElementById('modalNameLabel');
+      const modalTaskDescription = document.getElementById('modalTaskDescription');
+      const modalStagePreset = document.getElementById('modalStagePreset');
+      const modalStageCustomName = document.getElementById('modalStageCustomName');
+      const progressGroup = document.getElementById('progressGroup');
+      const nameGroup = document.getElementById('nameGroup');
+      const stagePresetGroup = document.getElementById('stagePresetGroup');
+      const stageCustomNameGroup = document.getElementById('stageCustomNameGroup');
+      const descriptionGroup = document.getElementById('descriptionGroup');
+      const modalStartDate = document.getElementById('modalStartDate');
+      const modalStartDateLabel = document.getElementById('modalStartDateLabel');
+      const startDateGroup = document.getElementById('startDateGroup');
+      const modalEndDate = document.getElementById('modalEndDate');
+      const endDateGroup = document.getElementById('endDateGroup');
+      const miniTaskSection = document.getElementById('miniTaskSection');
+      const modalProgress = document.getElementById('modalTaskProgress');
+      const viewModeButtons = Array.from(document.querySelectorAll('.view-mode-btn'));
+      const zoomInBtn = document.getElementById('zoomInBtn');
+      const zoomOutBtn = document.getElementById('zoomOutBtn');
+      const addMiniTaskBtn = document.getElementById('addMiniTaskBtn');
+      const removeMiniTaskBtn = document.getElementById('removeMiniTaskBtn');
+      const miniUnitButtons = Array.from(document.querySelectorAll('.mini-unit-btn'));
+      const ganttController = createGanttController({
+        elements: {
+          timelineHeaderEl,
+          ganttBodyEl,
+          ganttBodyScrollEl,
+          plannerViewportEl,
+          taskListHeaderEl,
+          taskListScrollEl,
+          taskListEl,
+          topBarEl,
+          viewModeButtons,
+          zoomInBtn,
+          zoomOutBtn
+        },
+        constants: {
+          DEFAULT_DAY_WIDTH,
+          MIN_ZOOM_SCALE,
+          MAX_ZOOM_SCALE,
+          ZOOM_TOLERANCE,
+          WEEKS_HEADER_HEIGHT,
+          DAYS_HEADER_HEIGHT
+        },
+        accessors: {
+          getTasks: () => tasks,
+          getSelectedTaskId: () => selectedTaskId,
+          setSelectedTaskId: (value) => { selectedTaskId = value; }
+        },
+        helpers: {
+          renderAll,
+          selectTask,
+          computeTimelineRange,
+          buildTimelineDays,
+          getTodayUtc,
+          isSameUtcDay,
+          formatDate,
+          parseDate,
+          compareDates,
+          buildMilestoneSegments,
+          groupTimelineDaysByYear,
+          groupTimelineDaysByMonth,
+          groupTimelineDaysByWeek,
+          buildMiniSegments,
+          buildMiniSegmentsPreview,
+          minimumTaskDuration,
+          ensureWeekday,
+          shiftWeekdays,
+          diffInWeekdays,
+          sanitiseUndefinedDuration,
+          computeMiniDurationSum,
+          isStanddownDay,
+          formatDisplayDate,
+          formatShortDate,
+          reconcileMiniDurationsForTask,
+          getOrderedTasks
+        }
+      });
+
+      const {
+        renderGantt,
+        adjustZoom,
+        setTimelineViewMode,
+        updateViewModeButtons,
+        updateStickyMetrics,
+        scheduleTimelineHorizontalSync,
+        syncScrollPositions,
+        updateTaskStartDate,
+        updateTaskEndDate,
+        getTimelineDays,
+        getTimelineViewMode,
+        adjustGanttOffset
+      } = ganttController;
+      let currentEntryType = 'task';
+      const miniTaskManager = createMiniTaskManager({
+        elements: {
+          listEl: miniTaskList,
+          sectionEl: miniTaskSection,
+          addButton: addMiniTaskBtn,
+          removeButton: removeMiniTaskBtn,
+          unitButtons: miniUnitButtons
+        },
+        constants: {
+          miniTaskOptions: MINI_TASK_OPTIONS,
+          workingDaysPerWeek: WORKING_DAYS_PER_WEEK,
+          defaultSequenceSteps: DEFAULT_SEQUENCE_STEPS,
+          defaultSequenceMinimumTotal: DEFAULT_SEQUENCE_MINIMUM_TOTAL,
+          defaultSequenceTotalWeight: DEFAULT_SEQUENCE_TOTAL_WEIGHT
+        },
+        getCurrentEntryType: () => currentEntryType,
+        onDraftsChange: () => updateDurationPreview()
+      });
+      const {
+        renderMiniTaskInputs,
+        updateMiniTaskToolbar,
+        setMiniTaskUnit,
+        addMiniTaskRow,
+        removeMiniTaskRow,
+        collectMiniTasks,
+        computeDefaultMiniTaskDurations,
+        createDefaultSequencedMiniTasks,
+        sanitizeMiniTaskDraft,
+        createMiniTaskDraft,
+        setMiniTaskDrafts,
+        getMiniTaskDrafts,
+        getMiniTaskUnit,
+        resetMiniTaskState,
+        getMiniTaskDraftCount,
+        handleEntryTypeChange
+      } = miniTaskManager;
+      renderMiniTaskInputs();
+      updateMiniTaskToolbar();
+      const STAGE_PRESET_OPTIONS = [
+        { value: 'stage1', label: 'Stage 1' },
+        { value: 'stage2', label: 'Stage 2' },
+        { value: 'stage3', label: 'Stage 3' },
+        { value: 'stage4', label: 'Stage 4' },
+        { value: 'stage5', label: 'Stage 5' },
+        { value: 'stage6', label: 'Stage 6' },
+        { value: 'stage7', label: 'Stage 7' },
+        { value: 'other', label: 'Other' }
+      ];
+      const saveTaskBtn = document.getElementById('saveTaskBtn');
+      const generateScheduleBtn = document.getElementById('generateScheduleBtn');
+      const generateModalBackdrop = document.getElementById('generateModalBackdrop');
+      const generateModal = document.getElementById('generateModal');
+      const generateForm = document.getElementById('generateForm');
+      const generateCancelBtn = document.getElementById('generateCancelBtn');
+      const buildingTypeSelect = document.getElementById('buildingTypeSelect');
+      const projectDifficultyInput = document.getElementById('projectDifficultyInput');
+      const numberOfLevelsInput = document.getElementById('numberOfLevelsInput');
+      const projectSizeInput = document.getElementById('projectSizeInput');
+      const savePdfBtn = document.getElementById('savePdfBtn');
+      const scheduleSettingsBtn = document.getElementById('scheduleSettingsBtn');
+      const saveProgrammeBtn = document.getElementById('saveProgrammeBtn');
+      const loadProgrammeBtn = document.getElementById('loadProgrammeBtn');
+      const delayScheduleBtn = document.getElementById('delayScheduleBtn');
+      const graphAuthBtn = document.getElementById('graphAuthBtn');
+      const legendContainer = document.getElementById('taskLegend');
+      const scheduleModalBackdrop = document.getElementById('scheduleModalBackdrop');
+      const scheduleModal = document.getElementById('scheduleModal');
+      const addMilestoneBtn = document.getElementById('addMilestoneBtn');
+      const removeMilestoneBtn = document.getElementById('removeMilestoneBtn');
+      const milestoneListEl = document.getElementById('milestoneList');
+      const cancelScheduleBtn = document.getElementById('cancelScheduleBtn');
+      const saveScheduleBtn = document.getElementById('saveScheduleBtn');
+      const delayModalBackdrop = document.getElementById('delayModalBackdrop');
+      const delayModal = document.getElementById('delayModal');
+      const closeDelayModalBtn = document.getElementById('closeDelayModalBtn');
+      const delayTableBody = document.getElementById('delayTableBody');
+      const handleSavePdf = createPdfExporter({
+        getTasks: () => tasks,
+        getTimelineDays: () => getTimelineDays(),
+        getTimelineViewMode: () => getTimelineViewMode(),
+        renderGantt,
+        updateAllStageSummaries,
+        getOrderedTasks,
+        buildTaskIdentifiers,
+        getTodayUtc,
+        compareDates,
+        formatDate,
+        parseDate,
+        formatShortDate,
+        buildMilestoneSegments,
+        buildMiniSegments,
+        getMiniColor,
+        getTaskDuration,
+        isStanddownDay,
+        groupTimelineDaysByYear,
+        groupTimelineDaysByWeek,
+        parseColorToRgb,
+        taskColorMap: TASK_COLOR_MAP,
+        defaultSegmentColor: DEFAULT_SEGMENT_COLOR
+      });
+
+      function parseDate(value) {
+        if (!value) return null;
+        const parts = value.split('-').map(Number);
+        if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+        return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+      }
+      function formatDate(date) {
+        return date instanceof Date ? date.toISOString().slice(0, 10) : '';
+      }
+
+      function formatDisplayDate(date) {
+        if (!(date instanceof Date)) return '';
+        return `${MONTH_NAMES[date.getUTCMonth()]} ${String(date.getUTCDate()).padStart(2, '0')}`;
+      }
+
+      function formatShortDate(date) {
+        if (!(date instanceof Date)) return '';
+        const day = String(date.getUTCDate()).padStart(2, '0');
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+        return `${day}/${month}`;
+      }
+
+      function autoResizeTextarea(textarea) {
+        if (!textarea) return;
+        const applyResize = () => {
+          textarea.style.height = 'auto';
+          const computed = window.getComputedStyle(textarea);
+          const borderHeight = (parseFloat(computed.borderTopWidth) || 0) + (parseFloat(computed.borderBottomWidth) || 0);
+          const minHeight = parseFloat(computed.minHeight) || 0;
+          const contentHeight = textarea.scrollHeight + borderHeight;
+          const nextHeight = Math.max(minHeight, contentHeight);
+          textarea.style.height = `${nextHeight}px`;
+        };
+        if (!textarea.isConnected) {
+          requestAnimationFrame(applyResize);
+          return;
+        }
+        applyResize();
+      }
+
+      function populateStagePresetOptions() {
+        if (!modalStagePreset) return;
+        modalStagePreset.innerHTML = '';
+        STAGE_PRESET_OPTIONS.forEach((option) => {
+          const optionEl = document.createElement('option');
+          optionEl.value = option.value;
+          optionEl.textContent = option.label;
+          modalStagePreset.appendChild(optionEl);
+        });
+      }
+
+      function stageOptionLabel(value) {
+        const found = STAGE_PRESET_OPTIONS.find((option) => option.value === value);
+        return found ? found.label : value;
+      }
+
+      function mapStagePresetFromLabel(label) {
+        if (!label) return STAGE_PRESET_OPTIONS[0].value;
+        const normalized = String(label).trim();
+        if (!normalized) return STAGE_PRESET_OPTIONS[0].value;
+        const directMatch = STAGE_PRESET_OPTIONS.find((option) => option.value === normalized);
+        if (directMatch) return directMatch.value;
+        const normalizedLower = normalized.toLowerCase();
+        const labelMatch = STAGE_PRESET_OPTIONS.find((option) => option.label.toLowerCase() === normalizedLower);
+        return labelMatch ? labelMatch.value : 'other';
+      }
+
+      function normalizeStageMetadata(stage) {
+        const base = stage ? { ...stage } : {};
+        base.entryType = 'stage';
+        base.isStage = true;
+        base.singleEvent = false;
+        base.undefinedDuration = 0;
+        base.miniTasks = [];
+        base.parentId = typeof base.parentId === 'string' && base.parentId.trim()
+          ? base.parentId.trim()
+          : null;
+        const candidateLabel = base.stagePreset || base.stageLabel || base.name;
+        let preset = mapStagePresetFromLabel(candidateLabel);
+        if (!STAGE_PRESET_OPTIONS.some((option) => option.value === preset)) {
+          preset = STAGE_PRESET_OPTIONS[0].value;
+        }
+        base.stagePreset = preset;
+        const presetOption = STAGE_PRESET_OPTIONS.find((option) => option.value === preset) || STAGE_PRESET_OPTIONS[0];
+        if (preset === 'other') {
+          const customName = typeof base.stageCustomName === 'string'
+            ? base.stageCustomName.trim()
+            : '';
+          const fallbackName = typeof base.name === 'string' ? base.name.trim() : '';
+          base.stageCustomName = customName || fallbackName;
+          base.name = base.stageCustomName || 'Stage';
+        } else {
+          base.stageCustomName = '';
+          base.name = presetOption.label;
+        }
+        base.startDate = typeof base.startDate === 'string' ? base.startDate : '';
+        base.endDate = typeof base.endDate === 'string' ? base.endDate : '';
+        return base;
+      }
+
+      function setEntryType(type, options = {}) {
+        currentEntryType = type;
+        if (modalEntryType && modalEntryType.value !== type) {
+          modalEntryType.value = type;
+        }
+        const isTask = type === 'task';
+        const isSingle = type === 'single';
+        const isStage = type === 'stage';
+        if (progressGroup) progressGroup.style.display = isTask ? '' : 'none';
+        if (durationPreview) durationPreview.hidden = isStage;
+        if (nameGroup) nameGroup.style.display = isStage ? 'none' : '';
+        if (modalTaskName) {
+          modalTaskName.required = !isStage;
+          modalTaskName.placeholder = isSingle ? 'e.g. Site visit' : 'e.g. Design Development';
+          if (isStage) modalTaskName.value = '';
+        }
+        if (modalNameLabel) {
+          modalNameLabel.textContent = isSingle ? 'Event name' : 'Task name';
+        }
+        if (stagePresetGroup) {
+          if (isStage && modalStagePreset && !modalStagePreset.options.length) {
+            populateStagePresetOptions();
+          }
+          stagePresetGroup.style.display = isStage ? '' : 'none';
+        }
+        if (stageCustomNameGroup) {
+          const stageLabel = stageCustomNameGroup.querySelector('label');
+          if (stageLabel) stageLabel.textContent = 'Description';
+          const showCustom = isStage && modalStagePreset && modalStagePreset.value === 'other';
+          stageCustomNameGroup.style.display = showCustom ? '' : 'none';
+          if (modalStageCustomName) {
+            if (!showCustom) modalStageCustomName.value = '';
+            modalStageCustomName.required = showCustom;
+          }
+        }
+        if (descriptionGroup) descriptionGroup.style.display = isStage ? 'none' : '';
+        if (startDateGroup) startDateGroup.style.display = isStage ? 'none' : '';
+        if (modalStartDate) {
+          modalStartDate.required = !isStage;
+          if (isStage) modalStartDate.value = '';
+        }
+        if (modalStartDateLabel) modalStartDateLabel.textContent = isSingle ? 'Date' : 'Start date';
+        if (endDateGroup) endDateGroup.style.display = isTask ? '' : 'none';
+        if (modalEndDate) {
+          if (!isTask) modalEndDate.value = isSingle && modalStartDate ? modalStartDate.value : '';
+          modalEndDate.disabled = !isTask;
+        }
+        if (miniTaskSection) miniTaskSection.style.display = isTask ? '' : 'none';
+        handleEntryTypeChange();
+        if (isStage && modalTaskDescription) modalTaskDescription.value = '';
+        updateMiniTaskToolbar();
+        if (!options.skipPreview) {
+          updateDurationPreview();
+        }
+      }
+
+      function getTodayUtc() {
+        const now = new Date();
+        return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+      }
+
+      function isSameUtcDay(a, b) {
+        if (!(a instanceof Date) || !(b instanceof Date)) return false;
+        return a.getUTCFullYear() === b.getUTCFullYear()
+          && a.getUTCMonth() === b.getUTCMonth()
+          && a.getUTCDate() === b.getUTCDate();
+      }
+
+      function recomputeStanddownSet() {
+        standdownDateSet = new Set();
+        milestones.forEach((milestone) => {
+          if (!milestone || milestone.type !== 'standdown') return;
+          const start = parseDate(milestone.startDate);
+          const end = parseDate(milestone.endDate);
+          if (!start || !end) return;
+          let current = new Date(start.getTime());
+          const guardLimit = 1500;
+          let guard = 0;
+          while (compareDates(current, end) <= 0 && guard < guardLimit) {
+            standdownDateSet.add(formatDate(current));
+            current = addDays(current, 1);
+            guard += 1;
+          }
+        });
+      }
+
+      function isStanddownDay(date) {
+        if (!(date instanceof Date)) return false;
+        return standdownDateSet.has(formatDate(date));
+      }
+
+      function isWorkingDay(date) {
+        if (!(date instanceof Date)) return false;
+        return !isWeekend(date) && !isStanddownDay(date);
+      }
+
+      function generateMilestoneId() {
+        return `milestone-${Date.now().toString(36)}-${Math.random().toString(16).slice(2, 8)}`;
+      }
+
+      function cloneMilestoneList(list) {
+        return Array.isArray(list) ? list.map((item) => ({ ...item })) : [];
+      }
+
+      function createMilestone(type = 'deadline') {
+        const today = formatDate(getTodayUtc());
+        return {
+          id: generateMilestoneId(),
+          name: type === 'standdown' ? 'New stand-down' : 'New deadline',
+          type,
+          startDate: today,
+          endDate: today
+        };
+      }
+
+      function normalizeMilestoneDates(milestone) {
+        if (!milestone) return;
+        if (milestone.type !== 'standdown') {
+          milestone.endDate = milestone.startDate || milestone.endDate || '';
+          return;
+        }
+        const start = parseDate(milestone.startDate);
+        if (!milestone.endDate) milestone.endDate = milestone.startDate || '';
+        const end = parseDate(milestone.endDate);
+        if (start && end && compareDates(end, start) < 0) {
+          milestone.endDate = milestone.startDate;
+        }
+      }
+
+      function getStageChildren(stageId) {
+        return tasks.filter((task) => task.parentId === stageId);
+      }
+
+      function detectStagePresetFromName(name) {
+        return mapStagePresetFromLabel(name);
+      }
+
+      function computeStageSummary(stageTask) {
+        if (!stageTask) return { hasChildren: false, start: null, end: null, progress: 0, duration: 0 };
+        const children = getStageChildren(stageTask.id).filter((child) => child.entryType !== 'stage');
+        if (!children.length) {
+          return {
+            hasChildren: false,
+            start: null,
+            end: null,
+            progress: 0,
+            duration: 0
+          };
+        }
+        let start = null;
+        let end = null;
+        let weightedDuration = 0;
+        let weightedProgress = 0;
+        children.forEach((child) => {
+          const childStart = parseDate(child.startDate);
+          const childEnd = parseDate(child.endDate);
+          if (childStart) {
+            if (!start || compareDates(childStart, start) < 0) start = childStart;
+          }
+          const effectiveEnd = childEnd || childStart;
+          if (effectiveEnd) {
+            if (!end || compareDates(effectiveEnd, end) > 0) end = effectiveEnd;
+          }
+          const duration = Math.max(1, getTaskDuration(child));
+          weightedDuration += duration;
+          const progressValue = Math.min(100, Math.max(0, Number(child.progress) || 0));
+          weightedProgress += progressValue * duration;
+        });
+        const progress = weightedDuration ? Math.round(weightedProgress / weightedDuration) : 0;
+        const spanDuration = start && end ? Math.max(1, diffInWeekdays(start, end)) : 0;
+        return {
+          hasChildren: true,
+          start,
+          end,
+          progress,
+          duration: spanDuration
+        };
+      }
+
+      function updateStageRowDisplay(stageTask, summary) {
+        if (!taskListEl || !stageTask) return;
+        const row = taskListEl.querySelector(`.task-row[data-task-id="${stageTask.id}"]`);
+        if (!row) return;
+        const hasChildren = Boolean(summary && summary.hasChildren);
+        row.classList.toggle('stage-empty', !hasChildren);
+
+        const startCell = row.querySelector('.task-start');
+        if (startCell) {
+          if (hasChildren && stageTask.startDate) {
+            startCell.textContent = stageTask.startDate;
+            startCell.classList.remove('stage-meta-hidden');
+          } else {
+            startCell.textContent = '—';
+            startCell.classList.add('stage-meta-hidden');
+          }
+        }
+
+        const endCell = row.querySelector('.task-end');
+        if (endCell) {
+          if (hasChildren && stageTask.endDate) {
+            endCell.textContent = stageTask.endDate;
+            endCell.classList.remove('stage-meta-hidden');
+          } else {
+            endCell.textContent = '—';
+            endCell.classList.add('stage-meta-hidden');
+          }
+        }
+
+        const durationBadge = row.querySelector('.task-duration');
+        if (durationBadge) {
+          const durationValue = hasChildren
+            ? Math.max(0, Math.round((summary && summary.duration) || 0))
+            : 0;
+          if (durationValue > 0) {
+            durationBadge.textContent = `${durationValue} day${durationValue !== 1 ? 's' : ''}`;
+          } else {
+            durationBadge.textContent = '—';
+          }
+        }
+
+        const progressCell = row.querySelector('.task-progress');
+        if (progressCell) {
+          if (hasChildren) {
+            const progressValue = Math.min(100, Math.max(0, Math.round(stageTask.progress || 0)));
+            progressCell.textContent = `${progressValue}%`;
+            progressCell.classList.remove('stage-meta-hidden');
+          } else {
+            progressCell.textContent = '—';
+            progressCell.classList.add('stage-meta-hidden');
+          }
+        }
+      }
+
+      function updateAllStageSummaries() {
+        tasks.forEach((task) => {
+          if (task.entryType !== 'stage') return;
+          const summary = computeStageSummary(task);
+          if (!summary.hasChildren) {
+            task.startDate = '';
+            task.endDate = '';
+            task.progress = 0;
+            updateStageRowDisplay(task, summary);
+            return;
+          }
+          task.progress = summary.progress;
+          task.startDate = summary.start ? formatDate(summary.start) : '';
+          task.endDate = summary.end ? formatDate(summary.end) : '';
+          updateStageRowDisplay(task, summary);
+        });
+      }
+
+      function getStageLetterLabel(index) {
+        if (typeof index !== 'number' || index < 0) return '';
+        let value = Math.floor(index);
+        let label = '';
+        while (value >= 0) {
+          const remainder = value % 26;
+          label = String.fromCharCode(65 + remainder) + label;
+          value = Math.floor(value / 26) - 1;
+        }
+        return label;
+      }
+
+      function buildTaskIdentifiers(orderedEntries) {
+        const identifiers = new Map();
+        const stageMeta = new Map();
+        let stageIndex = 0;
+        let unassignedCounter = 0;
+        orderedEntries.forEach((entry) => {
+          const task = entry?.task;
+          if (!task) return;
+          if (task.entryType === 'stage') {
+            const letter = getStageLetterLabel(stageIndex);
+            stageMeta.set(task.id, { letter, counter: 0 });
+            identifiers.set(task.id, letter || '—');
+            stageIndex += 1;
+            return;
+          }
+          const parentInfo = stageMeta.get(task.parentId);
+          if (parentInfo && parentInfo.letter) {
+            parentInfo.counter += 1;
+            const sequence = String(parentInfo.counter).padStart(3, '0');
+            identifiers.set(task.id, `${parentInfo.letter}-${sequence}`);
+            return;
+          }
+          unassignedCounter += 1;
+          const sequence = String(unassignedCounter).padStart(3, '0');
+          identifiers.set(task.id, `X-${sequence}`);
+        });
+        return identifiers;
+      }
+
+      function getOrderedTasks() {
+        const added = new Set();
+        const ordered = [];
+        tasks.forEach((task) => {
+          if (task.entryType === 'stage') {
+            ordered.push({ task, depth: 0 });
+            added.add(task.id);
+            getStageChildren(task.id).forEach((child) => {
+              ordered.push({ task: child, depth: 1 });
+              added.add(child.id);
+            });
+          }
+        });
+        tasks.forEach((task) => {
+          if (added.has(task.id)) return;
+          const depth = task.parentId ? 1 : 0;
+          ordered.push({ task, depth });
+          added.add(task.id);
+        });
+        return ordered;
+      }
+
+      function updateMilestoneSelectionUI() {
+        if (!milestoneListEl) return;
+        if (!milestoneDrafts.length) {
+          selectedMilestoneId = null;
+        } else if (!selectedMilestoneId || !milestoneDrafts.some((milestone) => milestone.id === selectedMilestoneId)) {
+          selectedMilestoneId = milestoneDrafts[0].id;
+        }
+        const rows = milestoneListEl.querySelectorAll('.milestone-item');
+        rows.forEach((row) => {
+          row.classList.toggle('selected', row.dataset.id === selectedMilestoneId);
+        });
+        if (removeMilestoneBtn) removeMilestoneBtn.disabled = !selectedMilestoneId;
+      }
+
+      function renderMilestoneDrafts() {
+        if (!milestoneListEl) return;
+        milestoneListEl.innerHTML = '';
+        if (!milestoneDrafts.length) {
+          const empty = document.createElement('div');
+          empty.className = 'empty-milestones';
+          empty.textContent = 'No milestones yet. Use "＋ Add Milestone" to create one.';
+          milestoneListEl.appendChild(empty);
+          if (removeMilestoneBtn) removeMilestoneBtn.disabled = true;
+          return;
+        }
+        milestoneDrafts.forEach((milestone) => {
+          normalizeMilestoneDates(milestone);
+          const item = document.createElement('li');
+          item.className = 'milestone-item';
+          item.dataset.id = milestone.id;
+
+          item.addEventListener('click', (event) => {
+            if (event.target.closest('input') || event.target.closest('select')) return;
+            selectedMilestoneId = milestone.id;
+            updateMilestoneSelectionUI();
+          });
+
+          const nameField = document.createElement('div');
+          nameField.className = 'field';
+          const nameLabel = document.createElement('label');
+          nameLabel.textContent = 'Milestone';
+          const nameInput = document.createElement('input');
+          nameInput.type = 'text';
+          nameInput.value = milestone.name || '';
+          nameInput.placeholder = 'e.g. Planning submission';
+          nameInput.addEventListener('focus', () => {
+            if (selectedMilestoneId !== milestone.id) {
+              selectedMilestoneId = milestone.id;
+              updateMilestoneSelectionUI();
+            }
+          });
+          nameInput.addEventListener('input', (event) => {
+            milestone.name = event.target.value;
+          });
+          nameField.appendChild(nameLabel);
+          nameField.appendChild(nameInput);
+          item.appendChild(nameField);
+
+          let endInputRef = null;
+
+          const typeField = document.createElement('div');
+          typeField.className = 'field';
+          const typeLabel = document.createElement('label');
+          typeLabel.textContent = 'Type';
+          const typeSelect = document.createElement('select');
+          const deadlineOption = document.createElement('option');
+          deadlineOption.value = 'deadline';
+          deadlineOption.textContent = 'Deadline';
+          const standdownOption = document.createElement('option');
+          standdownOption.value = 'standdown';
+          standdownOption.textContent = 'Stand-down';
+          typeSelect.appendChild(deadlineOption);
+          typeSelect.appendChild(standdownOption);
+          typeSelect.value = milestone.type === 'standdown' ? 'standdown' : 'deadline';
+          typeSelect.addEventListener('focus', () => {
+            if (selectedMilestoneId !== milestone.id) {
+              selectedMilestoneId = milestone.id;
+              updateMilestoneSelectionUI();
+            }
+          });
+          typeSelect.addEventListener('change', (event) => {
+            milestone.type = event.target.value === 'standdown' ? 'standdown' : 'deadline';
+            if (milestone.type !== 'standdown') {
+              milestone.endDate = milestone.startDate || milestone.endDate || '';
+            }
+            renderMilestoneDrafts();
+          });
+          typeField.appendChild(typeLabel);
+          typeField.appendChild(typeSelect);
+          item.appendChild(typeField);
+
+          const startField = document.createElement('div');
+          startField.className = 'field';
+          const startLabel = document.createElement('label');
+          startLabel.textContent = milestone.type === 'standdown' ? 'Start date' : 'Date';
+          const startInput = document.createElement('input');
+          startInput.type = 'date';
+          startInput.value = milestone.startDate || '';
+          startInput.addEventListener('focus', () => {
+            if (selectedMilestoneId !== milestone.id) {
+              selectedMilestoneId = milestone.id;
+              updateMilestoneSelectionUI();
+            }
+          });
+          startInput.addEventListener('change', (event) => {
+            milestone.startDate = event.target.value || '';
+            if (milestone.type !== 'standdown') {
+              milestone.endDate = milestone.startDate;
+            } else {
+              normalizeMilestoneDates(milestone);
+              if (milestone.endDate && compareDates(parseDate(milestone.endDate), parseDate(milestone.startDate)) < 0) {
+                milestone.endDate = milestone.startDate;
+              }
+              if (endInputRef) {
+                endInputRef.value = milestone.endDate || '';
+              }
+            }
+            updateMilestoneSelectionUI();
+          });
+          startField.appendChild(startLabel);
+          startField.appendChild(startInput);
+          item.appendChild(startField);
+
+          const endField = document.createElement('div');
+          endField.className = 'field';
+          const endLabel = document.createElement('label');
+          endLabel.textContent = 'End date';
+          if (milestone.type === 'standdown') {
+            const endInput = document.createElement('input');
+            endInput.type = 'date';
+            endInput.value = milestone.endDate || '';
+            endInputRef = endInput;
+            endInput.addEventListener('focus', () => {
+              if (selectedMilestoneId !== milestone.id) {
+                selectedMilestoneId = milestone.id;
+                updateMilestoneSelectionUI();
+              }
+            });
+            endInput.addEventListener('change', (event) => {
+              milestone.endDate = event.target.value || '';
+              normalizeMilestoneDates(milestone);
+              if (endInput.value !== (milestone.endDate || '')) {
+                endInput.value = milestone.endDate || '';
+              }
+              updateMilestoneSelectionUI();
+            });
+            endField.appendChild(endLabel);
+            endField.appendChild(endInput);
+          } else {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'placeholder';
+            placeholder.textContent = '—';
+            endField.appendChild(endLabel);
+            endField.appendChild(placeholder);
+          }
+          item.appendChild(endField);
+
+          milestoneListEl.appendChild(item);
+        });
+        updateMilestoneSelectionUI();
+      }
+
+      function openScheduleModal() {
+        milestoneDrafts = cloneMilestoneList(milestones);
+        selectedMilestoneId = milestoneDrafts.length ? milestoneDrafts[0].id : null;
+        renderMilestoneDrafts();
+        if (scheduleModalBackdrop) scheduleModalBackdrop.classList.remove('hidden');
+        if (scheduleModal) scheduleModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeScheduleModal() {
+        if (scheduleModalBackdrop) scheduleModalBackdrop.classList.add('hidden');
+        if (scheduleModal) scheduleModal.classList.add('hidden');
+        document.body.style.overflow = '';
+        milestoneDrafts = [];
+        selectedMilestoneId = null;
+        if (removeMilestoneBtn) removeMilestoneBtn.disabled = true;
+      }
+
+      function openGenerateModal() {
+        if (!generateModal || !generateModalBackdrop) return;
+        generateModalBackdrop.classList.remove('hidden');
+        generateModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (buildingTypeSelect) {
+          requestAnimationFrame(() => buildingTypeSelect.focus());
+        }
+      }
+
+      function closeGenerateModal() {
+        if (!generateModal || !generateModalBackdrop) return;
+        generateModalBackdrop.classList.add('hidden');
+        generateModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      function handleSaveScheduleSettings() {
+        milestones = cloneMilestoneList(milestoneDrafts).map((milestone) => {
+          const normalized = { ...milestone };
+          if (normalized.type !== 'standdown') {
+            normalized.endDate = normalized.startDate || normalized.endDate || '';
+          }
+          normalizeMilestoneDates(normalized);
+          return normalized;
+        });
+        recomputeStanddownSet();
+        tasks.forEach((task) => {
+          ensureTaskDates(task);
+        });
+        closeScheduleModal();
+        renderAll();
+      }
+
+      function serialiseProgramme() {
+        updateAllStageSummaries();
+        return {
+          tasks: tasks.map((task) => ({
+            ...task,
+            miniTasks: Array.isArray(task.miniTasks) ? task.miniTasks.map((mini) => ({ ...mini })) : []
+          })),
+          milestones: cloneMilestoneList(milestones)
+        };
+      }
+
+      function applyProgrammeSnapshot(data) {
+        if (!data || typeof data !== 'object') throw new Error('Invalid programme format.');
+        const loadedTasks = Array.isArray(data.tasks) ? data.tasks : [];
+        const loadedMilestones = Array.isArray(data.milestones) ? data.milestones : [];
+        tasks = loadedTasks.map((task) => {
+          const entryType = task?.entryType || (task?.singleEvent ? 'single' : 'task');
+          const parentId = typeof task?.parentId === 'string' && task.parentId ? task.parentId : null;
+          if (entryType === 'stage') {
+            const normalizedStage = normalizeStageMetadata({
+              ...task,
+              parentId
+            });
+            normalizedStage.progress = Math.min(100, Math.max(0, Number(task?.progress) || 0));
+            return normalizedStage;
+          }
+          const undefinedDuration = Math.max(0, Math.round(task?.undefinedDuration || 0));
+          const singleEvent = entryType === 'single';
+          const miniTasks = entryType === 'task'
+            ? (Array.isArray(task.miniTasks)
+              ? task.miniTasks.map((mini) => ({
+                ...mini,
+                locked: Boolean(mini.locked)
+              }))
+              : [])
+            : [];
+          return {
+            ...task,
+            entryType,
+            singleEvent,
+            undefinedDuration,
+            miniTasks,
+            parentId,
+            stagePreset: '',
+            stageCustomName: '',
+            isStage: false
+          };
+        });
+        milestones = cloneMilestoneList(loadedMilestones);
+        tasks.forEach((task) => {
+          if (task.entryType !== 'stage') ensureTaskDates(task);
+        });
+        recomputeStanddownSet();
+        selectedTaskId = null;
+        milestoneDrafts = [];
+        selectedMilestoneId = null;
+        updateAllStageSummaries();
+        renderAll();
+      }
+
+      function setActiveGraphAccount(account) {
+        if (account) {
+          graphAccount = account;
+          activeAccountEmail = account.username || account.name || '';
+        } else {
+          graphAccount = null;
+          activeAccountEmail = null;
+        }
+        if (msalClient && typeof msalClient.setActiveAccount === 'function') {
+          msalClient.setActiveAccount(account || null);
+        }
+        updateGraphAuthUI();
+        maybeAutoLoadProgrammeFromTeams();
+      }
+
+      function updateGraphAuthUI() {
+        if (!graphAuthBtn) return;
+        if (graphAccount) {
+          const label = activeAccountEmail
+            ? `Signed in: ${activeAccountEmail}`
+            : 'Signed in';
+          graphAuthBtn.textContent = label;
+          graphAuthBtn.dataset.signedIn = 'true';
+          graphAuthBtn.title = 'Click to sign out from OneDrive';
+        } else {
+          graphAuthBtn.textContent = 'Sign in to OneDrive';
+          delete graphAuthBtn.dataset.signedIn;
+          graphAuthBtn.title = 'Click to connect to OneDrive';
+        }
+      }
+
+      async function ensureMsalClient() {
+        if (msalClient) return msalClient;
+        if (!msalClientPromise) {
+          msalClientPromise = (async () => {
+            const client = await createNestablePublicClientApplication(MSAL_CONFIG);
+            if (typeof client.initialize === 'function') {
+              await client.initialize();
+            }
+            return client;
+          })();
+        }
+        try {
+          msalClient = await msalClientPromise;
+        } catch (error) {
+          msalClientPromise = null;
+          throw error;
+        }
+        const accounts = msalClient?.getAllAccounts?.() || [];
+        if (accounts.length && !graphAccount) {
+          setActiveGraphAccount(accounts[0]);
+        }
+        return msalClient;
+      }
+
+      async function acquireGraphToken({ interactiveFallback = true } = {}) {
+        const client = await ensureMsalClient();
+        const accounts = client.getAllAccounts?.() || [];
+        let account = accounts.length ? accounts[0] : null;
+        if (account) {
+          client.setActiveAccount?.(account);
+          setActiveGraphAccount(account);
+        }
+
+        if (account) {
+          try {
+            const response = await client.acquireTokenSilent({
+              scopes: GRAPH_SCOPES,
+              account
+            });
+            if (response?.account) {
+              setActiveGraphAccount(response.account);
+            }
+            return response.accessToken;
+          } catch (error) {
+            const interactionRequired = error instanceof InteractionRequiredAuthError
+              || String(error?.errorCode || '').toLowerCase() === 'interaction_required';
+            if (!interactionRequired) {
+              throw error;
+            }
+            if (!interactiveFallback) {
+              throw error;
+            }
+          }
+        }
+
+        if (!interactiveFallback) {
+          throw new Error('User interaction is required to acquire a Graph token.');
+        }
+        const popupResponse = await client.acquireTokenPopup({
+          scopes: GRAPH_SCOPES
+        });
+        if (popupResponse?.account) {
+          setActiveGraphAccount(popupResponse.account);
+        }
+        if (!popupResponse?.accessToken) {
+          throw new Error('Authentication did not return an access token.');
+        }
+        return popupResponse.accessToken;
+      }
+
+      async function loginToGraph() {
+        try {
+          await acquireGraphToken({ interactiveFallback: true });
+          const label = activeAccountEmail ? `Signed in: ${activeAccountEmail}` : 'Signed in to OneDrive.';
+          window.alert(label);
+        } catch (error) {
+          console.error('Unable to sign in to OneDrive', error);
+          window.alert(`Unable to sign in to OneDrive. Details: ${extractErrorMessage(error)}`);
+        }
+      }
+
+      async function logoutFromGraph() {
+        try {
+          const client = await ensureMsalClient();
+          if (!graphAccount) {
+            updateGraphAuthUI();
+            window.alert('No OneDrive session to sign out from.');
+            return;
+          }
+          await client.logoutPopup({ account: graphAccount });
+          setActiveGraphAccount(null);
+          window.alert('Signed out from OneDrive.');
+        } catch (error) {
+          console.error('Unable to sign out from OneDrive', error);
+          window.alert(`Unable to sign out from OneDrive. Details: ${extractErrorMessage(error)}`);
+        }
+      }
+
+      async function handleGraphAuthBtnClick() {
+        if (!graphAuthBtn) return;
+        const signedIn = graphAuthBtn.dataset.signedIn === 'true';
+        if (signedIn) {
+          await logoutFromGraph();
+        } else {
+          await loginToGraph();
+        }
+      }
+
+      async function uploadProgrammeToOneDrive(json) {
+        const token = await acquireGraphToken();
+        const target = await resolveProgrammeStorageUrl({ token, ensureProgrammeFolder: true });
+        if (!target?.url) {
+          throw new Error('Unable to determine storage location for programme file.');
+        }
+        const response = await fetch(target.url, {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: json
+        });
+        if (!response.ok) {
+          const errorText = await response.text().catch(() => '');
+          throw new Error(`Graph upload failed (${response.status}): ${errorText}`);
+        }
+        return response.json().catch(() => ({}));
+      }
+
+      async function downloadProgrammeFromOneDrive() {
+        const token = await acquireGraphToken();
+        const target = await resolveProgrammeStorageUrl({ token });
+        if (!target?.url) {
+          throw new Error('Unable to determine storage location for programme file.');
+        }
+        const response = await fetch(target.url, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        if (!response.ok) {
+          const errorText = await response.text().catch(() => '');
+          throw new Error(`Graph download failed (${response.status}): ${errorText}`);
+        }
+        return response.text();
+      }
+
+      function extractErrorMessage(error) {
+        let message = 'Unknown error.';
+        if (!error) {
+          message = 'Unknown error.';
+        } else if (typeof error === 'string') {
+          message = error;
+        } else if (error.message) {
+          message = error.message;
+        } else if (error.errorMessage) {
+          message = error.errorMessage;
+        } else {
+          try {
+            message = JSON.stringify(error);
+          } catch (jsonError) {
+            message = String(error);
+          }
+        }
+        return message;
+      }
+
+      async function handleSaveProgramme() {
+        const payload = serialiseProgramme();
+        const json = JSON.stringify(payload, null, 2);
+        try {
+          await uploadProgrammeToOneDrive(json);
+          window.localStorage.setItem('programme-cache', json);
+          window.alert('Programme saved to OneDrive.');
+        } catch (error) {
+          console.error('Unable to save programme to OneDrive', error);
+          window.alert(`Unable to save the programme to OneDrive. Details: ${extractErrorMessage(error)}`);
+        }
+      }
+
+      async function handleLoadProgramme() {
+        try {
+          const json = await downloadProgrammeFromOneDrive();
+          window.localStorage.setItem('programme-cache', json);
+          applyProgrammeSnapshot(JSON.parse(json));
+        } catch (error) {
+          console.warn('Unable to load programme from OneDrive', error);
+          try {
+            const cached = window.localStorage.getItem('programme-cache');
+            if (!cached) throw new Error('No cached programme available.');
+            applyProgrammeSnapshot(JSON.parse(cached));
+            window.alert('Unable to reach OneDrive. Loaded cached programme instead.');
+          } catch (fallbackError) {
+            console.error('Unable to load programme', fallbackError);
+            window.alert(`Unable to load the programme from OneDrive and no cached version is available. Details: ${extractErrorMessage(error)} | Cache error: ${extractErrorMessage(fallbackError)}`);
+          }
+        }
+      }
+
+      function isWeekend(date) {
+        const day = date.getUTCDay();
+        return day === 0 || day === 6;
+      }
+
+      function addDays(date, days) {
+        const result = new Date(date.getTime());
+        result.setUTCDate(result.getUTCDate() + days);
+        return result;
+      }
+
+      function ensureWeekday(date, direction = 1) {
+        if (!(date instanceof Date)) return null;
+        let result = new Date(date.getTime());
+        const step = direction >= 0 ? 1 : -1;
+        let guard = 0;
+        while (!isWorkingDay(result) && guard < 500) {
+          result = addDays(result, step);
+          guard += 1;
+        }
+        return result;
+      }
+
+      function shiftWeekdays(date, offset) {
+        if (!(date instanceof Date) || offset === 0) return ensureWeekday(date);
+        let remaining = Math.abs(offset);
+        const direction = offset > 0 ? 1 : -1;
+        let current = new Date(date.getTime());
+        let guard = 0;
+        while (remaining > 0 && guard < 4000) {
+          current = addDays(current, direction);
+          if (isWorkingDay(current)) remaining -= 1;
+          guard += 1;
+        }
+        return ensureWeekday(current, direction);
+      }
+
+      function diffInWeekdays(start, end) {
+        if (!start || !end) return 0;
+        let from = new Date(start.getTime());
+        let to = new Date(end.getTime());
+        if (from > to) [from, to] = [to, from];
+        let count = 0;
+        let current = new Date(from.getTime());
+        const guard = 4000;
+        let guardCount = 0;
+        while (compareDates(current, to) <= 0 && guardCount < guard) {
+          if (isWorkingDay(current)) count += 1;
+          current = addDays(current, 1);
+          guardCount += 1;
+        }
+        return count;
+      }
+
+      function weekdayOffset(from, to) {
+        if (!from || !to) return 0;
+        const target = ensureWeekday(to, from <= to ? 1 : -1);
+        if (!target) return 0;
+        if (from.getTime() === target.getTime()) return 0;
+        const forward = from < target;
+        let steps = 0;
+        let cursor = ensureWeekday(from, forward ? 1 : -1);
+        const guard = 5000;
+        let guardCount = 0;
+        while (cursor.getTime() !== target.getTime() && guardCount < guard) {
+          cursor = addDays(cursor, forward ? 1 : -1);
+          if (isWorkingDay(cursor)) steps += forward ? 1 : -1;
+          guardCount += 1;
+        }
+        return steps;
+      }
+
+      function compareDates(a, b) {
+        if (!a || !b) return 0;
+        const diff = a.getTime() - b.getTime();
+        if (diff === 0) return 0;
+        return diff > 0 ? 1 : -1;
+      }
+
+      function getISOWeekNumber(date) {
+        if (!(date instanceof Date)) return 0;
+        const tmp = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+        const dayNum = tmp.getUTCDay() || 7;
+        tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum);
+        const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+        return Math.ceil((((tmp - yearStart) / 86400000) + 1) / 7);
+      }
+
+      function groupTimelineDaysByWeek(days) {
+        if (!Array.isArray(days) || !days.length) return [];
+        const groups = [];
+        days.forEach((day, index) => {
+          const weekNumber = getISOWeekNumber(day);
+          const year = day.getUTCFullYear();
+          const key = `${year}-W${String(weekNumber).padStart(2, '0')}`;
+          let group = groups[groups.length - 1];
+          if (!group || group.key !== key) {
+            group = {
+              key,
+              year,
+              weekNumber,
+              start: day,
+              end: day,
+              length: 1,
+              startIndex: index
+            };
+            groups.push(group);
+          } else {
+            group.end = day;
+            group.length += 1;
+          }
+        });
+        return groups;
+      }
+
+      function groupTimelineDaysByMonth(days) {
+        if (!Array.isArray(days) || !days.length) return [];
+        const groups = [];
+        days.forEach((day, index) => {
+          const month = day.getUTCMonth();
+          const year = day.getUTCFullYear();
+          let group = groups[groups.length - 1];
+          if (!group || group.month !== month || group.year !== year) {
+            group = {
+              year,
+              month,
+              start: day,
+              end: day,
+              length: 1,
+              startIndex: index
+            };
+            groups.push(group);
+          } else {
+            group.end = day;
+            group.length += 1;
+          }
+        });
+        return groups;
+      }
+
+      function groupTimelineDaysByYear(days) {
+        if (!Array.isArray(days) || !days.length) return [];
+        const groups = [];
+        days.forEach((day, index) => {
+          const year = day.getUTCFullYear();
+          let group = groups[groups.length - 1];
+          if (!group || group.year !== year) {
+            group = {
+              year,
+              start: day,
+              end: day,
+              length: 1,
+              startIndex: index
+            };
+            groups.push(group);
+          } else {
+            group.end = day;
+            group.length += 1;
+          }
+        });
+        return groups;
+      }
+      function getMiniColor(name) {
+        if (!name) return DEFAULT_SEGMENT_COLOR;
+        return TASK_COLOR_MAP[name] || DEFAULT_SEGMENT_COLOR;
+      }
+
+      function parseColorToRgb(value) {
+        if (typeof value !== 'string' || !value) {
+          return { r: 48, g: 86, b: 211 };
+        }
+        const trimmed = value.trim();
+        const rgbMatch = trimmed.match(/^rgb\s*\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/i);
+        if (rgbMatch) {
+          return {
+            r: Math.max(0, Math.min(255, parseInt(rgbMatch[1], 10))),
+            g: Math.max(0, Math.min(255, parseInt(rgbMatch[2], 10))),
+            b: Math.max(0, Math.min(255, parseInt(rgbMatch[3], 10)))
+          };
+        }
+        if (trimmed.startsWith('#')) {
+          let hex = trimmed.slice(1);
+          if (hex.length === 3) {
+            hex = hex.split('').map((char) => char + char).join('');
+          }
+          if (hex.length === 6 && /^[0-9a-f]{6}$/i.test(hex)) {
+            return {
+              r: parseInt(hex.slice(0, 2), 16),
+              g: parseInt(hex.slice(2, 4), 16),
+              b: parseInt(hex.slice(4, 6), 16)
+            };
+          }
+        }
+        return { r: 48, g: 86, b: 211 };
+      }
+
+
+      function countEnabledMiniTasks(task) {
+        if (task?.singleEvent) return 0;
+        return (task.miniTasks || []).filter((mini) => mini.enabled).length;
+      }
+
+      function minimumTaskDuration(task) {
+        if (task?.singleEvent) return 1;
+        return Math.max(1, countEnabledMiniTasks(task));
+      }
+
+      function normalizeMiniDurations(miniTasks, totalDuration, options = {}) {
+        const result = {
+          undefinedDuration: Math.max(0, Math.round(options.undefinedDuration || 0))
+        };
+        const safeTotal = Math.max(0, Math.round(totalDuration || 0));
+        if (!Array.isArray(miniTasks) || miniTasks.length === 0) {
+          result.undefinedDuration = safeTotal;
+          return result;
+        }
+        const enabled = miniTasks.filter((mini) => mini.enabled);
+        if (!enabled.length) {
+          result.undefinedDuration = safeTotal;
+          return result;
+        }
+        enabled.forEach((mini) => {
+          const rounded = Math.max(1, Math.round(mini.duration || 1));
+          mini.duration = rounded;
+          mini.locked = Boolean(mini.locked);
+        });
+
+        const sumDurations = enabled.reduce((sum, mini) => sum + mini.duration, 0);
+        let accounted = sumDurations + result.undefinedDuration;
+        if (accounted === safeTotal) {
+          return result;
+        }
+
+        if (accounted < safeTotal) {
+          let deficit = safeTotal - accounted;
+          const adjustable = enabled.filter((mini) => !mini.locked);
+          if (adjustable.length) {
+            adjustable[adjustable.length - 1].duration += deficit;
+          } else {
+            result.undefinedDuration += deficit;
+          }
+          return result;
+        }
+
+        // accounted > safeTotal
+        let excess = accounted - safeTotal;
+        if (result.undefinedDuration > 0) {
+          const consume = Math.min(result.undefinedDuration, excess);
+          result.undefinedDuration -= consume;
+          excess -= consume;
+        }
+        if (excess <= 0) {
+          return result;
+        }
+
+        const trimDurations = (list) => {
+          for (let idx = list.length - 1; idx >= 0 && excess > 0; idx -= 1) {
+            const candidate = list[idx];
+            const reducible = Math.max(0, candidate.duration - 1);
+            if (reducible <= 0) continue;
+            const deduction = Math.min(reducible, excess);
+            candidate.duration -= deduction;
+            excess -= deduction;
+          }
+        };
+
+        const unlocked = enabled.filter((mini) => !mini.locked);
+        if (unlocked.length) {
+          trimDurations(unlocked);
+        }
+
+        if (excess > 0) {
+          trimDurations(enabled);
+        }
+
+        // If excess still remains, the schedule is saturated at minimum durations.
+        // We keep the remaining overflow so callers can expand overall duration if needed.
+        return result;
+      }
+      function buildMiniSegments(task) {
+        if (task?.singleEvent) return [];
+        const totalDuration = getTaskDuration(task);
+        const clones = task.miniTasks.map((mini, index) => ({ ...mini, __sourceIndex: index }));
+        const { undefinedDuration } = normalizeMiniDurations(clones, totalDuration, {
+          undefinedDuration: Math.max(0, Math.round(task?.undefinedDuration || 0))
+        });
+        const segments = clones.filter((mini) => mini.enabled).map((mini) => ({
+          ...mini,
+          sourceIndex: mini.__sourceIndex
+        }));
+        if (undefinedDuration > 0) {
+          segments.push({
+            id: `${task.id || 'task'}-undefined`,
+            enabled: true,
+            name: 'Undefined',
+            duration: undefinedDuration,
+            locked: false,
+            isUndefined: true,
+            sourceIndex: -1
+          });
+        }
+        return segments;
+      }
+
+      function sanitiseUndefinedDuration(value) {
+        return Math.max(0, Math.round(value || 0));
+      }
+
+      function computeMiniDurationSum(miniTasks) {
+        return miniTasks
+          .filter((mini) => mini.enabled)
+          .reduce((sum, mini) => {
+            const rounded = Math.max(1, Math.round(mini.duration || 1));
+            mini.duration = rounded;
+            return sum + rounded;
+          }, 0);
+      }
+
+      function reconcileMiniDurationsForTask(task, totalDuration, options = {}) {
+        if (task?.singleEvent) {
+          const start = ensureWeekday(parseDate(task.startDate) || new Date(), 1);
+          const normalized = formatDate(start);
+          task.startDate = normalized;
+          task.endDate = normalized;
+          task.miniTasks = [];
+          task.undefinedDuration = 0;
+          return 1;
+        }
+        const settings = {
+          anchor: options.anchor === 'end' ? 'end' : 'start',
+          referenceStart: options.referenceStart instanceof Date ? options.referenceStart : null,
+          referenceEnd: options.referenceEnd instanceof Date ? options.referenceEnd : null
+        };
+        const safeTotal = Math.max(1, Math.round(totalDuration || 1));
+        const { undefinedDuration } = normalizeMiniDurations(task.miniTasks, safeTotal, {
+          undefinedDuration: sanitiseUndefinedDuration(task?.undefinedDuration || 0)
+        });
+        task.undefinedDuration = sanitiseUndefinedDuration(undefinedDuration);
+        const enabledDuration = computeMiniDurationSum(task.miniTasks);
+        const actualDuration = Math.max(1, enabledDuration + task.undefinedDuration);
+        if (settings.anchor === 'end' && settings.referenceEnd) {
+          const anchoredEnd = ensureWeekday(new Date(settings.referenceEnd.getTime()), -1);
+          const adjustedStart = shiftWeekdays(anchoredEnd, -(actualDuration - 1));
+          task.startDate = formatDate(adjustedStart);
+          task.endDate = formatDate(anchoredEnd);
+        } else {
+          const anchorStart = settings.referenceStart || parseDate(task.startDate) || ensureWeekday(new Date(), 1);
+          const adjustedStart = ensureWeekday(new Date(anchorStart.getTime()), 1);
+          const adjustedEnd = shiftWeekdays(adjustedStart, actualDuration - 1);
+          task.startDate = formatDate(adjustedStart);
+          task.endDate = formatDate(adjustedEnd);
+        }
+        return actualDuration;
+      }
+
+      function buildMiniSegmentsPreview(task, duration) {
+        if (task?.singleEvent) return [];
+        const clones = task.miniTasks.map((mini, index) => ({ ...mini, __sourceIndex: index }));
+        const { undefinedDuration } = normalizeMiniDurations(clones, duration, {
+          undefinedDuration: Math.max(0, Math.round(task?.undefinedDuration || 0))
+        });
+        const segments = clones.filter((mini) => mini.enabled).map((mini) => ({
+          ...mini,
+          sourceIndex: mini.__sourceIndex
+        }));
+        if (undefinedDuration > 0) {
+          segments.push({
+            id: `${task.id || 'task'}-undefined`,
+            enabled: true,
+            name: 'Undefined',
+            duration: undefinedDuration,
+            locked: false,
+            isUndefined: true,
+            sourceIndex: -1
+          });
+        }
+        return segments;
+      }
+
+      function getTaskDuration(task) {
+        const start = parseDate(task.startDate);
+        const end = parseDate(task.endDate);
+        if (!start || !end) return 0;
+        return Math.max(1, diffInWeekdays(start, end));
+      }
+
+      function ensureTaskDates(task) {
+        if (task?.singleEvent) {
+          const start = ensureWeekday(parseDate(task.startDate) || new Date(), 1);
+          const normalized = formatDate(start);
+          task.startDate = normalized;
+          task.endDate = normalized;
+          task.miniTasks = [];
+          task.undefinedDuration = 0;
+          return;
+        }
+        let start = ensureWeekday(parseDate(task.startDate) || new Date(), 1);
+        let end = ensureWeekday(parseDate(task.endDate) || new Date(start.getTime()), -1);
+        if (compareDates(end, start) < 0) {
+          end = new Date(start.getTime());
+        }
+        let duration = Math.max(1, diffInWeekdays(start, end));
+        const minDuration = minimumTaskDuration(task);
+        if (duration < minDuration) {
+          end = shiftWeekdays(start, minDuration - 1);
+          duration = diffInWeekdays(start, end);
+        }
+        reconcileMiniDurationsForTask(task, duration, { anchor: 'start', referenceStart: start });
+      }
+
+      function renderTaskList() {
+        const previousScrollTop = taskListScrollEl ? taskListScrollEl.scrollTop : 0;
+        taskListEl.innerHTML = '';
+        const orderedEntries = getOrderedTasks();
+        const identifierMap = buildTaskIdentifiers(orderedEntries);
+        if (!orderedEntries.length) {
+          const empty = document.createElement('div');
+          empty.className = 'empty-state';
+          empty.textContent = 'Add a task to populate the planner.';
+          taskListEl.appendChild(empty);
+          if (taskListScrollEl) taskListScrollEl.scrollTop = 0;
+          return;
+        }
+        orderedEntries.forEach(({ task, depth }) => {
+          const isStage = task.entryType === 'stage';
+          const hasStageChildren = isStage
+            ? getStageChildren(task.id).some((child) => child.entryType !== 'stage')
+            : false;
+          const row = document.createElement('div');
+          row.className = 'task-row';
+          row.dataset.taskId = task.id;
+          row.dataset.entryType = task.entryType || 'task';
+          row.dataset.parentId = task.parentId || '';
+          if (task.id === selectedTaskId) row.classList.add('selected');
+          if (isStage) row.classList.add('stage-row');
+          if (isStage && !hasStageChildren) row.classList.add('stage-empty');
+          if (!isStage && depth > 0) row.classList.add('stage-child');
+
+          row.draggable = true;
+          row.addEventListener('dragstart', (event) => {
+            if (event.target && event.target.closest('input, textarea, select')) {
+              event.preventDefault();
+              return;
+            }
+            draggedTaskId = task.id;
+            row.classList.add('dragging');
+            if (event.dataTransfer) {
+              event.dataTransfer.effectAllowed = 'move';
+              try {
+                event.dataTransfer.setData('text/plain', task.id);
+              } catch (error) {
+                // ignore dataTransfer errors
+              }
+            }
+          });
+          row.addEventListener('dragend', () => {
+            row.classList.remove('dragging');
+            row.classList.remove('drag-over');
+            draggedTaskId = null;
+          });
+          row.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            const sourceId = draggedTaskId || (event.dataTransfer ? event.dataTransfer.getData('text/plain') : null);
+            if (!sourceId || sourceId === task.id) return;
+            row.classList.add('drag-over');
+            if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+          });
+          row.addEventListener('dragleave', () => {
+            row.classList.remove('drag-over');
+          });
+          row.addEventListener('drop', (event) => {
+            event.preventDefault();
+            const sourceId = draggedTaskId || (event.dataTransfer ? event.dataTransfer.getData('text/plain') : null);
+            row.classList.remove('drag-over');
+            if (!sourceId || sourceId === task.id) return;
+            const bounds = row.getBoundingClientRect();
+            const insertAfter = (event.clientY - bounds.top) > (bounds.height / 2);
+            moveTaskRelative(sourceId, task.id, insertAfter);
+          });
+
+          const identifierCell = document.createElement('div');
+          identifierCell.className = 'task-identifier';
+          const identifierValue = identifierMap.get(task.id) || '—';
+          identifierCell.textContent = identifierValue;
+          if (identifierValue === '—') identifierCell.classList.add('identifier-placeholder');
+          row.dataset.identifier = identifierValue;
+          row.appendChild(identifierCell);
+
+          const nameCell = document.createElement('div');
+          nameCell.className = 'task-name';
+          nameCell.textContent = task.name || (isStage ? 'Stage' : 'Untitled');
+          row.appendChild(nameCell);
+
+          const startCell = document.createElement('div');
+          startCell.className = 'task-start';
+          if (isStage) {
+            startCell.textContent = hasStageChildren && task.startDate ? task.startDate : '—';
+            if (!hasStageChildren) startCell.classList.add('stage-meta-hidden');
+          } else {
+            const startInput = document.createElement('input');
+            startInput.type = 'date';
+            startInput.value = task.startDate || '';
+            startInput.addEventListener('click', (event) => event.stopPropagation());
+            startInput.addEventListener('change', (event) => {
+              event.stopPropagation();
+              const newStart = ensureWeekday(parseDate(event.target.value), 1);
+              if (!newStart) {
+                event.target.value = task.startDate || '';
+                return;
+              }
+              updateTaskStartDate(task, newStart);
+              renderAll();
+            });
+            startCell.appendChild(startInput);
+          }
+          row.appendChild(startCell);
+
+          const endCell = document.createElement('div');
+          endCell.className = 'task-end';
+          if (isStage) {
+            endCell.textContent = hasStageChildren && task.endDate ? task.endDate : '—';
+            if (!hasStageChildren) endCell.classList.add('stage-meta-hidden');
+          } else {
+            const endInput = document.createElement('input');
+            endInput.type = 'date';
+            endInput.value = task.endDate || '';
+            endInput.addEventListener('click', (event) => event.stopPropagation());
+            endInput.addEventListener('change', (event) => {
+              event.stopPropagation();
+              const newEnd = ensureWeekday(parseDate(event.target.value), -1);
+              if (!newEnd) {
+                event.target.value = task.endDate || '';
+                return;
+              }
+              updateTaskEndDate(task, newEnd);
+              renderAll();
+            });
+            endCell.appendChild(endInput);
+          }
+          row.appendChild(endCell);
+
+          const durationCell = document.createElement('div');
+          durationCell.className = 'task-duration-cell';
+          const badge = document.createElement('div');
+          badge.className = 'task-duration';
+          if (isStage) {
+            const stageDuration = hasStageChildren && task.startDate && task.endDate ? getTaskDuration(task) : 0;
+            badge.textContent = stageDuration
+              ? `${stageDuration} day${stageDuration !== 1 ? 's' : ''}`
+              : '—';
+          } else {
+            const duration = getTaskDuration(task);
+            badge.textContent = task.singleEvent
+              ? 'Single event'
+              : `${duration} day${duration !== 1 ? 's' : ''}`;
+          }
+          durationCell.appendChild(badge);
+          row.appendChild(durationCell);
+
+          const progressCell = document.createElement('div');
+          progressCell.className = 'task-progress';
+          if (isStage) {
+            const progressValue = Math.min(100, Math.max(0, Math.round(task.progress || 0)));
+            progressCell.textContent = hasStageChildren ? `${progressValue}%` : '—';
+            if (!hasStageChildren) progressCell.classList.add('stage-meta-hidden');
+          } else {
+            const progressInput = document.createElement('input');
+            progressInput.type = 'number';
+            progressInput.min = '0';
+            progressInput.max = '100';
+            progressInput.step = '1';
+            progressInput.value = Math.min(100, Math.max(0, Number(task.progress) || 0));
+            progressInput.addEventListener('click', (event) => event.stopPropagation());
+            progressInput.addEventListener('change', (event) => {
+              event.stopPropagation();
+              let value = parseInt(event.target.value, 10);
+              if (Number.isNaN(value)) value = 0;
+              task.progress = Math.min(100, Math.max(0, value));
+              event.target.value = task.progress;
+              updateAllStageSummaries();
+              renderGantt();
+            });
+            const percentLabel = document.createElement('span');
+            percentLabel.textContent = '%';
+            progressCell.appendChild(progressInput);
+            progressCell.appendChild(percentLabel);
+          }
+          row.appendChild(progressCell);
+
+          row.addEventListener('click', () => {
+            selectTask(task.id);
+          });
+
+          taskListEl.appendChild(row);
+        });
+        if (taskListScrollEl) {
+          taskListScrollEl.scrollTop = previousScrollTop;
+        }
+      }
+      function computeTimelineRange() {
+        if (!tasks.length) {
+          const today = ensureWeekday(new Date(), 1);
+          return {
+            start: shiftWeekdays(today, -7),
+            end: shiftWeekdays(today, 14)
+          };
+        }
+        let minStart = parseDate(tasks[0].startDate);
+        let maxEnd = parseDate(tasks[0].endDate);
+        tasks.forEach((task) => {
+          const start = parseDate(task.startDate);
+          const end = parseDate(task.endDate);
+          if (start && start < minStart) minStart = start;
+          if (end && end > maxEnd) maxEnd = end;
+        });
+        minStart = ensureWeekday(minStart, -1);
+        maxEnd = ensureWeekday(maxEnd, 1);
+        return {
+          start: shiftWeekdays(minStart, -5),
+          end: shiftWeekdays(maxEnd, 7)
+        };
+      }
+
+      function buildTimelineDays(start, end) {
+        const days = [];
+        let current = new Date(start.getTime());
+        const guard = 2000;
+        let guardCount = 0;
+        while (compareDates(current, end) <= 0 && guardCount < guard) {
+          if (!isWeekend(current)) {
+            days.push(new Date(current.getTime()));
+          }
+          current = addDays(current, 1);
+          guardCount += 1;
+        }
+        return days;
+      }
+
+      function buildMilestoneSegments(days) {
+        if (!Array.isArray(days) || !days.length || !milestones.length) return [];
+        const segments = [];
+        const timelineStart = days[0];
+        const timelineEnd = days[days.length - 1];
+        milestones.forEach((milestone) => {
+          if (!milestone) return;
+          const rawStart = parseDate(milestone.startDate);
+          if (!rawStart) return;
+          const isStanddown = milestone.type === 'standdown';
+          let rawEnd = isStanddown ? parseDate(milestone.endDate) : rawStart;
+          if (!rawEnd || compareDates(rawEnd, rawStart) < 0) rawEnd = rawStart;
+          if (compareDates(rawStart, timelineEnd) > 0) return;
+          if (compareDates(rawEnd, timelineStart) < 0) return;
+          let startIndex = -1;
+          for (let i = 0; i < days.length; i += 1) {
+            if (compareDates(days[i], rawStart) >= 0) {
+              startIndex = i;
+              break;
+            }
+          }
+          if (startIndex === -1) return;
+          let endIndex = startIndex;
+          for (let i = startIndex; i < days.length; i += 1) {
+            if (compareDates(days[i], rawEnd) > 0) break;
+            endIndex = i;
+          }
+          if (endIndex < startIndex) return;
+          segments.push({
+            id: milestone.id,
+            name: milestone.name || '',
+            type: isStanddown ? 'standdown' : 'deadline',
+            startIndex,
+            endIndex
+          });
+        });
+        return segments;
+      }
+      function selectTask(taskId) {
+        selectedTaskId = taskId;
+        renderAll();
+      }
+
+      function updateActionButtons() {
+        const hasSelection = Boolean(selectedTaskId);
+        editTaskBtn.disabled = !hasSelection;
+        const currentIndex = hasSelection ? tasks.findIndex((task) => task.id === selectedTaskId) : -1;
+        moveUpBtn.disabled = !hasSelection || currentIndex <= 0;
+        moveDownBtn.disabled = !hasSelection || currentIndex === -1 || currentIndex >= tasks.length - 1;
+        if (removeTaskBtn) removeTaskBtn.disabled = !hasSelection;
+      }
+
+      function moveTaskRelative(sourceId, targetId, insertAfter = false) {
+        if (!sourceId || !targetId || sourceId === targetId) return;
+        const sourceIndex = tasks.findIndex((task) => task.id === sourceId);
+        if (sourceIndex === -1) return;
+        const [movedTask] = tasks.splice(sourceIndex, 1);
+        let targetIndex = tasks.findIndex((task) => task.id === targetId);
+        if (targetIndex === -1) {
+          tasks.splice(sourceIndex, 0, movedTask);
+          return;
+        }
+        const targetTask = tasks[targetIndex];
+        if (movedTask.entryType === 'stage') {
+          movedTask.parentId = null;
+          let insertIndex = targetIndex;
+          if (insertAfter) insertIndex += 1;
+          tasks.splice(insertIndex, 0, movedTask);
+        } else if (targetTask.entryType === 'stage') {
+          movedTask.parentId = targetTask.id;
+          const children = getStageChildren(targetTask.id);
+          const stageIndex = tasks.findIndex((task) => task.id === targetTask.id);
+          let insertIndex;
+          if (!children.length) {
+            insertIndex = stageIndex + 1;
+          } else {
+            const lastChild = children[children.length - 1];
+            const lastChildIndex = tasks.findIndex((task) => task.id === lastChild.id);
+            insertIndex = lastChildIndex + 1;
+          }
+          tasks.splice(insertIndex, 0, movedTask);
+        } else {
+          movedTask.parentId = targetTask.parentId || null;
+          targetIndex = tasks.findIndex((task) => task.id === targetId);
+          let insertIndex = targetIndex;
+          if (insertAfter) insertIndex += 1;
+          tasks.splice(insertIndex, 0, movedTask);
+        }
+        draggedTaskId = null;
+        selectedTaskId = movedTask.id;
+        renderAll();
+      }
+
+      function moveSelectedTask(direction) {
+        if (!selectedTaskId) return;
+        const currentIndex = tasks.findIndex((task) => task.id === selectedTaskId);
+        if (currentIndex === -1) return;
+        const targetIndex = currentIndex + direction;
+        if (targetIndex < 0 || targetIndex >= tasks.length) return;
+        const [task] = tasks.splice(currentIndex, 1);
+        tasks.splice(targetIndex, 0, task);
+        selectedTaskId = task.id;
+        renderAll();
+      }
+
+      function removeSelectedTask() {
+        if (!selectedTaskId) return;
+        const index = tasks.findIndex((task) => task.id === selectedTaskId);
+        if (index === -1) return;
+        const [removedTask] = tasks.splice(index, 1);
+        if (removedTask && removedTask.entryType === 'stage') {
+          tasks.forEach((task) => {
+            if (task.parentId === removedTask.id) task.parentId = null;
+          });
+        }
+        if (tasks.length) {
+          const nextIndex = Math.min(index, tasks.length - 1);
+          selectedTaskId = tasks[nextIndex].id;
+        } else {
+          selectedTaskId = null;
+        }
+        renderAll();
+      }
+
+      function renderLegend() {
+        if (!legendContainer) return;
+        legendContainer.innerHTML = '';
+        Object.entries(TASK_COLOR_MAP).forEach(([label, color]) => {
+          const item = document.createElement('span');
+          item.className = 'legend-item';
+          const swatch = document.createElement('span');
+          swatch.className = 'legend-swatch';
+          swatch.style.background = color;
+          item.appendChild(swatch);
+          item.appendChild(document.createTextNode(label));
+          legendContainer.appendChild(item);
+        });
+      }
+
+      function populateBuildingTypeOptions() {
+        const uniqueTypes = [...new Set(databaseRecords.map((record) => record.buildingType))].filter(Boolean).sort((a, b) => a.localeCompare(b));
+        buildingTypeSelect.innerHTML = '';
+        if (!uniqueTypes.length) {
+          const option = document.createElement('option');
+          option.value = '';
+          option.textContent = 'No building types found';
+          option.disabled = true;
+          option.selected = true;
+          buildingTypeSelect.appendChild(option);
+          return;
+        }
+        uniqueTypes.forEach((type, index) => {
+          const option = document.createElement('option');
+          option.value = type;
+          option.textContent = type;
+          if (index === 0) option.selected = true;
+          buildingTypeSelect.appendChild(option);
+        });
+      }
+
+      async function loadDatabase() {
+        databaseRecords = [];
+        try {
+          const response = await fetch(`database.json?cache-bust=${Date.now()}`, { cache: 'no-store' });
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          const data = await response.json();
+          if (Array.isArray(data) && data.length) {
+            databaseRecords = data;
+          }
+        } catch (error) {
+          console.warn('Unable to load database.json, falling back to embedded data', error);
+        }
+        if (!databaseRecords.length && window.location.protocol === 'file:') {
+          try {
+            const module = await import(`./database.json?cache-bust=${Date.now()}`, { assert: { type: 'json' } });
+            if (module && Array.isArray(module.default) && module.default.length) {
+              databaseRecords = module.default;
+            }
+          } catch (error) {
+            console.warn('Dynamic JSON import failed, using embedded fallback', error);
+          }
+        }
+        if (!databaseRecords.length) {
+          databaseRecords = DATABASE_FALLBACK.slice();
+        }
+        populateBuildingTypeOptions();
+      }
+
+      function sanitizeNumber(input, min, max, fallback) {
+        let value = Number.parseFloat(input.value);
+        if (Number.isNaN(value)) value = fallback;
+        value = Math.min(max, Math.max(min, value));
+        input.value = value;
+        return value;
+      }
+
+      function generateScheduleFromConfig() {
+        if (!databaseRecords.length) return;
+        const buildingType = buildingTypeSelect.value;
+        if (!buildingType) return;
+        const projectDifficulty = Math.round(sanitizeNumber(projectDifficultyInput, 1, 10, 1));
+        const numberOfLevels = Math.round(sanitizeNumber(numberOfLevelsInput, 1, 99, 1));
+        const projectSize = Math.round(sanitizeNumber(projectSizeInput, 100, 20000, 100));
+        const filtered = databaseRecords.filter((record) => record.buildingType === buildingType);
+        const baseStart = ensureWeekday(new Date(), 1);
+        if (!filtered.length) {
+          tasks = [];
+          selectedTaskId = null;
+          renderAll();
+          return;
+        }
+        const timestampBase = Date.now();
+        const stagePriorityMap = new Map(STAGE_PRESET_OPTIONS.map((option, index) => [option.value, index]));
+        const stageGroups = new Map();
+        const stageOrderList = [];
+        const unassignedRecords = [];
+        filtered.forEach((record, index) => {
+          const stageLabelRaw = typeof record.Stage === 'string' ? record.Stage.trim() : '';
+          if (!stageLabelRaw) {
+            unassignedRecords.push({ record, index });
+            return;
+          }
+          const stageKey = stageLabelRaw.toLowerCase();
+          if (!stageGroups.has(stageKey)) {
+            const preset = mapStagePresetFromLabel(stageLabelRaw);
+            stageGroups.set(stageKey, {
+              key: stageKey,
+              label: stageLabelRaw,
+              preset,
+              order: stageOrderList.length,
+              records: []
+            });
+            stageOrderList.push(stageKey);
+          }
+          stageGroups.get(stageKey).records.push({ record, index });
+        });
+
+        const orderedStageGroups = Array.from(stageGroups.values()).sort((a, b) => {
+          const maxPriority = STAGE_PRESET_OPTIONS.length + 1;
+          const priorityA = stagePriorityMap.has(a.preset) ? stagePriorityMap.get(a.preset) : maxPriority;
+          const priorityB = stagePriorityMap.has(b.preset) ? stagePriorityMap.get(b.preset) : maxPriority;
+          if (priorityA !== priorityB) return priorityA - priorityB;
+          return a.order - b.order;
+        });
+
+        const generatedTasks = [];
+        let stageIndex = 0;
+        let taskCounter = 0;
+        let previousStageEnd = null;
+
+        orderedStageGroups.forEach((group) => {
+          const stageId = `gen-stage-${timestampBase}-${stageIndex}`;
+          stageIndex += 1;
+          const stageMetadata = normalizeStageMetadata({
+            id: stageId,
+            name: group.label,
+            stagePreset: group.preset,
+            stageCustomName: group.preset === 'other' ? group.label : ''
+          });
+          stageMetadata.description = '';
+          stageMetadata.startDate = '';
+          stageMetadata.endDate = '';
+          stageMetadata.progress = 0;
+          generatedTasks.push(stageMetadata);
+
+          const baseStageStart = previousStageEnd
+            ? shiftWeekdays(previousStageEnd, 1)
+            : ensureWeekday(new Date(baseStart.getTime()), 1);
+          let stageEarliest = null;
+          let stageLatest = null;
+
+          group.records.forEach(({ record }) => {
+            const baseWeekdays = Number(record.weekdays) || 0;
+            const sqFactor = Number(record.squareMeterFactor) || 0;
+            const diffFactor = Number(record.difficultyFactor) || 0;
+            const levelsFactor = Number(record.levelsFactor) || 0;
+            const adjusted = baseWeekdays
+              + projectSize * sqFactor * baseWeekdays
+              + projectDifficulty * diffFactor * baseWeekdays
+              + numberOfLevels * levelsFactor * baseWeekdays;
+            const totalDuration = Math.max(1, Math.ceil(adjusted));
+            const taskStart = new Date(baseStageStart.getTime());
+            const taskEnd = shiftWeekdays(taskStart, totalDuration - 1);
+            const taskId = `gen-${timestampBase}-${taskCounter}`;
+            taskCounter += 1;
+            const miniTasks = createDefaultSequencedMiniTasks(taskId, totalDuration);
+            const task = {
+              id: taskId,
+              entryType: 'task',
+              parentId: stageId,
+              stagePreset: '',
+              stageCustomName: '',
+              isStage: false,
+              name: record.task,
+              description: '',
+              startDate: formatDate(taskStart),
+              endDate: formatDate(taskEnd),
+              progress: 0,
+              miniTasks,
+              undefinedDuration: 0,
+              singleEvent: false
+            };
+            ensureTaskDates(task);
+            const normalizedStart = parseDate(task.startDate);
+            const normalizedEnd = parseDate(task.endDate);
+            if (normalizedStart && (!stageEarliest || compareDates(normalizedStart, stageEarliest) < 0)) {
+              stageEarliest = normalizedStart;
+            }
+            if (normalizedEnd && (!stageLatest || compareDates(normalizedEnd, stageLatest) > 0)) {
+              stageLatest = normalizedEnd;
+            }
+            generatedTasks.push(task);
+          });
+
+          if (stageEarliest) stageMetadata.startDate = formatDate(stageEarliest);
+          if (stageLatest) stageMetadata.endDate = formatDate(stageLatest);
+          previousStageEnd = stageLatest || previousStageEnd;
+        });
+
+        const defaultStart = ensureWeekday(new Date(baseStart.getTime()), 1);
+        unassignedRecords.forEach(({ record }) => {
+          const baseWeekdays = Number(record.weekdays) || 0;
+          const sqFactor = Number(record.squareMeterFactor) || 0;
+          const diffFactor = Number(record.difficultyFactor) || 0;
+          const levelsFactor = Number(record.levelsFactor) || 0;
+          const adjusted = baseWeekdays
+            + projectSize * sqFactor * baseWeekdays
+            + projectDifficulty * diffFactor * baseWeekdays
+            + numberOfLevels * levelsFactor * baseWeekdays;
+          const totalDuration = Math.max(1, Math.ceil(adjusted));
+          const taskStart = new Date(defaultStart.getTime());
+          const taskEnd = shiftWeekdays(taskStart, totalDuration - 1);
+          const taskId = `gen-${timestampBase}-${taskCounter}`;
+          taskCounter += 1;
+          const miniTasks = createDefaultSequencedMiniTasks(taskId, totalDuration);
+          const task = {
+            id: taskId,
+            entryType: 'task',
+            parentId: null,
+            stagePreset: '',
+            stageCustomName: '',
+            isStage: false,
+            name: record.task,
+            description: '',
+            startDate: formatDate(taskStart),
+            endDate: formatDate(taskEnd),
+            progress: 0,
+            miniTasks,
+            undefinedDuration: 0,
+            singleEvent: false
+          };
+          ensureTaskDates(task);
+          generatedTasks.push(task);
+        });
+
+        tasks = generatedTasks;
+        selectedTaskId = tasks.length ? tasks[0].id : null;
+        renderAll();
+      }
+
+      function updateDurationPreview() {
+        if (!durationPreview) return;
+        if (currentEntryType === 'stage') {
+          durationPreview.textContent = 'Stage timeline updates automatically when tasks are added.';
+          return;
+        }
+        let start = ensureWeekday(parseDate(modalStartDate.value), 1);
+        if (!start) {
+          durationPreview.textContent = '0 working days';
+          return;
+        }
+        if (currentEntryType === 'single') {
+          const normalized = formatDate(start);
+          if (modalEndDate) modalEndDate.value = normalized;
+          durationPreview.textContent = 'Single event (1 working day)';
+          return;
+        }
+        let end = ensureWeekday(parseDate(modalEndDate.value), -1);
+        if (!end || compareDates(end, start) < 0) {
+          end = new Date(start.getTime());
+        }
+        let baseDuration = Math.max(1, diffInWeekdays(start, end));
+        let miniTotal = 0;
+        let enabledCount = 0;
+        getMiniTaskDrafts().forEach((mini) => {
+          if (!mini?.enabled) return;
+          enabledCount += 1;
+          miniTotal += Math.max(1, Math.round(mini.duration || 1));
+        });
+        if (enabledCount > 0) {
+          baseDuration = Math.max(miniTotal, enabledCount);
+        }
+        const finalEnd = shiftWeekdays(start, baseDuration - 1);
+        modalEndDate.value = formatDate(finalEnd);
+        durationPreview.textContent = `${baseDuration} working day${baseDuration !== 1 ? 's' : ''}`;
+      }
+
+      function openTaskModal(mode = 'create', taskId = null) {
+        currentMode = mode;
+        editingTaskId = taskId;
+        taskForm.reset();
+        let task = null;
+        if (mode === 'edit' && taskId) {
+          task = tasks.find((item) => item.id === taskId) || null;
+        }
+        if (task) {
+          populateModal(task);
+          modalTitle.textContent = 'Edit';
+          saveTaskBtn.textContent = 'Save';
+        } else {
+          populateModal();
+          modalTitle.textContent = 'New';
+          saveTaskBtn.textContent = 'Create';
+        }
+        document.body.classList.add('modal-open');
+        modalBackdrop.classList.remove('hidden');
+        modalEl.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          if (currentEntryType === 'stage' && modalStagePreset) {
+            modalStagePreset.focus();
+          } else if (modalTaskName && currentEntryType !== 'stage') {
+            modalTaskName.focus();
+          }
+        });
+      }
+
+      function closeTaskModal() {
+        document.body.classList.remove('modal-open');
+        modalBackdrop.classList.add('hidden');
+        modalEl.classList.add('hidden');
+        editingTaskId = null;
+        currentMode = 'create';
+        resetMiniTaskState({ silent: true });
+        setEntryType('task', { skipPreview: true });
+        if (modalTaskName) modalTaskName.value = '';
+        if (modalTaskDescription) modalTaskDescription.value = '';
+        if (modalStageCustomName) modalStageCustomName.value = '';
+        updateMiniTaskToolbar();
+        updateDurationPreview();
+      }
+
+      function populateModal(task = null) {
+        const defaultStart = ensureWeekday(new Date(), 1);
+        let entryType = 'task';
+        if (task) {
+          if (task.entryType === 'stage') entryType = 'stage';
+          else if (task.entryType === 'single' || task.singleEvent) entryType = 'single';
+        }
+        if (modalStagePreset && !modalStagePreset.options.length) {
+          populateStagePresetOptions();
+        }
+        setEntryType(entryType, { skipPreview: true });
+
+        if (entryType === 'task') {
+          setMiniTaskUnit('days', { silent: true });
+          let drafts = [];
+          if (task) {
+            const baseMini = Array.isArray(task.miniTasks) ? task.miniTasks : [];
+            drafts = baseMini.map((mini) => sanitizeMiniTaskDraft(mini));
+            const pendingUndefinedDuration = Math.max(0, Math.round(task.undefinedDuration || 0));
+            const hasExplicitUndefined = drafts.some((mini) => mini.enabled && mini.name === 'Undefined');
+            if (pendingUndefinedDuration > 0 && !hasExplicitUndefined) {
+              drafts.push(sanitizeMiniTaskDraft({
+                enabled: true,
+                name: 'Undefined',
+                duration: pendingUndefinedDuration,
+                locked: false
+              }));
+            }
+          } else {
+            let parentTaskDuration = DEFAULT_SEQUENCE_TOTAL_WEIGHT || DEFAULT_SEQUENCE_MINIMUM_TOTAL;
+            if (selectedTaskId) {
+              const selectedTask = tasks.find((item) => item.id === selectedTaskId) || null;
+              if (selectedTask && selectedTask.entryType === 'task') {
+                const selectedStart = ensureWeekday(parseDate(selectedTask.startDate), 1);
+                const selectedEnd = ensureWeekday(parseDate(selectedTask.endDate), -1);
+                const computedDuration = selectedStart && selectedEnd
+                  ? diffInWeekdays(selectedStart, selectedEnd)
+                  : 0;
+                if (computedDuration > 0) parentTaskDuration = computedDuration;
+              } else if (selectedTask && selectedTask.entryType === 'stage') {
+                const stageSummary = computeStageSummary(selectedTask);
+                if (stageSummary.duration > 0) parentTaskDuration = stageSummary.duration;
+              }
+            }
+            const defaultDurations = computeDefaultMiniTaskDurations(parentTaskDuration);
+            drafts = DEFAULT_SEQUENCE_STEPS.map((step, index) => sanitizeMiniTaskDraft({
+              enabled: true,
+              name: step.name,
+              duration: defaultDurations[index] || 1,
+              locked: false
+            }));
+          }
+          if (!drafts.length) {
+            drafts = [sanitizeMiniTaskDraft(createMiniTaskDraft({ enabled: true }))];
+          }
+          setMiniTaskDrafts(drafts, { silent: true });
+          modalTaskName.value = task ? task.name || '' : '';
+          modalTaskDescription.value = task ? task.description || '' : '';
+          modalProgress.value = task ? Math.min(100, Math.max(0, Number(task.progress) || 0)) : 0;
+          modalStartDate.value = task ? task.startDate || formatDate(defaultStart) : formatDate(defaultStart);
+          modalEndDate.value = task ? task.endDate || formatDate(defaultStart) : formatDate(defaultStart);
+        } else if (entryType === 'single') {
+          setMiniTaskDrafts([], { silent: true });
+          modalTaskName.value = task ? task.name || '' : '';
+          modalTaskDescription.value = task ? task.description || '' : '';
+          const singleDate = task ? task.startDate || formatDate(defaultStart) : formatDate(defaultStart);
+          modalStartDate.value = singleDate;
+          if (modalEndDate) modalEndDate.value = singleDate;
+          modalProgress.value = task ? Math.min(100, Math.max(0, Number(task.progress) || 0)) : 0;
+        } else {
+          setMiniTaskDrafts([], { silent: true });
+          modalTaskName.value = '';
+          modalTaskDescription.value = '';
+          const stageMeta = task ? normalizeStageMetadata(task) : normalizeStageMetadata();
+          modalProgress.value = task ? Math.min(100, Math.max(0, Number(task.progress) || 0)) : 0;
+          modalStartDate.value = '';
+          if (modalEndDate) modalEndDate.value = '';
+          const presetValue = stageMeta.stagePreset;
+          if (modalStagePreset) {
+            modalStagePreset.value = presetValue;
+          }
+          if (modalStageCustomName) {
+            if (presetValue === 'other') {
+              modalStageCustomName.value = stageMeta.stageCustomName || '';
+            } else {
+              modalStageCustomName.value = '';
+            }
+          }
+          setEntryType('stage', { skipPreview: true });
+        }
+
+        updateMiniTaskToolbar();
+        updateDurationPreview();
+      }
+
+      function gatherDelayRows() {
+        const rows = [];
+        tasks.forEach((task) => {
+          if (task.singleEvent) return;
+          (task.miniTasks || []).forEach((mini) => {
+            if (!mini || !mini.enabled || mini.name !== 'Delays') return;
+            const durationDays = Math.max(1, Math.round(mini.duration || 1));
+            rows.push({
+              taskId: task.id,
+              taskName: task.name,
+              miniId: mini.id,
+              description: mini.delayDescription || '',
+              durationDays,
+              chargeToClient: Boolean(mini.chargeToClient)
+            });
+          });
+        });
+        return rows;
+      }
+
+      function updateDelayMiniTask(taskId, miniId, updater) {
+        if (typeof updater !== 'function') return;
+        const task = tasks.find((item) => item.id === taskId);
+        if (!task || !Array.isArray(task.miniTasks)) return;
+        const mini = task.miniTasks.find((entry) => entry.id === miniId);
+        if (!mini) return;
+        updater(mini);
+        refreshDelayTooltip(task, mini);
+      }
+
+      function refreshDelayTooltip(task, mini) {
+        if (!mini || mini.name !== 'Delays') return;
+        const durationDays = Math.max(1, Math.round(mini.duration || 1));
+        const fallbackTitle = `${mini.name || 'Step'} • ${durationDays} day${durationDays !== 1 ? 's' : ''}`;
+        const description = typeof mini.delayDescription === 'string'
+          ? mini.delayDescription.trim()
+          : '';
+        const title = description || fallbackTitle;
+        const elements = document.querySelectorAll('.mini-segment');
+        elements.forEach((element) => {
+          if (element instanceof HTMLElement) {
+            if ((element.dataset.segmentId || '') === (mini.id || '')) {
+              element.title = title;
+            }
+          }
+        });
+      }
+
+      function renderDelaySchedule() {
+        if (!delayTableBody) return;
+        const rows = gatherDelayRows();
+        delayTableBody.innerHTML = '';
+        if (!rows.length) {
+          const emptyRow = document.createElement('tr');
+          const emptyCell = document.createElement('td');
+          emptyCell.colSpan = 4;
+          emptyCell.className = 'delay-table-empty';
+          emptyCell.textContent = 'No recorded delays.';
+          emptyRow.appendChild(emptyCell);
+          delayTableBody.appendChild(emptyRow);
+          return;
+        }
+        rows.forEach((row, index) => {
+          const tr = document.createElement('tr');
+          const taskCell = document.createElement('td');
+          taskCell.textContent = row.taskName || '--';
+
+          const descriptionCell = document.createElement('td');
+          const descInput = document.createElement('textarea');
+          descInput.value = row.description;
+          descInput.placeholder = 'Describe delay';
+          descInput.setAttribute('aria-label', `Delay description for ${row.taskName || 'task'}`);
+          descInput.addEventListener('input', () => {
+            updateDelayMiniTask(row.taskId, row.miniId, (mini) => {
+              mini.delayDescription = descInput.value;
+            });
+            autoResizeTextarea(descInput);
+          });
+          autoResizeTextarea(descInput);
+          descriptionCell.appendChild(descInput);
+
+          const durationCell = document.createElement('td');
+          durationCell.textContent = `${row.durationDays} day${row.durationDays !== 1 ? 's' : ''}`;
+
+          const chargeCell = document.createElement('td');
+          chargeCell.className = 'delay-charge-cell';
+          const chargeWrapper = document.createElement('div');
+          chargeWrapper.className = 'delay-charge-wrapper';
+          const chargeCheckbox = document.createElement('input');
+          chargeCheckbox.type = 'checkbox';
+          chargeCheckbox.checked = row.chargeToClient;
+          chargeCheckbox.setAttribute('aria-label', `Charge delay ${index + 1} to client`);
+          chargeCheckbox.addEventListener('change', () => {
+            updateDelayMiniTask(row.taskId, row.miniId, (mini) => {
+              mini.chargeToClient = chargeCheckbox.checked;
+            });
+          });
+          chargeWrapper.appendChild(chargeCheckbox);
+          chargeCell.appendChild(chargeWrapper);
+
+          tr.appendChild(taskCell);
+          tr.appendChild(descriptionCell);
+          tr.appendChild(durationCell);
+          tr.appendChild(chargeCell);
+          delayTableBody.appendChild(tr);
+        });
+      }
+
+      function openDelayModal() {
+        if (!delayModal || !delayModalBackdrop) return;
+        renderDelaySchedule();
+        delayModal.classList.remove('hidden');
+        delayModalBackdrop.classList.remove('hidden');
+      }
+
+      function closeDelayModal() {
+        if (!delayModal || !delayModalBackdrop) return;
+        delayModal.classList.add('hidden');
+        delayModalBackdrop.classList.add('hidden');
+      }
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        const rawEntryType = modalEntryType ? modalEntryType.value : 'task';
+        const entryType = ['task', 'single', 'stage'].includes(rawEntryType) ? rawEntryType : 'task';
+        const isStage = entryType === 'stage';
+        const isSingle = entryType === 'single';
+        const existingIndex = currentMode === 'edit' && editingTaskId
+          ? tasks.findIndex((task) => task.id === editingTaskId)
+          : -1;
+        const existingTask = existingIndex !== -1 ? tasks[existingIndex] : null;
+        const taskId = existingTask ? existingTask.id : `task-${Date.now()}`;
+        const existingParentId = existingTask && typeof existingTask.parentId === 'string'
+          ? (existingTask.parentId.trim() || null)
+          : null;
+
+        let payload = {
+          id: taskId,
+          entryType,
+          parentId: isStage ? null : existingParentId,
+          stagePreset: '',
+          stageCustomName: '',
+          isStage
+        };
+
+        if (isStage) {
+          if (modalStagePreset && !modalStagePreset.options.length) {
+            populateStagePresetOptions();
+          }
+          const presetValue = modalStagePreset
+            ? (modalStagePreset.value || STAGE_PRESET_OPTIONS[0].value)
+            : STAGE_PRESET_OPTIONS[0].value;
+          const customNameInput = modalStageCustomName ? modalStageCustomName.value.trim() : '';
+          const customName = presetValue === 'other' ? customNameInput : '';
+          const stageName = presetValue === 'other'
+            ? (customName || 'Stage')
+            : stageOptionLabel(presetValue);
+          const stageMetadata = normalizeStageMetadata({
+            id: taskId,
+            parentId: null,
+            name: stageName,
+            stagePreset: presetValue,
+            stageCustomName: customName,
+            entryType: 'stage'
+          });
+          payload = {
+            ...payload,
+            ...stageMetadata,
+            description: '',
+            startDate: existingTask?.startDate || '',
+            endDate: existingTask?.endDate || '',
+            progress: existingTask ? Math.min(100, Math.max(0, Number(existingTask.progress) || 0)) : 0,
+            miniTasks: [],
+            undefinedDuration: 0,
+            singleEvent: false
+          };
+        } else {
+          let start = ensureWeekday(parseDate(modalStartDate.value), 1);
+          if (!start) start = ensureWeekday(new Date(), 1);
+          let end = ensureWeekday(parseDate(modalEndDate.value), -1);
+          if (!end || compareDates(end, start) < 0) end = new Date(start.getTime());
+          let progress = parseInt(modalProgress.value, 10);
+          if (Number.isNaN(progress)) progress = 0;
+          progress = Math.min(100, Math.max(0, progress));
+          let miniTasks = [];
+          let adjustedUndefinedDuration = 0;
+          let totalDuration = Math.max(1, diffInWeekdays(start, end));
+
+          if (isSingle) {
+            end = new Date(start.getTime());
+            totalDuration = 1;
+          } else {
+            miniTasks = collectMiniTasks(taskId);
+            const enabledCount = miniTasks.filter((mini) => mini.enabled).length;
+            if (enabledCount > 0) {
+              let miniSum = 0;
+              miniTasks.forEach((mini) => {
+                if (mini.enabled) miniSum += mini.duration;
+              });
+              totalDuration = Math.max(miniSum, enabledCount);
+              end = shiftWeekdays(start, totalDuration - 1);
+            }
+            ({ undefinedDuration: adjustedUndefinedDuration } = normalizeMiniDurations(miniTasks, totalDuration, {
+              undefinedDuration: 0
+            }));
+          }
+
+          payload = {
+            ...payload,
+            parentId: existingParentId,
+            stagePreset: '',
+            stageCustomName: '',
+            isStage: false,
+            name: modalTaskName.value.trim() || (isSingle ? 'Untitled event' : 'Untitled task'),
+            description: modalTaskDescription.value.trim(),
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            progress,
+            miniTasks,
+            undefinedDuration: adjustedUndefinedDuration,
+            singleEvent: isSingle
+          };
+          ensureTaskDates(payload);
+        }
+
+        if (existingIndex !== -1) {
+          const preserved = tasks[existingIndex];
+          tasks[existingIndex] = {
+            ...preserved,
+            ...payload,
+            parentId: payload.parentId
+          };
+          selectedTaskId = tasks[existingIndex].id;
+        } else {
+          tasks.push(payload);
+          selectedTaskId = taskId;
+        }
+        closeTaskModal();
+        renderAll();
+      }
+
+      window.addEventListener('resize', () => {
+        updateStickyMetrics();
+      }, { passive: true });
+
+      function performRenderCycle() {
+        renderFrameHandle = null;
+        updateAllStageSummaries();
+        renderTaskList();
+        renderGantt();
+        updateActionButtons();
+        adjustGanttOffset();
+        if (delayModal && !delayModal.classList.contains('hidden')) {
+          renderDelaySchedule();
+        }
+        updateStickyMetrics();
+      }
+
+      function renderAllImmediate() {
+        if (renderFrameHandle !== null) {
+          cancelAnimationFrame(renderFrameHandle);
+          renderFrameHandle = null;
+        }
+        performRenderCycle();
+      }
+
+      function renderAll() {
+        if (renderFrameHandle !== null) return;
+        renderFrameHandle = requestAnimationFrame(performRenderCycle);
+      }
+      function attachEventListeners() {
+        miniUnitButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            setMiniTaskUnit(button.dataset.unit || 'days');
+          });
+        });
+        if (generateScheduleBtn) {
+          generateScheduleBtn.addEventListener('click', () => {
+            openGenerateModal();
+          });
+        }
+        if (generateCancelBtn) {
+          generateCancelBtn.addEventListener('click', () => {
+            closeGenerateModal();
+          });
+        }
+        if (generateModalBackdrop) {
+          generateModalBackdrop.addEventListener('click', () => {
+            closeGenerateModal();
+          });
+        }
+        if (generateForm) {
+          generateForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            generateScheduleFromConfig();
+            closeGenerateModal();
+          });
+        }
+        if (zoomInBtn) {
+          zoomInBtn.addEventListener('click', () => adjustZoom(ZOOM_STEP));
+        }
+        if (zoomOutBtn) {
+          zoomOutBtn.addEventListener('click', () => adjustZoom(-ZOOM_STEP));
+        }
+        if (addMiniTaskBtn) {
+          addMiniTaskBtn.addEventListener('click', () => addMiniTaskRow());
+        }
+        if (removeMiniTaskBtn) {
+          removeMiniTaskBtn.addEventListener('click', () => removeMiniTaskRow());
+        }
+        if (modalEntryType) {
+          modalEntryType.addEventListener('change', () => {
+            setEntryType(modalEntryType.value);
+          });
+        }
+        if (taskListScrollEl && ganttBodyScrollEl) {
+          taskListScrollEl.addEventListener('scroll', () => {
+            syncScrollPositions(taskListScrollEl, ganttBodyScrollEl);
+          }, { passive: true });
+          ganttBodyScrollEl.addEventListener('scroll', () => {
+            syncScrollPositions(ganttBodyScrollEl, taskListScrollEl);
+            scheduleTimelineHorizontalSync();
+          }, { passive: true });
+        } else if (ganttBodyScrollEl) {
+          ganttBodyScrollEl.addEventListener('scroll', scheduleTimelineHorizontalSync, { passive: true });
+        }
+        if (plannerViewportEl) {
+          plannerViewportEl.addEventListener('scroll', scheduleTimelineHorizontalSync, { passive: true });
+        }
+        if (modalStagePreset) {
+          modalStagePreset.addEventListener('change', () => {
+            if (currentEntryType === 'stage') {
+              setEntryType('stage');
+            }
+          });
+        }
+        if (savePdfBtn) {
+          savePdfBtn.addEventListener('click', handleSavePdf);
+        }
+        if (scheduleSettingsBtn) {
+          scheduleSettingsBtn.addEventListener('click', () => {
+            openScheduleModal();
+          });
+        }
+        if (addMilestoneBtn) {
+          addMilestoneBtn.addEventListener('click', () => {
+            const milestone = createMilestone();
+            milestoneDrafts.push(milestone);
+            selectedMilestoneId = milestone.id;
+            renderMilestoneDrafts();
+          });
+        }
+        if (removeMilestoneBtn) {
+          removeMilestoneBtn.addEventListener('click', () => {
+            if (!selectedMilestoneId) return;
+            const index = milestoneDrafts.findIndex((milestone) => milestone.id === selectedMilestoneId);
+            if (index !== -1) {
+              milestoneDrafts.splice(index, 1);
+              selectedMilestoneId = milestoneDrafts[index]?.id || milestoneDrafts[index - 1]?.id || null;
+              renderMilestoneDrafts();
+            }
+          });
+        }
+        if (scheduleModalBackdrop) {
+          scheduleModalBackdrop.addEventListener('click', () => {
+            closeScheduleModal();
+          });
+        }
+        if (cancelScheduleBtn) {
+          cancelScheduleBtn.addEventListener('click', () => {
+            closeScheduleModal();
+          });
+        }
+        if (saveScheduleBtn) {
+          saveScheduleBtn.addEventListener('click', handleSaveScheduleSettings);
+        }
+        if (saveProgrammeBtn) {
+          saveProgrammeBtn.addEventListener('click', handleSaveProgramme);
+        }
+        if (loadProgrammeBtn) {
+          loadProgrammeBtn.addEventListener('click', handleLoadProgramme);
+        }
+        if (delayScheduleBtn) {
+          delayScheduleBtn.addEventListener('click', () => openDelayModal());
+        }
+        if (delayModalBackdrop) {
+          delayModalBackdrop.addEventListener('click', () => closeDelayModal());
+        }
+        if (closeDelayModalBtn) {
+          closeDelayModalBtn.addEventListener('click', () => closeDelayModal());
+        }
+        if (graphAuthBtn) {
+          graphAuthBtn.addEventListener('click', handleGraphAuthBtnClick);
+        }
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            if (scheduleModal && !scheduleModal.classList.contains('hidden')) {
+              event.preventDefault();
+              closeScheduleModal();
+              return;
+            }
+            if (generateModal && !generateModal.classList.contains('hidden')) {
+              event.preventDefault();
+              closeGenerateModal();
+              return;
+            }
+            if (delayModal && !delayModal.classList.contains('hidden')) {
+              event.preventDefault();
+              closeDelayModal();
+            }
+          }
+        });
+        addTaskBtn.addEventListener('click', () => openTaskModal('create'));
+        if (removeTaskBtn) {
+          removeTaskBtn.addEventListener('click', () => removeSelectedTask());
+        }
+        editTaskBtn.addEventListener('click', () => {
+          if (!selectedTaskId) return;
+          openTaskModal('edit', selectedTaskId);
+        });
+        moveUpBtn.addEventListener('click', () => moveSelectedTask(-1));
+        moveDownBtn.addEventListener('click', () => moveSelectedTask(1));
+        modalBackdrop.addEventListener('click', closeTaskModal);
+        cancelModalBtn.addEventListener('click', closeTaskModal);
+        taskForm.addEventListener('submit', handleFormSubmit);
+        viewModeButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            setTimelineViewMode(button.dataset.viewMode);
+          });
+        });
+
+        modalStartDate.addEventListener('change', () => {
+          modalStartDate.value = formatDate(ensureWeekday(parseDate(modalStartDate.value), 1));
+          updateDurationPreview();
+        });
+        modalEndDate.addEventListener('change', () => {
+          modalEndDate.value = formatDate(ensureWeekday(parseDate(modalEndDate.value), -1));
+          updateDurationPreview();
+        });
+        modalProgress.addEventListener('input', () => {
+          let value = parseInt(modalProgress.value, 10);
+          if (Number.isNaN(value)) value = 0;
+          modalProgress.value = Math.min(100, Math.max(0, value));
+        });
+      }
+
+      function initialise() {
+        updateStickyMetrics();
+        updateGraphAuthUI();
+        ensureMsalClient().then(() => {
+          updateGraphAuthUI();
+        }).catch((error) => {
+          console.warn('Unable to initialise Microsoft authentication on startup.', error);
+        });
+        renderMiniTaskInputs();
+        updateMiniTaskToolbar();
+        attachEventListeners();
+        renderLegend();
+        updateViewModeButtons();
+        recomputeStanddownSet();
+        renderAllImmediate();
+        loadDatabase().then(() => {
+          const firstEnabled = Array.from(buildingTypeSelect.options || []).find((option) => !option.disabled);
+          if (firstEnabled) {
+            buildingTypeSelect.value = firstEnabled.value;
+            generateScheduleFromConfig();
+          } else {
+            tasks = [];
+            selectedTaskId = null;
+            renderAllImmediate();
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', initialise);
+    }());
+  </script>
+  <script type="module">
+    import { app } from "@microsoft/teams-js";
+
+    async function getTeamsContext() {
+      try {
+        await app.initialize();
+        return await app.getContext();
+      } catch (sdkError) {
+        const legacyApp = typeof window !== 'undefined' ? window.microsoftTeams?.app : undefined;
+        if (!legacyApp
+          || typeof legacyApp.initialize !== 'function'
+          || typeof legacyApp.getContext !== 'function') {
+          console.debug('Microsoft Teams SDK unavailable; skipping channel heading update.', sdkError);
+          return null;
+        }
+        try {
+          await legacyApp.initialize();
+          return await legacyApp.getContext();
+        } catch (legacyError) {
+          console.warn('Unable to retrieve Teams context via legacy SDK.', legacyError);
+          return null;
+        }
+      }
+    }
+
+    async function setHeadingFromTeamsChannel() {
+      const context = await getTeamsContext();
+      const handler = typeof window !== 'undefined'
+        ? window.bbProgrammeOnTeamsContextResolved || window.bbProgrammeOnTeamsChannelResolved
+        : undefined;
+      if (typeof handler === 'function') {
+        handler(context || null);
+        return;
+      }
+      const channelName = context?.channel?.displayName?.trim();
+      if (!channelName) {
+        return;
+      }
+      const heading = document.querySelector('.project-heading h1');
+      if (heading) {
+        heading.textContent = channelName;
+      }
+      if (typeof window !== 'undefined' && typeof window.bbProgrammeInvalidateGraphPathCache === 'function') {
+        window.bbProgrammeInvalidateGraphPathCache();
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", setHeadingFromTeamsChannel);
+    } else {
+      setHeadingFromTeamsChannel();
+    }
+  </script>
+</body>
+</html>
