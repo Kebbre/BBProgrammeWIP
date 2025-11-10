@@ -890,26 +890,11 @@ export function createGanttController({
       return;
     }
     const dayWidth = getDayWidth();
-    const getLabelOffsetWithinRange = (targetDate, startIndex, endIndex) => {
+    const getLabelOffsetWithinRange = (startIndex, endIndex) => {
       if (!Number.isFinite(startIndex) || !Number.isFinite(endIndex) || endIndex < startIndex) return null;
       const totalWidth = (endIndex - startIndex + 1) * dayWidth;
       if (totalWidth <= 0) return null;
-      let labelIndex = -1;
-      if (targetDate instanceof Date) {
-        for (let idx = startIndex; idx <= endIndex; idx += 1) {
-          const day = state.timelineDays[idx];
-          if (compareDates(day, targetDate) >= 0) {
-            labelIndex = idx;
-            break;
-          }
-        }
-      }
-      if (!Number.isFinite(labelIndex) || labelIndex < startIndex || labelIndex > endIndex) {
-        labelIndex = Math.floor((startIndex + endIndex) / 2);
-      }
-      const relativeIndex = Math.max(0, labelIndex - startIndex);
-      const offsetPx = (relativeIndex + 0.5) * dayWidth;
-      return Math.max(dayWidth * 0.5, Math.min(offsetPx, totalWidth - (dayWidth * 0.5)));
+      return totalWidth / 2;
     };
     const setHeaderCellLabel = (cell, text, offsetPx) => {
       if (!cell) return;
@@ -924,7 +909,10 @@ export function createGanttController({
       }
       cell.appendChild(label);
     };
+    const headerWidth = state.timelineDays.length * dayWidth;
     timelineHeaderEl.style.gridTemplateColumns = `repeat(${state.timelineDays.length}, ${dayWidth}px)`;
+    timelineHeaderEl.style.width = `${headerWidth}px`;
+    timelineHeaderEl.style.minWidth = `${headerWidth}px`;
     const yearGroups = groupTimelineDaysByYear(state.timelineDays);
     const monthGroups = groupTimelineDaysByMonth(state.timelineDays);
     if (state.timelineViewMode === 'weeks') {
@@ -958,8 +946,7 @@ export function createGanttController({
       cell.className = 'timeline-year';
       cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
       cell.style.gridRow = '1';
-      const yearMidDate = new Date(Date.UTC(group.year, 5, 30));
-      const offsetPx = getLabelOffsetWithinRange(yearMidDate, group.startIndex, group.endIndex);
+      const offsetPx = getLabelOffsetWithinRange(group.startIndex, group.endIndex);
       setHeaderCellLabel(cell, String(group.year), offsetPx);
       timelineHeaderEl.appendChild(cell);
     });
@@ -969,8 +956,7 @@ export function createGanttController({
       cell.className = 'timeline-month';
       cell.style.gridColumn = `${group.startIndex + 1} / ${group.endIndex + 2}`;
       cell.style.gridRow = '2';
-      const monthMidDate = new Date(Date.UTC(group.year, group.month, 15));
-      const offsetPx = getLabelOffsetWithinRange(monthMidDate, group.startIndex, group.endIndex);
+      const offsetPx = getLabelOffsetWithinRange(group.startIndex, group.endIndex);
       setHeaderCellLabel(cell, group.name || '', offsetPx);
       timelineHeaderEl.appendChild(cell);
     });
