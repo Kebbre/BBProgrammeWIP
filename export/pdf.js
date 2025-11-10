@@ -154,14 +154,12 @@ export function createPdfExporter(config = {}) {
     compareDates,
     formatDate,
     parseDate,
-    formatShortDate,
     buildMilestoneSegments,
     buildMiniSegments,
     getMiniColor,
     getTaskDuration,
     isStanddownDay,
     groupTimelineDaysByYear,
-    groupTimelineDaysByWeek,
     parseColorToRgb,
     taskColorMap = {},
     defaultSegmentColor = '#3056d3'
@@ -177,14 +175,12 @@ export function createPdfExporter(config = {}) {
     ['compareDates', compareDates],
     ['formatDate', formatDate],
     ['parseDate', parseDate],
-    ['formatShortDate', formatShortDate],
     ['buildMilestoneSegments', buildMilestoneSegments],
     ['buildMiniSegments', buildMiniSegments],
     ['getMiniColor', getMiniColor],
     ['getTaskDuration', getTaskDuration],
     ['isStanddownDay', isStanddownDay],
     ['groupTimelineDaysByYear', groupTimelineDaysByYear],
-    ['groupTimelineDaysByWeek', groupTimelineDaysByWeek],
     ['parseColorToRgb', parseColorToRgb]
   ].forEach(([name, fn]) => ensureFunction(fn, name));
 
@@ -274,9 +270,7 @@ export function createPdfExporter(config = {}) {
       return -1;
     };
     const highlightPriority = { standdown: 0, deadline: 1, today: 2 };
-    const highlightIndexOffset = timelineViewMode === 'days'
-      ? -1
-      : (timelineViewMode === 'weeks' ? 1 : 0);
+    const highlightIndexOffset = 0;
     const standdownFillColor = { r: 220, g: 223, b: 230 };
     const standdownBorderColor = { r: 0, g: 0, b: 0 };
     const standdownBoundaryLineWidth = 0.8;
@@ -286,15 +280,32 @@ export function createPdfExporter(config = {}) {
       standdown: { fill: standdownFillColor, border: standdownBorderColor }
     };
     const timelineDateFontSize = 4;
+    const mondayLineWidth = 0.35;
+    const mondayLineColor = { r: 0, g: 0, b: 0 };
+    const formatDayMonth = (date) => {
+      if (!(date instanceof Date) || Number.isNaN(date.getTime())) return '';
+      const day = String(date.getUTCDate()).padStart(2, '0');
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+      return `${day}/${month}`;
+    };
+    const mondayBoundaryEntries = [];
+    timelineDays.forEach((day, index) => {
+      if (day instanceof Date && day.getUTCDay() === 1) {
+        mondayBoundaryEntries.push({ day, index });
+      }
+    });
+    if (!mondayBoundaryEntries.length && timelineDays.length) {
+      mondayBoundaryEntries.push({ day: timelineDays[0], index: 0 });
+    }
+    const mondayBoundarySet = new Set(mondayBoundaryEntries.map((entry) => entry.index));
+    const mondayLabelSpans = mondayBoundaryEntries.map((entry, idx) => {
+      const nextIndex = mondayBoundaryEntries[idx + 1]?.index ?? dayCount;
+      const length = Math.max(1, nextIndex - entry.index);
+      return { ...entry, length };
+    });
+
     const logoImage = await loadPdfLogo();
     const highlightSegmentsPdf = [];
-    const addUtcDays = (date, days = 0) => {
-      if (!(date instanceof Date)) return null;
-      const result = new Date(date.getTime());
-      result.setUTCDate(result.getUTCDate() + days);
-      return result;
-    };
-    const getLabelDate = (sourceDate) => addUtcDays(sourceDate, 1) || sourceDate;
     if (todayMarker) {
       highlightSegmentsPdf.push({
         type: 'today',
@@ -532,34 +543,23 @@ export function createPdfExporter(config = {}) {
 
     const drawTimelineGridLines = (topY, height, options = {}) => {
       if (!dayCount) return;
-      const {
-        highlightsOnly = false,
-        dayHighlights = pdfDayHighlightsShifted
-      } = options;
+      const { highlightsOnly = false } = options;
       const originalLineWidth = doc.getLineWidth();
       for (let index = 0; index <= dayCount; index += 1) {
         const x = timelineStartX + (index * dayWidth);
         const boundaryType = boundaryTypes[index];
-        const isWeekStart = index % 5 === 0;
-        const leftStanddown = index > 0 && dayHighlights[index - 1]?.has('standdown');
-        const rightStanddown = index < dayCount && dayHighlights[index]?.has('standdown');
-        if (!highlightsOnly && leftStanddown && rightStanddown) continue;
-        if (boundaryType === 'standdown') continue;
-        if (boundaryType) {
-          if (highlightsOnly && boundaryType !== 'today' && boundaryType !== 'deadline') continue;
+        if (highlightsOnly) {
+          if (!boundaryType || boundaryType === 'standdown' || mondayBoundarySet.has(index)) continue;
           const palette = highlightPalette[boundaryType];
+          if (!palette) continue;
           doc.setDrawColor(palette.border.r, palette.border.g, palette.border.b);
           doc.setLineWidth(boundaryType === 'today' ? 0.45 : 0.3);
-        } else {
-          if (highlightsOnly) continue;
-          if (isWeekStart) {
-            doc.setDrawColor(190, 195, 205);
-            doc.setLineWidth(0.1);
-          } else {
-            doc.setDrawColor(defaultDrawColor.r, defaultDrawColor.g, defaultDrawColor.b);
-            doc.setLineWidth(0.1);
-          }
+          doc.line(x, topY, x, topY + height);
+          continue;
         }
+        if (!mondayBoundarySet.has(index)) continue;
+        doc.setDrawColor(mondayLineColor.r, mondayLineColor.g, mondayLineColor.b);
+        doc.setLineWidth(mondayLineWidth);
         doc.line(x, topY, x, topY + height);
       }
       doc.setDrawColor(defaultDrawColor.r, defaultDrawColor.g, defaultDrawColor.b);
@@ -625,35 +625,22 @@ export function createPdfExporter(config = {}) {
 
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(timelineDateFontSize);
-      if (timelineViewMode === 'weeks') {
-        const weekGroups = groupTimelineDaysByWeek(timelineDays);
-        weekGroups.forEach((group) => {
-          const startX = timelineStartX + (group.startIndex * dayWidth);
-          const centreX = startX + ((Math.max(1, group.length) * dayWidth) / 2);
-          const combinedHighlights = new Set();
-          const span = Math.max(1, group.length);
-          for (let offset = 0; offset < span; offset += 1) {
-            const dayIndex = group.startIndex + offset;
-            pdfDayHighlights[dayIndex]?.forEach((type) => combinedHighlights.add(type));
-            pdfDayHighlightsShifted[dayIndex]?.forEach((type) => combinedHighlights.add(type));
-          }
-          const weekLabelDate = getLabelDate(group.start);
-          const weekLabel = formatShortDate(weekLabelDate);
-          drawVerticalDateLabel(weekLabel, centreX, dateCenterY, combinedHighlights);
-        });
-      } else {
-        timelineDays.forEach((day, index) => {
-          const centreX = timelineStartX + ((index + 0.5) * dayWidth);
-          const combinedHighlights = new Set();
-          pdfDayHighlights[index]?.forEach((type) => combinedHighlights.add(type));
-          pdfDayHighlightsShifted[index]?.forEach((type) => combinedHighlights.add(type));
-          const dayLabelDate = getLabelDate(day);
-          const dateLabel = formatShortDate(dayLabelDate);
-          drawVerticalDateLabel(dateLabel, centreX, dateCenterY, combinedHighlights);
-        });
-      }
+      mondayLabelSpans.forEach(({ day, index, length }) => {
+        const spanLength = Math.max(1, Math.min(dayCount, length));
+        const centreX = timelineStartX + (index * dayWidth) + ((spanLength * dayWidth) / 2);
+        const combinedHighlights = new Set();
+        const spanStart = index;
+        const spanEnd = Math.min(dayCount - 1, index + spanLength - 1);
+        for (let dayIndex = spanStart; dayIndex <= spanEnd; dayIndex += 1) {
+          pdfDayHighlights[dayIndex]?.forEach((type) => combinedHighlights.add(type));
+          pdfDayHighlightsShifted[dayIndex]?.forEach((type) => combinedHighlights.add(type));
+        }
+        const mondayLabel = formatDayMonth(day);
+        drawVerticalDateLabel(mondayLabel, centreX, dateCenterY, combinedHighlights);
+      });
 
       drawTimelineGridLines(topY, timelineHeaderHeight);
+      drawTimelineGridLines(topY, timelineHeaderHeight, { highlightsOnly: true });
     };
 
     const drawTaskRow = (task, topY, rowIndex, layout) => {
@@ -724,13 +711,6 @@ export function createPdfExporter(config = {}) {
       let startIndex = getPdfDayIndex(startDate);
       let endIndex = getPdfDayIndex(endDate);
       if (startIndex === -1 || endIndex === -1) return;
-      const offset = timelineViewMode === 'days'
-        ? -1
-        : (timelineViewMode === 'weeks' ? 1 : 0);
-      if (offset !== 0) {
-        startIndex += offset;
-        endIndex += offset;
-      }
       startIndex = Math.max(0, Math.min(dayCount - 1, startIndex));
       endIndex = Math.max(startIndex, Math.min(dayCount - 1, endIndex));
       if (typeof startIndex !== 'number' || typeof endIndex !== 'number' || startIndex > endIndex) return;
