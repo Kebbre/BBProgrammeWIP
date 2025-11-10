@@ -288,6 +288,14 @@ export function createPdfExporter(config = {}) {
       const month = String(date.getUTCMonth() + 1).padStart(2, '0');
       return `${day}/${month}`;
     };
+    const getWeekMonday = (date) => {
+      if (!(date instanceof Date) || Number.isNaN(date.getTime())) return null;
+      const monday = new Date(date.getTime());
+      const dayOfWeek = monday.getUTCDay();
+      const offset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+      monday.setUTCDate(monday.getUTCDate() + offset);
+      return monday;
+    };
     const mondayBoundaryEntries = [];
     timelineDays.forEach((day, index) => {
       if (day instanceof Date && day.getUTCDay() === 1) {
@@ -635,7 +643,8 @@ export function createPdfExporter(config = {}) {
           pdfDayHighlights[dayIndex]?.forEach((type) => combinedHighlights.add(type));
           pdfDayHighlightsShifted[dayIndex]?.forEach((type) => combinedHighlights.add(type));
         }
-        const mondayLabel = formatDayMonth(day);
+        const mondayDate = getWeekMonday(day);
+        const mondayLabel = formatDayMonth(mondayDate || day);
         drawVerticalDateLabel(mondayLabel, centreX, dateCenterY, combinedHighlights);
       });
 
