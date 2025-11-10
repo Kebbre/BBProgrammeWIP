@@ -1378,7 +1378,13 @@ export function createGanttController({
 
   function updateTimelineHorizontalOffset() {
     if (!timelineHeaderEl) return;
-    timelineHeaderEl.style.transform = '';
+    const offsetSource = plannerViewportEl || ganttBodyScrollEl;
+    const offset = offsetSource ? Number(offsetSource.scrollLeft) || 0 : 0;
+    if (Math.abs(offset) < 0.5) {
+      timelineHeaderEl.style.transform = '';
+      return;
+    }
+    timelineHeaderEl.style.transform = `translateX(${-offset}px)`;
   }
 
   function scheduleTimelineHorizontalSync() {
