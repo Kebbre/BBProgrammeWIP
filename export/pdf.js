@@ -282,6 +282,7 @@ export function createPdfExporter(config = {}) {
     const timelineDateFontSize = 4;
     const mondayLineWidth = 0.35;
     const mondayLineColor = { r: 0, g: 0, b: 0 };
+    const mondayLabelOffset = 1.2; // keeps header date tucked against the Monday divider
     const formatDayMonth = (date) => {
       if (!(date instanceof Date) || Number.isNaN(date.getTime())) return '';
       const day = String(date.getUTCDate()).padStart(2, '0');
@@ -635,7 +636,8 @@ export function createPdfExporter(config = {}) {
       doc.setFontSize(timelineDateFontSize);
       mondayLabelSpans.forEach(({ day, index, length }) => {
         const spanLength = Math.max(1, Math.min(dayCount, length));
-        const centreX = timelineStartX + (index * dayWidth) + ((spanLength * dayWidth) / 2);
+        const mondayLineX = timelineStartX + (index * dayWidth);
+        const labelAnchorX = mondayLineX + mondayLabelOffset;
         const combinedHighlights = new Set();
         const spanStart = index;
         const spanEnd = Math.min(dayCount - 1, index + spanLength - 1);
@@ -645,7 +647,7 @@ export function createPdfExporter(config = {}) {
         }
         const mondayDate = getWeekMonday(day);
         const mondayLabel = formatDayMonth(mondayDate || day);
-        drawVerticalDateLabel(mondayLabel, centreX, dateCenterY, combinedHighlights);
+        drawVerticalDateLabel(mondayLabel, labelAnchorX, dateCenterY, combinedHighlights);
       });
 
       drawTimelineGridLines(topY, timelineHeaderHeight);
