@@ -1,3 +1,18 @@
+import colorConstants from './constants.json' assert { type: 'json' };
+
+const TASK_COLOR_MAP = colorConstants?.TASK_COLOR_MAP || {};
+const DEFAULT_SEGMENT_COLOR = colorConstants?.DEFAULT_SEGMENT_COLOR || '#3056d3';
+const TASK_COLOR_LOOKUP = new Map(
+  Object.entries(TASK_COLOR_MAP).map(([label, color]) => [String(label).trim().toLowerCase(), color])
+);
+
+function resolveSegmentColor(name) {
+  if (name == null) return DEFAULT_SEGMENT_COLOR;
+  const normalized = String(name).trim().toLowerCase();
+  if (!normalized) return DEFAULT_SEGMENT_COLOR;
+  return TASK_COLOR_LOOKUP.get(normalized) || TASK_COLOR_MAP[name] || DEFAULT_SEGMENT_COLOR;
+}
+
 export function createGanttController({
   elements,
   constants,
@@ -292,6 +307,8 @@ export function createGanttController({
       element.style.left = `${(startWorkingIndex - startIndex) * dayWidth}px`;
       element.style.width = `${(segmentEndWorkingIndex - startWorkingIndex + 1) * dayWidth}px`;
       element.classList.toggle('is-undefined', Boolean(segment.isUndefined));
+      const segmentColorKey = segment?.isUndefined ? 'Undefined' : segment?.name;
+      element.style.background = resolveSegmentColor(segmentColorKey);
       element.querySelectorAll('.mini-handle').forEach((handleEl) => {
         const isDisabled = Boolean(segment.locked || segment.isUndefined);
         handleEl.classList.toggle('disabled', isDisabled);

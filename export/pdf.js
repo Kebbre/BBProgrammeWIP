@@ -1,3 +1,9 @@
+import colorConstants from '../modules/constants.json' assert { type: 'json' };
+
+const SHARED_COLOR_CONSTANTS = colorConstants ?? {};
+const TASK_COLOR_MAP = SHARED_COLOR_CONSTANTS.TASK_COLOR_MAP || {};
+const DEFAULT_SEGMENT_COLOR = SHARED_COLOR_CONSTANTS.DEFAULT_SEGMENT_COLOR || '#3056d3';
+
 let pdfLogoPromise = null;
 let jsPdfConstructorCache = null;
 let jsPdfLoaderPromise = null;
@@ -161,8 +167,8 @@ export function createPdfExporter(config = {}) {
     isStanddownDay,
     groupTimelineDaysByYear,
     parseColorToRgb,
-    taskColorMap = {},
-    defaultSegmentColor = '#3056d3'
+    taskColorMap = TASK_COLOR_MAP,
+    defaultSegmentColor = DEFAULT_SEGMENT_COLOR
   } = config;
 
   [
