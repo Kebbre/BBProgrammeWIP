@@ -75,7 +75,7 @@
 
   <div class="app-branding">
     <img src="assets/bb-logo.png" alt="BB Programme logo">
-    <span class="app-branding-text">Programme Tool : Version 01.02.06</span>
+    <span class="app-branding-text">Programme Tool : Version 01.02.07</span>
   </div>
 
   <div class="modal-backdrop hidden" id="modalBackdrop"></div>
@@ -670,48 +670,148 @@
       }
 
       const DATABASE_FALLBACK = [
-        {"buildingType":"school","task":"GA Plan","weekdays":10,"squareMeterFactor":0.01,"difficultyFactor":3,"levelsFactor":2},
-        {"buildingType":"school","task":"Elevations","weekdays":15,"squareMeterFactor":0.02,"difficultyFactor":5,"levelsFactor":1},
-        {"buildingType":"school","task":"Circulation Plans","weekdays":5,"squareMeterFactor":0.03,"difficultyFactor":6,"levelsFactor":2},
-        {"buildingType":"Residential tower","task":"GA Plan","weekdays":20,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":2},
-        {"buildingType":"Residential tower","task":"Stairs drawings","weekdays":20,"squareMeterFactor":0.01,"difficultyFactor":3,"levelsFactor":6},
-        {"buildingType":"Residential tower","task":"Kitchen layouts","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":1,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Existing","weekdays":2,"squareMeterFactor":0.01,"difficultyFactor":2,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Site Plan Proposed","weekdays":15,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
-        {"buildingType":"Landscape","task":"Kerb Drawings","weekdays":5,"squareMeterFactor":0.01,"difficultyFactor":6,"levelsFactor":1},
+        {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed Site Plan",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },{
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 2"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 3"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Proposed GA Elevations (Design)",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },{
+    "buildingType": "school",
+    "task": "Access Hatch Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Signage Setting Out",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Signage Setting Out",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "Slab / Waterproofing Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "Slab / Waterproofing Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Plan Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Plan Junction Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 4"
+  },
+  {
+    "buildingType": "school",
+    "task": "External Wall Section Details",
+    "weekdays": 10.0,
+    "squareMeterFactor": 0.0008,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 0.03,
+    "Stage": "Stage 5"
+  },
         
       ];
       const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -2669,18 +2769,18 @@
       async function loadDatabase() {
         databaseRecords = [];
         try {
-          const response = await fetch(`database.json?cache-bust=${Date.now()}`, { cache: 'no-store' });
+          const response = await fetch(`./modules/database.json?cache-bust=${Date.now()}`, { cache: 'no-store' });
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           const data = await response.json();
           if (Array.isArray(data) && data.length) {
             databaseRecords = data;
           }
         } catch (error) {
-          console.warn('Unable to load database.json, falling back to embedded data', error);
+          console.warn('Unable to load ./modules/database.json, falling back to embedded data', error);
         }
         if (!databaseRecords.length && window.location.protocol === 'file:') {
           try {
-            const module = await import(`./database.json?cache-bust=${Date.now()}`, { assert: { type: 'json' } });
+            const module = await import(`./modules/database.json?cache-bust=${Date.now()}`, { assert: { type: 'json' } });
             if (module && Array.isArray(module.default) && module.default.length) {
               databaseRecords = module.default;
             }
