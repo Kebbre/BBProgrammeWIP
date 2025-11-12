@@ -221,7 +221,7 @@ export function createPdfExporter(config = {}) {
     const contentHeight = pageHeight - (margin * 2);
     const leftColumnWidth = 95;
     const rightColumnWidth = contentWidth - leftColumnWidth;
-    const columnLabels = ['ID', 'Task', 'Start', 'End', 'Duration', 'Progress'];
+    const columnLabels = ['ID', 'Task', 'Start', 'End', 'Duration', '%'];
     const columnWeights = [45, 115, 85, 85, 60, 70];
     const totalWeight = columnWeights.reduce((sum, weight) => sum + weight, 0);
     const columnWidths = columnWeights.map((weight) => (weight / totalWeight) * leftColumnWidth);
