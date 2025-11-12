@@ -1,24 +1,25 @@
-import colorConstants from './constants.json' assert { type: 'json' };
-
-const TASK_COLOR_MAP = colorConstants?.TASK_COLOR_MAP || {};
-const DEFAULT_SEGMENT_COLOR = colorConstants?.DEFAULT_SEGMENT_COLOR || '#3056d3';
-const TASK_COLOR_LOOKUP = new Map(
-  Object.entries(TASK_COLOR_MAP).map(([label, color]) => [String(label).trim().toLowerCase(), color])
-);
-
-function resolveSegmentColor(name) {
-  if (name == null) return DEFAULT_SEGMENT_COLOR;
-  const normalized = String(name).trim().toLowerCase();
-  if (!normalized) return DEFAULT_SEGMENT_COLOR;
-  return TASK_COLOR_LOOKUP.get(normalized) || TASK_COLOR_MAP[name] || DEFAULT_SEGMENT_COLOR;
-}
-
 export function createGanttController({
   elements,
   constants,
   accessors,
   helpers
 }) {
+  const {
+    taskColorMap = {},
+    defaultSegmentColor = '#3056d3'
+  } = constants;
+
+  const taskColorLookup = new Map(
+    Object.entries(taskColorMap).map(([label, color]) => [String(label).trim().toLowerCase(), color])
+  );
+
+  const resolveSegmentColor = (name) => {
+    if (name == null) return defaultSegmentColor;
+    const normalized = String(name).trim().toLowerCase();
+    if (!normalized) return defaultSegmentColor;
+    return taskColorLookup.get(normalized) || taskColorMap[name] || defaultSegmentColor;
+  };
+
   const {
     timelineHeaderEl,
     ganttBodyEl,

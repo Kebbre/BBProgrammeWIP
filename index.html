@@ -75,7 +75,7 @@
 
   <div class="app-branding">
     <img src="assets/bb-logo.png" alt="BB Programme logo">
-    <span class="app-branding-text">Programme Tool : Version 01.01.14</span>
+    <span class="app-branding-text">Programme Tool : Version 01.02.02</span>
   </div>
 
   <div class="modal-backdrop hidden" id="modalBackdrop"></div>
@@ -246,22 +246,43 @@
     import { createPdfExporter } from "./export/pdf.js";
     import { createGanttController } from "./modules/gantt.js";
     import { createMiniTaskManager } from "./modules/miniTasks.js";
-    import colorConstants from "./modules/constants.json" assert { type: "json" };
     import {
       createNestablePublicClientApplication,
       InteractionRequiredAuthError
     } from "https://cdn.jsdelivr.net/npm/@azure/msal-browser@latest/+esm";
+
+    async function loadColorConstants() {
+      try {
+        const response = await fetch('./modules/constants.json', { cache: 'no-store' });
+        if (!response?.ok) throw new Error(`Failed to load constants: ${response?.status}`);
+        return await response.json();
+      } catch (error) {
+        console.warn('Unable to load color constants, using defaults.', error);
+        return null;
+      }
+    }
+
     (async function () {
+      const colorConstants = await loadColorConstants();
+      const DEFAULT_COLOR_FALLBACK = '#3056d3';
+      const TASK_COLOR_MAP = colorConstants?.TASK_COLOR_MAP || {
+        'Bond Bryan Design': 'rgb(176, 207, 255)',
+        'Bond Bryan review': 'rgb(255, 192, 203)',
+        'CDP': 'rgb(196, 235, 214)',
+        'Client Comments': 'rgb(255, 223, 186)',
+        'Delays': 'rgb(220, 220, 230)',
+        'Undefined': 'rgb(245, 245, 245)'
+      };
+      const DEFAULT_SEGMENT_COLOR = colorConstants?.DEFAULT_SEGMENT_COLOR || DEFAULT_COLOR_FALLBACK;
+      const MINI_TASK_OPTION_KEYS = Object.keys(TASK_COLOR_MAP || {});
+      const MINI_TASK_OPTIONS = MINI_TASK_OPTION_KEYS.length
+        ? MINI_TASK_OPTION_KEYS
+        : ['Bond Bryan Design', 'Bond Bryan review', 'CDP', 'Client Comments', 'Delays', 'Undefined'];
       const DEFAULT_DAY_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--day-width'), 10) || 32;
       const MIN_ZOOM_SCALE = 0.6;
       const MAX_ZOOM_SCALE = 2.4;
       const ZOOM_STEP = 0.2;
       const ZOOM_TOLERANCE = 0.01;
-      const {
-        TASK_COLOR_MAP = {},
-        DEFAULT_SEGMENT_COLOR = '#3056d3'
-      } = colorConstants ?? {};
-      const MINI_TASK_OPTIONS = Object.keys(TASK_COLOR_MAP);
       const DEFAULT_SEQUENCE_STEPS = [
         { name: 'Bond Bryan Design', weight: 50 },
         { name: 'CDP', weight: 10 },
@@ -773,7 +794,9 @@
           MAX_ZOOM_SCALE,
           ZOOM_TOLERANCE,
           WEEKS_HEADER_HEIGHT,
-          DAYS_HEADER_HEIGHT
+          DAYS_HEADER_HEIGHT,
+          taskColorMap: TASK_COLOR_MAP,
+          defaultSegmentColor: DEFAULT_SEGMENT_COLOR
         },
         accessors: {
           getTasks: () => tasks,
