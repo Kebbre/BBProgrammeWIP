@@ -3,6 +3,7 @@ import colorConstants from '../modules/constants.js';
 const SHARED_COLOR_CONSTANTS = colorConstants ?? {};
 const TASK_COLOR_MAP = SHARED_COLOR_CONSTANTS.TASK_COLOR_MAP || {};
 const DEFAULT_SEGMENT_COLOR = SHARED_COLOR_CONSTANTS.DEFAULT_SEGMENT_COLOR || '#3056d3';
+const STAGE_COLOR = SHARED_COLOR_CONSTANTS.STAGE_COLOR || 'rgba(250, 250, 210, 1)';
 
 let pdfLogoPromise = null;
 let jsPdfConstructorCache = null;
@@ -168,7 +169,8 @@ export function createPdfExporter(config = {}) {
     groupTimelineDaysByYear,
     parseColorToRgb,
     taskColorMap = TASK_COLOR_MAP,
-    defaultSegmentColor = DEFAULT_SEGMENT_COLOR
+    defaultSegmentColor = DEFAULT_SEGMENT_COLOR,
+    stageColor = STAGE_COLOR
   } = config;
 
   [
@@ -251,7 +253,12 @@ export function createPdfExporter(config = {}) {
     const defaultDrawColor = { r: 214, g: 219, b: 231 };
     const headerFill = { r: 234, g: 238, b: 248 };
     const zebraFill = { r: 246, g: 248, b: 252 };
-    const stageFill = { r: 250, g: 250, b: 210 };
+    const stageFillSource = parseColorToRgb(stageColor);
+    const stageFill = {
+      r: Math.max(0, Math.min(255, stageFillSource?.r ?? 250)),
+      g: Math.max(0, Math.min(255, stageFillSource?.g ?? 250)),
+      b: Math.max(0, Math.min(255, stageFillSource?.b ?? 210))
+    };
     const legendItems = Object.entries(taskColorMap || {});
     const supportsOpacity = typeof doc.GState === 'function';
     const progressOverlayState = supportsOpacity ? doc.GState({ opacity: 0.35 }) : null;

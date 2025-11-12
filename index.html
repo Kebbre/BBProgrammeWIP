@@ -75,7 +75,7 @@
 
   <div class="app-branding">
     <img src="assets/bb-logo.png" alt="BB Programme logo">
-    <span class="app-branding-text">Programme Tool : Version 01.02.05</span>
+    <span class="app-branding-text">Programme Tool : Version 01.02.06</span>
   </div>
 
   <div class="modal-backdrop hidden" id="modalBackdrop"></div>
@@ -255,8 +255,16 @@
     (async function () {
       const {
         TASK_COLOR_MAP = {},
-        DEFAULT_SEGMENT_COLOR = '#3056d3'
+        DEFAULT_SEGMENT_COLOR = '#3056d3',
+        STAGE_COLOR = 'rgba(250, 250, 210, 1)',
+        SINGLE_EVENT_COLOR = '#2fb879',
+        SINGLE_EVENT_SELECTED_COLOR = '#228a5f'
       } = colorConstants || {};
+      applyVisualThemeColors({
+        stage: STAGE_COLOR,
+        singleEvent: SINGLE_EVENT_COLOR,
+        singleEventSelected: SINGLE_EVENT_SELECTED_COLOR
+      });
       const MINI_TASK_OPTION_KEYS = Object.keys(TASK_COLOR_MAP || {});
       const MINI_TASK_OPTIONS = MINI_TASK_OPTION_KEYS.length
         ? MINI_TASK_OPTION_KEYS
@@ -314,6 +322,20 @@
           storeAuthStateInCookie: false
         }
       };
+      function applyVisualThemeColors(colors = {}) {
+        const root = document.documentElement;
+        if (!root) return;
+        const { stage, singleEvent, singleEventSelected } = colors;
+        if (typeof stage === 'string' && stage) {
+          root.style.setProperty('--stage-fill-color', stage);
+        }
+        if (typeof singleEvent === 'string' && singleEvent) {
+          root.style.setProperty('--single-event-marker-color', singleEvent);
+        }
+        if (typeof singleEventSelected === 'string' && singleEventSelected) {
+          root.style.setProperty('--single-event-marker-selected-color', singleEventSelected);
+        }
+      }
       let teamsChannelAutoLoadRequested = false;
       let hasAttemptedInitialTeamsAutoLoad = false;
       function sanitizeFilenameSegment(raw) {
@@ -927,7 +949,8 @@
         groupTimelineDaysByWeek,
         parseColorToRgb,
         taskColorMap: TASK_COLOR_MAP,
-        defaultSegmentColor: DEFAULT_SEGMENT_COLOR
+        defaultSegmentColor: DEFAULT_SEGMENT_COLOR,
+        stageColor: STAGE_COLOR
       });
 
       function parseDate(value) {
