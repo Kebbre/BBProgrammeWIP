@@ -307,9 +307,14 @@ export function createGanttController({
       }
       element.style.left = `${(startWorkingIndex - startIndex) * dayWidth}px`;
       element.style.width = `${(segmentEndWorkingIndex - startWorkingIndex + 1) * dayWidth}px`;
-      element.classList.toggle('is-undefined', Boolean(segment.isUndefined));
-      const segmentColorKey = segment?.isUndefined ? 'Undefined' : segment?.name;
-      element.style.background = resolveSegmentColor(segmentColorKey);
+      const isUndefinedSegment = Boolean(segment.isUndefined);
+      element.classList.toggle('is-undefined', isUndefinedSegment);
+      element.classList.toggle('undefined', isUndefinedSegment);
+      const segmentColorKey = isUndefinedSegment ? 'Undefined' : segment?.name;
+      const segmentColor = resolveSegmentColor(segmentColorKey);
+      element.style.background = segmentColor;
+      element.style.backgroundColor = segmentColor;
+      element.style.setProperty('--mini-color', segmentColor);
       element.querySelectorAll('.mini-handle').forEach((handleEl) => {
         const isDisabled = Boolean(segment.locked || segment.isUndefined);
         handleEl.classList.toggle('disabled', isDisabled);
