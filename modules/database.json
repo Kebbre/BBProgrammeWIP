@@ -1,4 +1,53 @@
 [
+  
+  {
+    "buildingType": "Residential tower",
+    "task": "GA Plan",
+    "weekdays": 7.0,
+    "squareMeterFactor": 0.001,
+    "difficultyFactor": 0.2,
+    "levelsFactor": 1
+  },
+  {
+    "buildingType": "Residential tower",
+    "task": "Stairs drawings",
+    "weekdays": 3.0,
+    "squareMeterFactor": 0.001,
+    "difficultyFactor": 0.8,
+    "levelsFactor": 2
+  },
+  {
+    "buildingType": "Residential tower",
+    "task": "Kitchen layouts",
+    "weekdays": 2.0,
+    "squareMeterFactor": 0.001,
+    "difficultyFactor": 0.03,
+    "levelsFactor": 0
+  },
+  {
+    "buildingType": "Landscape",
+    "task": "Site Plan Existing",
+    "weekdays": 2.0,
+    "squareMeterFactor": 0.0001,
+    "difficultyFactor": 0.8,
+    "levelsFactor": 0
+  },
+  {
+    "buildingType": "Landscape",
+    "task": "Site Plan Proposed",
+    "weekdays": 6.0,
+    "squareMeterFactor": 0.0001,
+    "difficultyFactor": 0.9,
+    "levelsFactor": 0
+  },
+  {
+    "buildingType": "Landscape",
+    "task": "Kerb Drawings",
+    "weekdays": 8.0,
+    "squareMeterFactor": 0.0001,
+    "difficultyFactor": 0.6,
+    "levelsFactor": 0
+  },
   {
     "buildingType": "school",
     "task": "Proposed Site Plan",
@@ -1177,53 +1226,5 @@
     "difficultyFactor": 0.2,
     "levelsFactor": 0.03,
     "Stage": "Stage 2"
-  },
-  {
-    "buildingType": "Residential tower",
-    "task": "GA Plan",
-    "weekdays": 7.0,
-    "squareMeterFactor": 0.001,
-    "difficultyFactor": 0.2,
-    "levelsFactor": 1
-  },
-  {
-    "buildingType": "Residential tower",
-    "task": "Stairs drawings",
-    "weekdays": 3.0,
-    "squareMeterFactor": 0.001,
-    "difficultyFactor": 0.8,
-    "levelsFactor": 2
-  },
-  {
-    "buildingType": "Residential tower",
-    "task": "Kitchen layouts",
-    "weekdays": 2.0,
-    "squareMeterFactor": 0.001,
-    "difficultyFactor": 0.03,
-    "levelsFactor": 0
-  },
-  {
-    "buildingType": "Landscape",
-    "task": "Site Plan Existing",
-    "weekdays": 2.0,
-    "squareMeterFactor": 0.0001,
-    "difficultyFactor": 0.8,
-    "levelsFactor": 0
-  },
-  {
-    "buildingType": "Landscape",
-    "task": "Site Plan Proposed",
-    "weekdays": 6.0,
-    "squareMeterFactor": 0.0001,
-    "difficultyFactor": 0.9,
-    "levelsFactor": 0
-  },
-  {
-    "buildingType": "Landscape",
-    "task": "Kerb Drawings",
-    "weekdays": 8.0,
-    "squareMeterFactor": 0.0001,
-    "difficultyFactor": 0.6,
-    "levelsFactor": 0
   }
 ]
