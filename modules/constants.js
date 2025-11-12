@@ -1,10 +1,10 @@
 const TASK_COLOR_MAP = {
-  'Bond Bryan Design': 'rgba(134, 176, 240, 1)',
-  'Bond Bryan review': 'rgba(199, 201, 238, 1)',
-  'CDP': 'rgb(196, 235, 214)',
-  'Client Comments': 'rgb(255, 223, 186)',
-  'Delays': 'rgb(220, 220, 230)',
-  'Undefined': 'rgb(245, 245, 245)'
+  'Bond Bryan Design': 'rgba(220, 230, 247, 1)',
+  'Bond Bryan review': 'rgba(181, 182, 205, 1)',
+  'CDP': 'rgba(218, 235, 226, 1)',
+  'Client Comments': 'rgba(242, 225, 206, 1)',
+  'Delays': 'rgba(215, 215, 215, 1)',
+  'Undefined': 'rgba(249, 249, 249, 1)'
 };
 
 const DEFAULT_SEGMENT_COLOR = '#3056d3';
