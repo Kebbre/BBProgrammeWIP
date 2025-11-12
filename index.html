@@ -75,7 +75,7 @@
 
   <div class="app-branding">
     <img src="assets/bb-logo.png" alt="BB Programme logo">
-    <span class="app-branding-text">Programme Tool : Version 01.02.07b</span>
+    <span class="app-branding-text">Programme Tool : Version 01.02.08</span>
   </div>
 
   <div class="modal-backdrop hidden" id="modalBackdrop"></div>
@@ -287,6 +287,7 @@
         0
       );
       const WORKING_DAYS_PER_WEEK = 5;
+      const DEFAULT_BUILDING_TYPE = 'school';
       // Graph configuration for OneDrive storage
       const GRAPH_SCOPES = ['User.Read', 'Files.ReadWrite.All'];
       const GRAPH_BASE_URL = 'https://graph.microsoft.com/v1.0';
@@ -2757,11 +2758,14 @@
           buildingTypeSelect.appendChild(option);
           return;
         }
+        const preferredType = uniqueTypes.includes(DEFAULT_BUILDING_TYPE) ? DEFAULT_BUILDING_TYPE : null;
         uniqueTypes.forEach((type, index) => {
           const option = document.createElement('option');
           option.value = type;
           option.textContent = type;
-          if (index === 0) option.selected = true;
+          if ((preferredType && type === preferredType) || (!preferredType && index === 0)) {
+            option.selected = true;
+          }
           buildingTypeSelect.appendChild(option);
         });
       }
@@ -3603,9 +3607,12 @@
         recomputeStanddownSet();
         renderAllImmediate();
         loadDatabase().then(() => {
-          const firstEnabled = Array.from(buildingTypeSelect.options || []).find((option) => !option.disabled);
-          if (firstEnabled) {
-            buildingTypeSelect.value = firstEnabled.value;
+          const enabledOptions = Array.from(buildingTypeSelect.options || []).filter((option) => !option.disabled && option.value);
+          const preferredOption = enabledOptions.find((option) => option.value === DEFAULT_BUILDING_TYPE);
+          const fallbackOption = enabledOptions[0];
+          const selectedOption = preferredOption || fallbackOption || null;
+          if (selectedOption) {
+            buildingTypeSelect.value = selectedOption.value;
             generateScheduleFromConfig();
           } else {
             tasks = [];
